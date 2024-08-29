@@ -1,0 +1,584 @@
+{
+    "shaderLayouts" : [
+        {
+            "name" : "shader_pos_norm_uv_ak"
+            ,"layout" : [
+                {"name" : "vertPosition", "count" : 3, "sizeElem" : 4},
+                {"name" : "vertNormal", "count" : 3, "sizeElem" : 4},
+                {"name" : "vertTexCoord", "count" : 2, "sizeElem" : 4}
+            ]
+        },
+        {
+            "name" : "shader_pos_tangent_norm_uv_ak"
+            ,"layout" : [
+                {"name" : "vertPosition", "count" : 3, "sizeElem" : 4},
+                {"name" : "vertTangent", "count" : 4, "sizeElem" : 4},
+                {"name" : "vertNormal", "count" : 3, "sizeElem" : 4},
+                {"name" : "vertTexCoord", "count" : 2, "sizeElem" : 4}
+            ]
+        },
+        {
+            "name" : "shader_pos_tangent16_norm_uv16_ak"
+            ,"layout" : [
+                {"name" : "vertPosition", "count" : 3, "sizeElem" : 4},
+                {"name" : "vertTangent", "count" : 4, "sizeElem" : 2},
+                {"name" : "vertNormal", "count" : 3, "sizeElem" : 4},
+                {"name" : "vertTexCoord", "count" : 2, "sizeElem" : 2}
+            ]
+        },
+        {
+            "name" : "shader_pos_tangent_norm_uv_color_ak"
+            ,"layout" : [
+                {"name" : "vertPosition", "count" : 3, "sizeElem" : 4},
+                {"name" : "vertTangent", "count" : 4, "sizeElem" : 4},
+                {"name" : "vertNormal", "count" : 3, "sizeElem" : 4},
+                {"name" : "vertTexCoord", "count" : 2, "sizeElem" : 4},
+                {"name" : "vertColor", "count" : 4, "sizeElem" : 1}
+            ]
+        },
+        {
+            "name" : "shader_pos_tangent_norm_uv2_color_ak"
+            ,"layout" : [
+                {"name" : "vertPosition", "count" : 3, "sizeElem" : 4},
+                {"name" : "vertTangent", "count" : 4, "sizeElem" : 4},
+                {"name" : "vertNormal", "count" : 3, "sizeElem" : 4},
+                {"name" : "vertTexCoord", "count" : 2, "sizeElem" : 4},
+                {"name" : "vertTexCoord2", "count" : 2, "sizeElem" : 4},
+                {"name" : "vertColor", "count" : 4, "sizeElem" : 1}
+            ]
+        }
+    ],
+    "adornia" : [
+        {
+            "mesh" : "bushes_8_01.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "bushes"
+        }
+        ,{
+            "mesh" : "bushes_8_02.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "bushes"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, 0,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
+        }
+        ,{
+            "mesh" : "bushes_8_03.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "bushes"
+        }
+        ,{
+            "mesh" : "bushes_8_04.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "bushes"
+        }
+        ,{
+            "mesh" : "bushes_8_05.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "bushes"
+        }
+        
+
+        ,{
+            "mesh" : "trees_8_01.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "trees"
+        }
+        ,{
+            "mesh" : "trees_8_02.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "trees"
+        }
+        ,{
+            "mesh" : "trees_8_03.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "trees"
+        }
+        ,{
+            "mesh" : "trees_8_04.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "trees"
+        }
+        ,{
+            "mesh" : "trees_8_05.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "trees"
+        }
+
+        
+        ,{
+            "mesh" : "building01_8_01.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "building01_02"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, 0,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
+        }
+        ,{
+            "mesh" : "building01_8_02.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "building01_02"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, 0,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
+        }
+        ,{
+            "mesh" : "building01_8_03.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "building01_02"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, 0,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
+        }
+        ,{
+            "mesh" : "building01_8_04.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "building01_02"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, 0,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
+        }
+        ,{
+            "mesh" : "building01_8_05.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "building01_02"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, 0,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
+        }
+        ,{
+            "mesh" : "building01_8_06.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "building01_02"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, 0,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
+        }
+        ,{
+            "mesh" : "building01_8_07.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "building01_02"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, 0,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
+        }
+        ,{
+            "mesh" : "building01_8_08.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "building01_02"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, 0,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
+        }
+        ,{
+            "mesh" : "building01_8_09.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "building01_02"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, 0,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
+        }
+        ,{
+            "mesh" : "building01_8_10.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "building01_02"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, 0,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
+        }
+        ,{
+            "mesh" : "building01_8_11.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "building01_02"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, 0,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
+        }
+        ,{
+            "mesh" : "building01_8_12.bin"
+            , "shader" : "shader_pos_norm_uv_ak"
+            , "texture" : "building01_02"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, 0,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
+        }
+
+        
+        ,{
+            "mesh" : "building01_12_01.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "building01_02"
+        }
+
+        
+        ,{
+            "mesh" : "building02_12_01.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "building02"
+        }
+        ,{
+            "mesh" : "building02_12_02.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "building02"
+        }
+        ,{
+            "mesh" : "building02_12_03.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "building02"
+        }
+        ,{
+            "mesh" : "building02_12_04.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "building02"
+        }
+        ,{
+            "mesh" : "building02_12_05.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "building02"
+        }
+        ,{
+            "mesh" : "building02_12_06.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "building02"
+        }
+        ,{
+            "mesh" : "building02_12_07.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "building02"
+        }
+        ,{
+            "mesh" : "building02_12_08.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "building02"
+        }
+        ,{
+            "mesh" : "building02_12_09.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "building02"
+        }
+        ,{
+            "mesh" : "building02_12_10.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "building02"
+        }
+        ,{
+            "mesh" : "building02_12_11.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "building02"
+        }
+        ,{
+            "mesh" : "building02_12_12.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "building02"
+        }
+
+        
+        ,{
+            "mesh" : "fence_12_01.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "fence"
+        }
+        ,{
+            "mesh" : "fence_12_02.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "fence"
+        }
+        ,{
+            "mesh" : "fence_12_03.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "fence"
+        }
+        ,{
+            "mesh" : "fence_12_04.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "fence"
+        }
+        ,{
+            "mesh" : "fence_12_05.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "fence"
+        }
+        ,{
+            "mesh" : "fence_12_06.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "fence"
+        }
+        ,{
+            "mesh" : "fence_12_07.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "fence"
+        }
+        ,{
+            "mesh" : "fence_12_08.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "fence"
+        }
+        ,{
+            "mesh" : "fence_12_09.bin"
+            , "shader" : "shader_pos_tangent16_norm_uv16_ak"
+            , "texture" : "fence"
+        }
+        ,{
+            "mesh" : "fence_12_10.bin"
+            , "shader" : "shader_pos_tangent16_norm_uv16_ak"
+            , "texture" : "fence"
+        }
+        ,{
+            "mesh" : "fence_12_11.bin"
+            , "shader" : "shader_pos_tangent16_norm_uv16_ak"
+            , "texture" : "fence"
+        }
+        ,{
+            "mesh" : "path_12_01.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "texture" : "path"
+        },
+
+
+        {
+            "mesh" : "terrain_16_01.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_color_ak"
+            , "texture" : "terrain_02"
+            , "strip" : true
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, 0,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
+        }
+
+        
+        ,{
+            "mesh" : "terrain_18_01.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_02.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_03.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_04.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_05.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_06.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_07.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_08.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_09.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_10.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_11.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_12.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_13.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_14.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_15.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_16.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_17.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_18.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_19.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_20.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_21.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_22.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_23.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_24.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_25.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_26.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_27.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_28.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }  
+        ,{
+            "mesh" : "terrain_18_29.bin"
+            , "shader" : "shader_pos_tangent_norm_uv2_color_ak"
+            , "texture" : "terrain_02"
+        }
+        
+
+        ,{
+            "mesh" : "rocks_16_01.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_color_ak"
+            , "texture" : "terrain_05"
+        }
+        ,{
+            "mesh" : "rocks_16_02.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_color_ak"
+            , "texture" : "rocks_01"
+        }
+        ,{
+            "mesh" : "rocks_16_03.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_color_ak"
+            , "texture" : "rocks_01"
+        }
+        ,{
+            "mesh" : "rocks_16_04.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_color_ak"
+            , "texture" : "rocks_01"
+        }
+        ,{
+            "mesh" : "rocks_16_05.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_color_ak"
+            , "texture" : "rocks_01"
+        }
+        ,{
+            "mesh" : "rocks_16_06.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_color_ak"
+            , "texture" : "rocks_01"
+        }
+        ,{
+            "mesh" : "rocks_16_07.bin"
+            , "shader" : "shader_pos_tangent_norm_uv_color_ak"
+            , "texture" : "rocks_01"
+        }
+
+           
+    ],
+    "tmp" : [
+
+
+
+        
+
+        
+    ]
+}
