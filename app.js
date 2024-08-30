@@ -22,7 +22,7 @@ var InitDemo = function () {
 	gl.enable(gl.DEPTH_TEST);
 	gl.enable(gl.CULL_FACE);
 	gl.frontFace(gl.CCW);
-	gl.cullFace(gl.BACK);
+	gl.cullFace(gl.FRONT);
 
 	// TODO: Implement camera
 	mat4.perspective(projMatrix, glMatrix.toRadian(45), canvas.width / canvas.height, 0.1, 10000.0); // TODO: Configure camera params
@@ -53,9 +53,20 @@ var InitDemo = function () {
 
 			for (const obj of loadedScenes[selectedScene]) {
 
-				sceneObjects.push({ meshName: obj.mesh, meshData: {}, shader: obj.shader, shaderId: -1, texture: obj.texture, textureId: -1, strip: obj.strip, transform: obj.transform});
+				sceneObjects.push({ meshName: obj.mesh, meshData: {}, shader: obj.shader, shaderId: {}, 
+					texture: obj.texture, texture_2: obj.texture_2, texture_3: obj.texture_3, texture_4: obj.texture_4, 
+					textureId: {}, texture2Id: {}, texture3Id: {}, texture4Id: {}, strip: obj.strip, transform: obj.transform, indexCount: obj.indexCount});
 				shaderNames.push(obj.shader);
 				texNames.push(obj.texture);
+				if (obj.texture_2) {
+					texNames.push(obj.texture_2);
+				}
+				if (obj.texture_3) {
+					texNames.push(obj.texture_3);
+				}
+				if (obj.texture_4) {
+					texNames.push(obj.texture_4);
+				}
 
 				sceneMeshesToLoadCount--; // Decrement after each loaded object
 			}
@@ -71,6 +82,9 @@ var InitDemo = function () {
 			for (var objId = 0; objId < sceneObjects.length; objId++) {
 				sceneObjects[objId].shaderId = uniqShaderNames.findIndex(value => value === sceneObjects[objId].shader);
 				sceneObjects[objId].textureId = uniqTexNames.findIndex(value => value === sceneObjects[objId].texture);
+				sceneObjects[objId].texture2Id = uniqTexNames.findIndex(value => value === sceneObjects[objId].texture_2);
+				sceneObjects[objId].texture3Id = uniqTexNames.findIndex(value => value === sceneObjects[objId].texture_3);
+				sceneObjects[objId].texture4Id = uniqTexNames.findIndex(value => value === sceneObjects[objId].texture_4);
 			}
 
 			LoadResources(sceneObjects, uniqShaderNames, uniqTexNames);
@@ -168,8 +182,8 @@ var LoadResources = function (sceneObjects, shaderNames, texNames) {
 			} else {
 				var texture = gl.createTexture();
 				gl.bindTexture(gl.TEXTURE_2D, texture);
-				gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.MIRRORED_REPEAT);
-				gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.MIRRORED_REPEAT);
+				gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT );
+				gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT );
 				gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
 				gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
 				gl.texImage2D(
@@ -202,15 +216,6 @@ var LoadResources = function (sceneObjects, shaderNames, texNames) {
 				var meshFloat = new Float32Array(meshData);
 				gl.bindBuffer(gl.ARRAY_BUFFER, vertices);
 				gl.bufferData(gl.ARRAY_BUFFER, meshFloat, gl.STATIC_DRAW);
-				/*
-					var susanTexCoordVertexBufferObject = gl.createBuffer();
-					gl.bindBuffer(gl.ARRAY_BUFFER, susanTexCoordVertexBufferObject);
-					gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(susanTexCoords), gl.STATIC_DRAW);
-				
-					var susanIndexBufferObject = gl.createBuffer();
-					gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, susanIndexBufferObject);
-					gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(susanIndices), gl.STATIC_DRAW);
-				*/
 
 				var attributes = scenesJson.shaderLayouts.find(value => value.name === shaderNames[sceneObjects[objectId].shaderId]).layout;
 				var vertStride = 0;
@@ -218,7 +223,12 @@ var LoadResources = function (sceneObjects, shaderNames, texNames) {
 					vertStride += attribute.count * attribute.sizeElem;
 				}
 
-				sceneObjects[objectId].meshData = { vertices: vertices, vertStride: vertStride, vertCount: meshFloat.length / (vertStride / 4)};
+				var indexCount = meshFloat.length / (vertStride / 4);
+				if (indexCount != sceneObjects[objectId].indexCount) {
+					alert('Fatal error getting index count (' + meshName + ')');
+				}
+
+				sceneObjects[objectId].meshData = { vertices: vertices, vertStride: vertStride, indexCount: meshFloat.length / (vertStride / 4)};
 				console.log('Loaded mesh ' + meshName);
 
 				meshesLoaded += 1;
@@ -240,7 +250,12 @@ var LoadResources = function (sceneObjects, shaderNames, texNames) {
 					var meshData = sceneObjects[i].meshData;
 					var associatedShader = sceneObjects[i].shaderId;
 					var associatedTexture = sceneObjects[i].textureId;
-					DrawObject(sceneShaders[associatedShader].PSO, sceneTextures[associatedTexture], meshData.vertices, meshData.vertCount, meshData.vertStride, sceneShaders[associatedShader].attributes, sceneObjects[i].strip, sceneObjects[i].transform);
+					var associatedTexture2 = sceneObjects[i].texture2Id;
+					var associatedTexture3 = sceneObjects[i].texture3Id;
+					var associatedTexture4 = sceneObjects[i].texture4Id;
+					var textures = [sceneTextures[associatedTexture], associatedTexture2 ? sceneTextures[associatedTexture2] : {}, associatedTexture3 ? sceneTextures[associatedTexture3] : {}, associatedTexture4 ? sceneTextures[associatedTexture4] : {}];
+					DrawObject(sceneShaders[associatedShader].PSO, textures, 
+						meshData.vertices, meshData.indexCount, meshData.vertStride, sceneShaders[associatedShader].attributes, sceneObjects[i].strip, sceneObjects[i].transform);
 				}
 				requestAnimationFrame(loop);
 			};
@@ -252,17 +267,18 @@ var LoadResources = function (sceneObjects, shaderNames, texNames) {
 	waitInitialization();
 }
 
-var DrawObject = function (program, texture, vertices, vertCount, vertStride, attributes, strip, transform) {
+var DrawObject = function (program, textures, vertices, indexCount, vertStride, attributes, strip, transform) {
 	gl.bindBuffer(gl.ARRAY_BUFFER, vertices);
 
 	var attribOffset = 0;
 	for (const attribute of attributes) {
 		var attribLocation = gl.getAttribLocation(program, attribute.name);
+		var attribType = attribute.sizeElem == 4 ? gl.FLOAT : (attribute.sizeElem == 2 ? gl.SHORT : gl.UNSIGNED_BYTE);
 		gl.vertexAttribPointer(
 			attribLocation, // Attribute location
 			attribute.count, // Number of elements per attribute
-			attribute.sizeElem == 4 ? gl.FLOAT : attribute.sizeElem == 2 ? gl.SHORT : gl.BYTE, // Type of elements
-			attribute.sizeElem == 4 ? gl.FALSE : gl.TRUE,
+			attribType, // Type of elements
+			gl.TRUE,
 			vertStride, // Size of an individual vertex
 			attribOffset // Offset from the beginning of a single vertex to this attribute
 		);
@@ -287,9 +303,23 @@ var DrawObject = function (program, texture, vertices, vertCount, vertStride, at
 		0, 0, 1, 0,
 		0, 0, 0, 1
 	]); 
-	//mat4.identity(viewMatrix);
+	//if (transform) {
+		//mat4.identity(viewMatrix);
+	//} else {
 	mat4.lookAt(viewMatrix, [1605, -1614, 333], [1205, -1314, 33], [0, 0, 1]); // TODO: Configure camera matrix
-	gl.uniformMatrix4fv(matViewUniformLocation, gl.FALSE, viewMatrix);
+	//}
+	var flipMatr =  new Float32Array([
+		-1, 0, 0, 0,
+		0, 1, 0, 0,
+		0, 0, 1, 0,
+		0, 0, 0, 1
+	]); 
+	//mat4.identity(flipMatr);
+
+	var viewMatrix2 = new Float32Array(16);
+	mat4.scalar.multiply(viewMatrix2, flipMatr, viewMatrix);
+
+	gl.uniformMatrix4fv(matViewUniformLocation, gl.FALSE, viewMatrix2);
 	gl.uniformMatrix4fv(matProjUniformLocation, gl.FALSE, projMatrix);
 
 	var xRotationMatrix = new Float32Array(16);
@@ -298,18 +328,18 @@ var DrawObject = function (program, texture, vertices, vertCount, vertStride, at
 	//
 	// Main render loop
 	//
-	var identityMatrix = new Float32Array(16);
-	mat4.identity(identityMatrix);
-	var angle = 0;
-
-	angle = performance.now() / 1000 / 6 * 2 * Math.PI;
-	mat4.rotate(yRotationMatrix, identityMatrix, angle, [0, 1, 0]);
-	mat4.rotate(xRotationMatrix, identityMatrix, angle / 4, [1, 0, 0]);
-	//mat4.mul(worldMatrix, yRotationMatrix, xRotationMatrix);
+	
 	gl.uniformMatrix4fv(matWorldUniformLocation, gl.FALSE, worldMatrix);
 
-	gl.bindTexture(gl.TEXTURE_2D, texture);
-	gl.activeTexture(gl.TEXTURE0);
+	for (var i = 0; i < textures.length; ++i) {
+		if (textures[i]) {
+			gl.activeTexture(gl.TEXTURE0 + i);
+			gl.bindTexture(gl.TEXTURE_2D, textures[i]);
+			var attribName = "tex" + i;
+			var texLocation = gl.getUniformLocation(program, attribName);
+			gl.uniform1i(texLocation, i);
+		}
+	}
 
-	gl.drawArrays(strip ? gl.TRIANGLE_STRIP : gl.TRIANGLES, 0, vertCount);
+	gl.drawArrays(strip ? gl.TRIANGLE_STRIP : gl.TRIANGLES, 0, indexCount);
 };

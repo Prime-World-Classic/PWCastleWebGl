@@ -13,6 +13,7 @@ attribute vec4 vertTangent;
 
 #ifdef VS_NORMAL
 attribute vec3 vertNormal;
+varying vec3 fragNormal;
 #endif
 
 #ifdef VS_UV
@@ -25,12 +26,14 @@ attribute vec2 vertTexCoord;
 varying vec2 fragTexCoord;
 #endif
 
-#ifdef VS_UV2
+#if defined(VS_UV2) || defined(VS_UV2_UNUSED)
 attribute vec2 vertTexCoord2;
+varying vec2 fragTexCoord2;
 #endif
 
 #ifdef VS_COLOR
 attribute vec4 vertColor;
+varying vec4 fragColor;
 #endif
 
 uniform mat4 mWorld;
@@ -39,22 +42,28 @@ uniform mat4 mProj;
 
 void main()
 {
+#ifdef VS_UV
   fragTexCoord = vertTexCoord;
+#endif
 #ifdef VS_UV2
-  fragTexCoord = vertTexCoord2;
+  fragTexCoord2 = vertTexCoord2;
+#endif
+
+#ifdef VS_COLOR
+  fragColor = vertColor / 255.0;
 #endif
 
   gl_Position = mProj * mView * mWorld * vec4(vertPosition, 1.0); // TODO: lighting
   
 #ifdef VS_NORMAL
-  gl_Position += vertNormal.xxxx * 0.001; // TODO: Implement
+  fragNormal = vertNormal;
 #endif
 
 #if defined(VS_TANGENT) || defined(VS_TANGENT16)
   gl_Position += vertTangent.xxxx * 0.001; // TODO: Implement
 #endif
 
-#ifdef VS_COLOR
-  gl_Position += vertColor.xxxx * 0.001; // TODO: Implement
+#if defined(VS_UV2) || defined(VS_UV2_UNUSED)
+  gl_Position += vertTexCoord2.xxxx * 0.001; // TODO: Implement
 #endif
 }
