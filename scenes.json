@@ -366,7 +366,7 @@
             "mesh" : "building01_8_08.bin"
             , "indexCount" : 834
             , "shader" : "shader_pos_norm_uv_ak"
-            , "texture" : "building01_02"
+            , "texture" : "building01_03"
             , "transform" : [
                 1, 0, 0, 1238,
                 0, 0, 1, 8,
@@ -426,11 +426,11 @@
             "mesh" : "building01_8_12.bin"
             , "indexCount" : 834
             , "shader" : "shader_pos_norm_uv_ak"
-            , "texture" : "building01_02"
+            , "texture" : "building01_03"
             , "transform" : [
-                1, 0, 0, 1171,
-                0, 0, 1, 27,
-                0, -1, 0, 1336,
+                0.9, 0.29, 0, 1171,
+                0, 0, 0.95, 27,
+                0.29, -0.9, 0, 1336,
                 0, 0, 0, 1
             ]
         }
@@ -503,7 +503,7 @@
             "mesh" : "building01_12_01.bin"
             , "indexCount" : 9492
             , "shader" : "shader_pos_tangent_norm_uv_ak"
-            , "texture" : "building01_02"
+            , "texture" : "building01_03"
         }
         ,{
             "mesh" : "fence_12_01.bin"
@@ -802,7 +802,7 @@
             , "texture" : "path"
             , "transform" : [
                 1, 0, 0, 1195.03,
-                0, 0, 1, 28.3,
+                0, 0, 1, 30.3,
                 0, -1, 0, 1326.9,
                 0, 0, 0, 1
             ]
