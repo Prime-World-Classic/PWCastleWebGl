@@ -292,35 +292,60 @@ var DrawObject = function (program, textures, vertices, indexCount, vertStride, 
 	gl.useProgram(program);
 
 	var matWorldUniformLocation = gl.getUniformLocation(program, 'mWorld');
-	var matViewUniformLocation = gl.getUniformLocation(program, 'mView');
-	var matProjUniformLocation = gl.getUniformLocation(program, 'mProj');
+	var matViewProjUniformLocation = gl.getUniformLocation(program, 'mViewProj');
 
-	var viewMatrix = new Float32Array(16);
 	//mat4.identity(worldMatrix); // TODO: Make per-mesh matrices
 	var worldMatrix = transform ? transform : new Float32Array([
 		1, 0, 0, 0,
-		0, 1, 0, 0,
 		0, 0, 1, 0,
+		0, -1, 0, 0,
 		0, 0, 0, 1
 	]); 
-	//if (transform) {
-		//mat4.identity(viewMatrix);
-	//} else {
-	mat4.lookAt(viewMatrix, [1605, -1614, 333], [1205, -1314, 33], [0, 0, 1]); // TODO: Configure camera matrix
-	//}
+	var worldMatrix2 = new Float32Array(16);
+	mat4.transpose(worldMatrix2, worldMatrix);
+	
+	//var camPosition = vec3.fromValues(-44, 1430, -1598);
+	var camPosElements = document.getElementsByClassName("camPosition");
+	var camPos = vec3.fromValues(camPosElements[0].value, camPosElements[1].value, camPosElements[2].value);
+
+	var camForwElements = document.getElementsByClassName("camForward");
+	var camForw = vec3.fromValues(camForwElements[0].value, camForwElements[1].value, camForwElements[2].value);
+
+	/*
+	//var camForw = vec3.fromValues(-0.707, -0.58, 0.4);
+	var camLookAt = vec3.create();
+	vec3.add(camLookAt, camPos, camForw);
+
+	mat4.lookAt(viewMatrix, camPos, camLookAt, [0, 1, 0]); // TODO: Configure camera matrix
+	
+	//mat4.identity(flipMatr);
+	*/
 	var flipMatr =  new Float32Array([
 		-1, 0, 0, 0,
 		0, 1, 0, 0,
 		0, 0, 1, 0,
 		0, 0, 0, 1
 	]); 
-	//mat4.identity(flipMatr);
-
+	var viewMatrix = new Float32Array(16);
 	var viewMatrix2 = new Float32Array(16);
-	mat4.scalar.multiply(viewMatrix2, flipMatr, viewMatrix);
+	var viewProjMatr = new Float32Array(16);
+	//mat4.multiply(viewMatrix2, flipMatr, viewMatrix);
+	var quatStart = quat.create();
+	quat.identity(quatStart);
+	var quatX = quat.create();
+	var quatY = quat.create();
+	var quatZ = quat.create();
 
-	gl.uniformMatrix4fv(matViewUniformLocation, gl.FALSE, viewMatrix2);
-	gl.uniformMatrix4fv(matProjUniformLocation, gl.FALSE, projMatrix);
+	quat.rotateX(quatX, quatStart, camForwElements[0].value);
+	quat.rotateY(quatY, quatX, camForwElements[1].value);
+	quat.rotateZ(quatZ, quatY, camForwElements[2].value);
+
+	mat4.fromRotationTranslation(viewMatrix, quatZ, vec3.create());
+	mat4.translate(viewMatrix, viewMatrix, camPos);
+	mat4.multiply(viewMatrix2, flipMatr, viewMatrix);
+	mat4.multiply(viewProjMatr, projMatrix, viewMatrix2);
+
+	gl.uniformMatrix4fv(matViewProjUniformLocation, gl.FALSE, viewProjMatr);
 
 	var xRotationMatrix = new Float32Array(16);
 	var yRotationMatrix = new Float32Array(16);
@@ -329,7 +354,7 @@ var DrawObject = function (program, textures, vertices, indexCount, vertStride, 
 	// Main render loop
 	//
 	
-	gl.uniformMatrix4fv(matWorldUniformLocation, gl.FALSE, worldMatrix);
+	gl.uniformMatrix4fv(matWorldUniformLocation, gl.FALSE, worldMatrix2);
 
 	for (var i = 0; i < textures.length; ++i) {
 		if (textures[i]) {

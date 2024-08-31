@@ -31,9 +31,14 @@ varying vec3 fragNormal;
 
 void main()
 {
-  float light = max(0.5, dot(normalize(fragNormal), normalize(vec3(1, 1, 1))));
+  vec3 lightColor = vec3(1.6, 1.9, 1.5);
+  vec3 light = pow(lightColor * max(0.3, dot(normalize(fragNormal), normalize(vec3(1, 1, 1)))), vec3(1.0/2.2));
 #ifdef VS_COLOR
-  gl_FragColor = texture2D(tex0, fragTexCoord * 2.0) * vec4(fragColor.www, 1);
+#ifdef VS_UV2
+  gl_FragColor = texture2D(tex0, fragTexCoord * 2.0) * vec4(fragColor.www, 1); // TODO: Implement UV scaling from CB
+#else
+  gl_FragColor = texture2D(tex0, fragTexCoord) * vec4(fragColor.www, 1);
+#endif
 #else
   gl_FragColor = texture2D(tex0, fragTexCoord);
 #endif
@@ -54,5 +59,5 @@ void main()
 #ifdef TEX4
   //gl_FragColor = mix(gl_FragColor, texture2D(tex3, fragTexCoord2), fragColor.w);
 #endif
-  gl_FragColor *= vec4(light, light, light, 1.0);
+  gl_FragColor *= vec4(light, 1.0);
 }
