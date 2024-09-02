@@ -40,6 +40,11 @@ void main()
 {
   vec3 light = vec3(0.0);
 #ifdef VS_NORMAL
+/*
+  gl_FragColor = vec4(fragNormal * 0.5 + 0.5, 1.0);
+  return;
+*/
+
   vec3 lightColor = vec3(1.6, 1.9, 1.5);
   light = pow(lightColor * max(0.0, dot(normalize(fragNormal), -normalize(vec3(0.00147, -0.00096, -0.00055)))), vec3(1.0/2.2));
 #endif
