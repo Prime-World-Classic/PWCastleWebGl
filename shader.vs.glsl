@@ -32,19 +32,14 @@ attribute vec4 vertColor;
 varying vec4 fragColor;
 #endif
 
+#ifdef RENDER_PASS_COLOR
+uniform mat4 lightViewProj;
+
+varying vec4 v_projectedTexcoord;
+#endif
+
 uniform mat4 mWorld;
 uniform mat4 mViewProj;
-
-/*
-int half2float(int h) {
-	return ((h & int(0x8000)) << int(16)) | ((( h & uint(0x7c00)) + int(0x1c000)) << int(13)) | ((h & uint(0x03ff)) << uint(13));
-}
-
-vec2 unpackHalf2x16(int v) {	
-	return vec2(uintBitsToFloat(half2float(v & int(0xffff))),
-		    uintBitsToFloat(half2float(v >> int(16))));
-}
-*/
 
 // Pizdos. Ebaniy webgl cannot convert half to float natively
 // Also there's no bitwise operations so I had to use floats only
@@ -76,17 +71,22 @@ void main()
   fragColor = vertColor / 255.0;
 #endif
 
-  gl_Position = mViewProj * mWorld * vec4(vertPosition, 1.0); // TODO: lighting
+  vec4 worldPos = mWorld * vec4(vertPosition, 1.0);
+  gl_Position = mViewProj * worldPos;
   
 #ifdef VS_NORMAL
   fragNormal = vertNormal;
 #endif
 
 #if defined(VS_TANGENT)
-  gl_Position += vertTangent.xxxx * 0.00001; // TODO: Implement
+  gl_Position += vertTangent.xxxx * 0.0000001; // TODO: Implement
 #endif
 
 #if defined(VS_UV2) || defined(VS_UV2_UNUSED)
   gl_Position += vertTexCoord2.xxxx * 0.001; // TODO: Implement
+#endif
+
+#ifdef RENDER_PASS_COLOR
+  v_projectedTexcoord = lightViewProj * worldPos;
 #endif
 }

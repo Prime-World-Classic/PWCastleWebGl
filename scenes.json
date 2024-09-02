@@ -37,6 +37,13 @@
             ]
         },
         {
+            "name" : "shader_pos_color"
+            ,"layout" : [
+                {"name" : "vertPosition", "count" : 3, "sizeElem" : 4},
+                {"name" : "vertColor", "count" : 4, "sizeElem" : 1}
+            ]
+        },
+        {
             "name" : "shader_pos_norm_color_uv2_tangent_ak"
             ,"layout" : [
                 {"name" : "vertPosition", "count" : 3, "sizeElem" : 4},
@@ -492,7 +499,7 @@
             , "strip" : true
             , "transform" : [
                 1, 0, 0, 0,
-                0, 1, 0, 0,
+                0, -1, 0, 55,
                 0, 0, 1, 0,
                 0, 0, 0, 1
             ]
@@ -910,6 +917,19 @@
             , "texture" : "building02"
         }
 
+        ,{
+            "mesh" : "water_7_01.bin"
+            , "indexCount" : 12093
+            , "shader" : "shader_pos_color"
+            , "texture" : "water"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, 0,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
+            , "blend" : "ADD"
+        }
 
            
     ],
