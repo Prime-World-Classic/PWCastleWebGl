@@ -15,7 +15,7 @@ const zNear = 0.1;
 const zFar = 10000.0;
 
 const zNearSM = 0.1;
-const zFarSM = 2000.0;
+const zFarSM = 5000.0;
 
 var scenesJson;
 
@@ -61,7 +61,7 @@ var InitDemo = function () {
 	if (isSMEnabled) {
 		// Setup matrix. Only one viewProj is needed
 		var lightProjMatrix = new Float32Array(16);
-		mat4.ortho(lightProjMatrix, -500, 500, -500, 500, zNearSM, zFarSM);
+		mat4.ortho(lightProjMatrix, -200, 200, -200, 200, zNearSM, zFarSM);
 		var lightViewMatrix = new Float32Array([
 			0.162479758, 0.285912007, -0.944380701, 0,
 			0.000258785, 0.957086265, 0.289803177, 0,

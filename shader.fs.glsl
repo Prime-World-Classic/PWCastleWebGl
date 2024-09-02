@@ -41,7 +41,7 @@ void main()
   vec3 light = vec3(0.0);
 #ifdef VS_NORMAL
   vec3 lightColor = vec3(1.6, 1.9, 1.5);
-  light = pow(lightColor * max(0.0, dot(normalize(fragNormal), (vec3(0.000258785, 0.957086265, 0.289803177)))), vec3(1.0/2.2));
+  light = pow(lightColor * max(0.0, dot(normalize(fragNormal), -normalize(vec3(0.00147, -0.00096, -0.00055)))), vec3(1.0/2.2));
 #endif
 
 #if defined(VS_UV) || defined(VS_UV16)
@@ -93,6 +93,6 @@ void main()
 
   light *= shadowLight;
 
-  gl_FragColor *= vec4(max(light, 0.8), 1.0);
+  gl_FragColor *= vec4(max(light, 0.5), 1.0);
 #endif
 }

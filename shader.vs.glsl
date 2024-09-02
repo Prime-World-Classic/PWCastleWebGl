@@ -75,7 +75,8 @@ void main()
   gl_Position = mViewProj * worldPos;
   
 #ifdef VS_NORMAL
-  fragNormal = vertNormal;
+  vec4 worldNormal = mWorld * vec4(normalize(vertNormal + vec3(0.001, 0.001, 0.001)), 1.0);
+  fragNormal = normalize(worldNormal.xyz);
 #endif
 
 #if defined(VS_TANGENT)
