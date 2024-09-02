@@ -363,6 +363,8 @@ var LoadResources = function (sceneObjects, shaderNames, texNames) {
 					gl.cullFace(gl.BACK);
 
 					for (i = 0; i < sceneObjects.length; ++i) {
+						if (sceneObjects[i].blend) 
+							break;
 						var meshData = sceneObjects[i].meshData;
 						var associatedShader = sceneObjects[i].shaderId;
 						var associatedTexture = sceneObjects[i].textureId;

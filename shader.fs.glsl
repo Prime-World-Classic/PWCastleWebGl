@@ -36,6 +36,25 @@ uniform vec4 zNear_zFar;
 varying vec4 v_projectedTexcoord;
 #endif
 
+vec3 neutral(vec3 color) {
+  const float startCompression = 0.8 - 0.04;
+  const float desaturation = 0.15;
+
+  float x = min(color.r, min(color.g, color.b));
+  float offset = x < 0.08 ? x - 6.25 * x * x : 0.04;
+  color -= offset;
+
+  float peak = max(color.r, max(color.g, color.b));
+  if (peak < startCompression) return color;
+
+  const float d = 1.0 - startCompression;
+  float newPeak = 1.0 - d * d / (peak + d - startCompression);
+  color *= newPeak / peak;
+
+  float g = 1.0 - 1.0 / (desaturation * (peak - newPeak) + 1.0);
+  return mix(color, vec3(newPeak), g);
+}
+
 void main()
 {
   vec3 light = vec3(0.0);
@@ -45,8 +64,8 @@ void main()
   return;
 */
 
-  vec3 lightColor = vec3(1.6, 1.9, 1.5);
-  light = pow(lightColor * max(0.0, dot(normalize(fragNormal), -normalize(vec3(0.00147, -0.00096, -0.00055)))), vec3(1.0/2.2));
+  vec3 lightColor = vec3(1.0, 1.0, 1.0) * 2.1;
+  light = lightColor * max(0.0, dot(normalize(fragNormal), -normalize(vec3(0.00147, -0.00096, -0.00055))));
 #endif
 
 #if defined(VS_UV) || defined(VS_UV16)
@@ -61,7 +80,7 @@ void main()
   #endif
 #else
   #ifdef VS_COLOR
-    gl_FragColor = vec4(pow(vec3(0.22, 0.49, 0.5), vec3(1.0/2.2)), 0.3);
+    gl_FragColor = vec4(vec3(0.22, 0.49, 0.5), 0.6);
   #endif
 #endif
 
@@ -98,6 +117,8 @@ void main()
 
   light *= shadowLight;
 
-  gl_FragColor *= vec4(max(light, 0.5), 1.0);
+  gl_FragColor *= vec4(max(light, 0.7), 1.0);
+
+  gl_FragColor.xyz = neutral(gl_FragColor.xyz);
 #endif
 }

@@ -71,6 +71,13 @@
                 {"name" : "vertTexCoord", "count" : 2, "sizeElem" : 4},
                 {"name" : "vertTexCoord2", "count" : 2, "sizeElem" : 4}
             ]
+        },
+        {
+            "name" : "shader_pos_uv"
+            ,"layout" : [
+                {"name" : "vertPosition", "count" : 3, "sizeElem" : 4},
+                {"name" : "vertTexCoord", "count" : 2, "sizeElem" : 4}
+            ]
         }
         
     ],
@@ -88,8 +95,8 @@
             , "texture" : "bushes"
             , "transform" : [
                 1, 0, 0, 0,
+                0, 1, 0, 0,
                 0, 0, 1, 0,
-                0, -1, 0, 0,
                 0, 0, 0, 1
             ]
         }
@@ -454,42 +461,84 @@
             , "indexCount" : 4101
             , "shader" : "shader_pos_tangent_norm_uv_color_ak"
             , "texture" : "rocks_01"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, -7,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
         }
         ,{
             "mesh" : "rocks_16_02.bin"
             , "indexCount" : 4545
             , "shader" : "shader_pos_tangent_norm_uv_color_ak"
             , "texture" : "rocks_01"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, -7,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
         }
         ,{
             "mesh" : "rocks_16_03.bin"
             , "indexCount" : 4941
             , "shader" : "shader_pos_tangent_norm_uv_color_ak"
             , "texture" : "rocks_01"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, -7,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
         }
         ,{
             "mesh" : "rocks_16_04.bin"
             , "indexCount" : 4782
             , "shader" : "shader_pos_tangent_norm_uv_color_ak"
             , "texture" : "rocks_01"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, -7,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
         }
         ,{
             "mesh" : "rocks_16_05.bin"
             , "indexCount" : 9927
             , "shader" : "shader_pos_tangent_norm_uv_color_ak"
             , "texture" : "rocks_01"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, -7,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
         }
         ,{
             "mesh" : "rocks_16_06.bin"
             , "indexCount" : 3102
             , "shader" : "shader_pos_tangent_norm_uv_color_ak"
             , "texture" : "rocks_01"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, -7,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
         }
         ,{
             "mesh" : "rocks_16_07.bin"
             , "indexCount" : 3180
             , "shader" : "shader_pos_tangent_norm_uv_color_ak"
             , "texture" : "rocks_01"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 0, 1, -7,
+                0, -1, 0, 0,
+                0, 0, 0, 1
+            ]
         }
         ,{
             "mesh" : "terrain_16_01.bin"
@@ -511,6 +560,12 @@
             , "indexCount" : 9492
             , "shader" : "shader_pos_tangent_norm_uv_ak"
             , "texture" : "building01_03"
+            , "transform" : [
+                0.9, 0.3, 0, 1171,
+                0, 0, 0.95, 27,
+                0.29, -0.9, 0, 1336,
+                0, 0, 0, 1
+            ]
         }
         ,{
             "mesh" : "fence_12_01.bin"
@@ -849,24 +904,48 @@
             , "indexCount" : 966
             , "shader" : "shader_pos_tangent_norm_uv_ak"
             , "texture" : "building02"
+            , "transform" : [
+                0.71, -0.71, 0, 1165.61,
+                0, 0, 1, 39.61,
+                -0.71, -0.71, 0, 1302.4,
+                0, 0, 0, 1
+            ]
         }
         ,{
             "mesh" : "building02_12_02.bin"
             , "indexCount" : 492
             , "shader" : "shader_pos_tangent_norm_uv_ak"
             , "texture" : "building02"
+            , "transform" : [
+                0.71, -0.71, 0, 1169.01,
+                0, 0, 1, 34.5,
+                -0.71, -0.71, 0, 1314.2,
+                0, 0, 0, 1
+            ]
         }
         ,{
             "mesh" : "building02_12_03.bin"
             , "indexCount" : 453
             , "shader" : "shader_pos_tangent_norm_uv_ak"
             , "texture" : "building02"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 1, 0, 0,
+                0, 0, 1, 0,
+                0, 0, 0, 1
+            ]
         }
         ,{
             "mesh" : "building02_12_04.bin"
             , "indexCount" : 522
             , "shader" : "shader_pos_tangent_norm_uv_ak"
             , "texture" : "building02"
+            , "transform" : [
+                0.71, -0.71, 0, 1147.5,
+                0, 0, 1, 67.77,
+                -0.71, -0.71, 0, 1273.6,
+                0, 0, 0, 1
+            ]
         }
         ,{
             "mesh" : "building02_12_05.bin"
@@ -879,24 +958,48 @@
             , "indexCount" : 606
             , "shader" : "shader_pos_tangent_norm_uv_ak"
             , "texture" : "building02"
+            , "transform" : [
+                0.71, -0.71, 0, 1147.34,
+                0, 0, 1, 49.45,
+                -0.71, -0.71, 0, 1290.4,
+                0, 0, 0, 1
+            ]
         }
         ,{
             "mesh" : "building02_12_07.bin"
             , "indexCount" : 936
             , "shader" : "shader_pos_tangent_norm_uv_ak"
             , "texture" : "building02"
+            , "transform" : [
+                1, 0, 0, 0,
+                0, 1, 0, 0,
+                0, 0, 1, 0,
+                0, 0, 0, 1
+            ]
         }
         ,{
             "mesh" : "building02_12_08.bin"
             , "indexCount" : 819
             , "shader" : "shader_pos_tangent_norm_uv_ak"
             , "texture" : "building02"
+            , "transform" : [
+                0.71, -0.71, 0, 1165,
+                0, 0, 1, 40,
+                -0.71, -0.71, 0, 1297,
+                0, 0, 0, 1
+            ]
         }
         ,{
             "mesh" : "building02_12_09.bin"
             , "indexCount" : 435
             , "shader" : "shader_pos_tangent_norm_uv_ak"
             , "texture" : "building02"
+            , "transform" : [
+                0.71, -0.71, 0, 1141,
+                0, 0, 1, 51,
+                -0.71, -0.71, 0, 1292,
+                0, 0, 0, 1
+            ]
         }
         ,{
             "mesh" : "building02_12_10.bin"
@@ -909,12 +1012,98 @@
             , "indexCount" : 2340
             , "shader" : "shader_pos_tangent_norm_uv_ak"
             , "texture" : "building02"
+            , "transform" : [
+                0.66, -0.75, 0.02, 1164,
+                0, 0.026, 1, 41,
+                -0.75, -0.65, 0.02, 1282,
+                0, 0, 0, 1
+            ]
         }
         ,{
             "mesh" : "building02_12_12.bin"
             , "indexCount" : 798
             , "shader" : "shader_pos_tangent_norm_uv_ak"
             , "texture" : "building02"
+            , "transform" : [
+                0.71, -0.71, 0, 1166,
+                0, 0, 1, 37,
+                -0.71, -0.71, 0, 1308,
+                0, 0, 0, 1
+            ]
+        }
+
+
+        ,{
+            "mesh" : "sky_01.bin"
+            , "indexCount" : 6
+            , "shader" : "shader_pos_uv"
+            , "texture" : "sky_01"
+            , "transform" : [
+                2300, 0, 0, 1442,
+                0, 2300, 0, -500,
+                0, 0, 2300, 1504,
+                0, 0, 0, 1
+            ]
+        }
+        ,{
+            "mesh" : "sky_02.bin"
+            , "indexCount" : 6
+            , "shader" : "shader_pos_uv"
+            , "texture" : "sky_02"
+            , "transform" : [
+                2300, 0, 0, 1442,
+                0, 2300, 0, -500,
+                0, 0, 2300, 1504,
+                0, 0, 0, 1
+            ]
+        }
+        ,{
+            "mesh" : "sky_03.bin"
+            , "indexCount" : 6
+            , "shader" : "shader_pos_uv"
+            , "texture" : "sky_03"
+            , "transform" : [
+                2300, 0, 0, 1442,
+                0, 2300, 0, -500,
+                0, 0, 2300, 1504,
+                0, 0, 0, 1
+            ]
+        }
+        ,{
+            "mesh" : "sky_04.bin"
+            , "indexCount" : 6
+            , "shader" : "shader_pos_uv"
+            , "texture" : "sky_04"
+            , "transform" : [
+                2300, 0, 0, 1442,
+                0, 2300, 0, -500,
+                0, 0, 2300, 1504,
+                0, 0, 0, 1
+            ]
+        }
+        ,{
+            "mesh" : "sky_05.bin"
+            , "indexCount" : 6
+            , "shader" : "shader_pos_uv"
+            , "texture" : "sky_05"
+            , "transform" : [
+                2300, 0, 0, 1442,
+                0, 2300, 0, -500,
+                0, 0, 2300, 1504,
+                0, 0, 0, 1
+            ]
+        }
+        ,{
+            "mesh" : "sky_06.bin"
+            , "indexCount" : 6
+            , "shader" : "shader_pos_uv"
+            , "texture" : "sky_06"
+            , "transform" : [
+                2300, 0, 0, 1442,
+                0, 2300, 0, -500,
+                0, 0, 2300, 1504,
+                0, 0, 0, 1
+            ]
         }
 
         ,{
