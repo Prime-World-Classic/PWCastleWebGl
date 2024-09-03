@@ -1,4 +1,4 @@
-// Uber shader. Leave first line not functional
+// Uber shader. Leave first line non functional
 #if defined(VS_UV) || defined(VS_UV16)
 varying vec2 fragTexCoord;
 #endif
@@ -36,6 +36,10 @@ uniform vec4 zNear_zFar;
 varying vec4 v_projectedTexcoord;
 #endif
 
+uniform mat4 mViewProj;
+uniform vec4 tintColor;
+uniform vec4 uvScale;
+
 vec3 neutral(vec3 color) {
   const float startCompression = 0.8 - 0.04;
   const float desaturation = 0.15;
@@ -57,33 +61,36 @@ vec3 neutral(vec3 color) {
 
 void main()
 {
-  vec3 light = vec3(0.0);
+  const vec3 lightColor = vec3(1.0, 1.0, 1.0) * 1.6;
+  const float shadowContrast = 0.85;
+
+  // Diffuse lighting
+  vec3 light = lightColor;
 #ifdef VS_NORMAL
+  // Debug Render Normals
 /*
   gl_FragColor = vec4(fragNormal * 0.5 + 0.5, 1.0);
   return;
 */
 
-  vec3 lightColor = vec3(1.0, 1.0, 1.0) * 2.1;
-  light = lightColor * max(0.0, dot(normalize(fragNormal), -normalize(vec3(0.00147, -0.00096, -0.00055))));
+  light *= max(0.0, dot(normalize(fragNormal), -normalize(vec3(mViewProj[0].z, mViewProj[1].z, mViewProj[2].z))));
 #endif
 
+  // Albedo
 #if defined(VS_UV) || defined(VS_UV16)
+  gl_FragColor = texture2D(tex0, fragTexCoord * uvScale.xx);
   #ifdef VS_COLOR
-    #ifdef VS_UV2
-      gl_FragColor = texture2D(tex0, fragTexCoord * 2.0) * vec4(fragColor.www, 1); // TODO: Implement UV scaling from CB
-    #else
-      gl_FragColor = texture2D(tex0, fragTexCoord) * vec4(fragColor.www, 1);
-    #endif
-  #else
-      gl_FragColor = texture2D(tex0, fragTexCoord);
+     //gl_FragColor *= vec4(fragColor.www, 1); // weight sampled texture?
   #endif
 #else
   #ifdef VS_COLOR
-    gl_FragColor = vec4(vec3(0.22, 0.49, 0.5), 0.6);
+    gl_FragColor = tintColor; // tint color, no texture
+  #else
+    gl_FragColor = vec4(1.0); // default value
   #endif
 #endif
 
+  // Alpha test
 #ifdef PS_ALPHAKILL
   if (gl_FragColor.a - 0.9 < 0.0) {
     discard;
@@ -91,34 +98,35 @@ void main()
 #endif
 
 #ifdef TEX2
-  gl_FragColor = texture2D(tex1, fragTexCoord * 2.0) * vec4(fragColor.www, 1);
-  gl_FragColor = mix(gl_FragColor, texture2D(tex0, fragTexCoord * 3.0), fragColor.x);
+  gl_FragColor = mix(gl_FragColor, texture2D(tex0, fragTexCoord * uvScale.yy), fragColor.x);
 #endif
 #ifdef TEX3
-  gl_FragColor = mix(gl_FragColor, texture2D(tex2, fragTexCoord * 5.0), fragColor.y);
+  gl_FragColor = mix(gl_FragColor, texture2D(tex2, fragTexCoord * uvScale.zz), fragColor.y);
 #endif
 #ifdef TEX4
-  //gl_FragColor = mix(gl_FragColor, texture2D(tex3, fragTexCoord2), fragColor.w);
+  // WTF?
+  //gl_FragColor += texture2D(tex3, fragTexCoord2 * uvScale.ww) * (1.0 - fragColor.w);
 #endif
 
 #ifdef RENDER_PASS_COLOR
   // No division needed since there's only one light with orthogonal projection
-  vec3 projectedTexcoord = v_projectedTexcoord.xyz; // * vec3(1,-1,1);
-  projectedTexcoord = vec3(projectedTexcoord.xy * 0.5 + 0.5, projectedTexcoord.z); //
-  //float currentDepth = max(0.0, projectedTexcoord.z - zNear_zFar.z) / (zNear_zFar.w - zNear_zFar.z) + 0.8;
+  vec3 projectedTexcoord = vec3(v_projectedTexcoord.xy * 0.5 + 0.5, v_projectedTexcoord.z);
   float currentDepth = projectedTexcoord.z * 0.5 + 0.5 - 0.001;
+  float projectedDepth = texture2D(smTexture, projectedTexcoord.xy).r;  
   bool inRange = 
       projectedTexcoord.x >= 0.0 &&
       projectedTexcoord.x <= 1.0 &&
       projectedTexcoord.y >= 0.0 &&
       projectedTexcoord.y <= 1.0;
-  float projectedDepth = texture2D(smTexture, projectedTexcoord.xy).r;
   float shadowLight = (inRange && projectedDepth <= currentDepth) ? 0.0 : 1.0;
 
+  // Multiply diffuse by shadow weight (0 or 1)
   light *= shadowLight;
 
-  gl_FragColor *= vec4(max(light, 0.7), 1.0);
+  // Apply lighting
+  gl_FragColor.xyz *= max(light, shadowContrast);
 
+  // Tonemapping
   gl_FragColor.xyz = neutral(gl_FragColor.xyz);
 #endif
 }

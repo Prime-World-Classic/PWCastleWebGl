@@ -67,7 +67,7 @@ var InitDemo = function () {
 			0.000258785, 0.957086265, 0.289803177, 0,
 			0.986711979, -0.047331572, 0.155433148, 0,
 			-1581.244507, -332.2875977, 487.700531, 1
-			
+
 		]);
 		lightViewProjMatrix = new Float32Array([
 			-0.0012, -0.00206, 0.00015, 0,
@@ -160,6 +160,7 @@ var InitDemo = function () {
 
 				sceneObjects.push({
 					meshName: obj.mesh, meshData: {}, shader: obj.shader, shaderId: {}, blend: obj.blend,
+					tintColor: obj.tintColor, uvScale: obj.uvScale,
 					texture: obj.texture, texture_2: obj.texture_2, texture_3: obj.texture_3, texture_4: obj.texture_4,
 					textureId: {}, texture2Id: {}, texture3Id: {}, texture4Id: {}, strip: obj.strip, transform: obj.transform, indexCount: obj.indexCount
 				});
@@ -231,26 +232,26 @@ var LoadResources = function (sceneObjects, shaderNames, texNames) {
 								console.error(fsErr);
 								return 1;
 							} else {
-								var PrepareShader = function(renderPassDefine) {
+								var PrepareShader = function (renderPassDefine) {
 									var vertexShader = gl.createShader(gl.VERTEX_SHADER);
 									var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
-	
+
 									gl.shaderSource(vertexShader, definesText + renderPassDefine + vsText);
-									gl.shaderSource(fragmentShader, definesText + renderPassDefine  + fsText);
-	
+									gl.shaderSource(fragmentShader, definesText + renderPassDefine + fsText);
+
 									gl.compileShader(vertexShader);
 									if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
 										console.error('ERROR compiling vertex shader!', gl.getShaderInfoLog(vertexShader));
 										return 1;
 									}
-	
+
 									gl.compileShader(fragmentShader);
 									if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
 										console.error('ERROR compiling fragment shader!', gl.getShaderInfoLog(fragmentShader));
 										return 1;
 									}
 									console.log('Loaded shader ' + shaderNames[shaderId]);
-	
+
 									var program = gl.createProgram();
 									gl.attachShader(program, vertexShader);
 									gl.attachShader(program, fragmentShader);
@@ -363,7 +364,7 @@ var LoadResources = function (sceneObjects, shaderNames, texNames) {
 					gl.cullFace(gl.BACK);
 
 					for (i = 0; i < sceneObjects.length; ++i) {
-						if (sceneObjects[i].blend) 
+						if (sceneObjects[i].blend)
 							break;
 						var meshData = sceneObjects[i].meshData;
 						var associatedShader = sceneObjects[i].shaderId;
@@ -392,7 +393,9 @@ var LoadResources = function (sceneObjects, shaderNames, texNames) {
 					var associatedTexture4 = sceneObjects[i].texture4Id;
 					var textures = [sceneTextures[associatedTexture], associatedTexture2 ? sceneTextures[associatedTexture2] : {}, associatedTexture3 ? sceneTextures[associatedTexture3] : {}, associatedTexture4 ? sceneTextures[associatedTexture4] : {}];
 					DrawObject(sceneShaders[associatedShader].PSO, textures,
-						meshData.vertices, meshData.indexCount, meshData.vertStride, sceneShaders[associatedShader].attributes, sceneObjects[i].strip, sceneObjects[i].transform, false, sceneObjects[i].blend);
+						meshData.vertices, meshData.indexCount, meshData.vertStride, sceneShaders[associatedShader].attributes, sceneObjects[i].strip, sceneObjects[i].transform, false,
+						sceneObjects[i].blend, sceneObjects[i].tintColor, sceneObjects[i].uvScale
+					);
 				}
 				gl.disable(gl.BLEND);
 				requestAnimationFrame(loop);
@@ -433,7 +436,7 @@ var SetupMainCam = function (program) {
 
 	var zNearFar = gl.getUniformLocation(program, 'zNear_zFar');
 	gl.uniform4f(zNearFar, zNear, zFar, zNearSM, zFarSM);
-	
+
 }
 
 var SetupSMCam = function (program) {
@@ -442,7 +445,7 @@ var SetupSMCam = function (program) {
 }
 
 
-var DrawObject = function (program, textures, vertices, indexCount, vertStride, attributes, strip, transform, isSMPass, blend) {
+var DrawObject = function (program, textures, vertices, indexCount, vertStride, attributes, strip, transform, isSMPass, blend, tintColor, uvScale) {
 	if (blend) {
 		gl.enable(gl.BLEND);
 		gl.blendFunc(gl.SRC_ALPHA, gl.DST_COLOR);
@@ -473,6 +476,15 @@ var DrawObject = function (program, textures, vertices, indexCount, vertStride, 
 
 	isSMPass ? SetupSMCam(program) : SetupMainCam(program);
 
+	var tintColorValue = tintColor ? tintColor : [1, 1, 1, 1];
+	var tintColorLocation = gl.getUniformLocation(program, 'tintColor');
+	gl.uniform4fv(tintColorLocation, tintColorValue);
+
+
+	var uvScaleValue = uvScale ? uvScale : [1, 1, 1, 1];
+	var uvScaleLocation = gl.getUniformLocation(program, 'uvScale');
+	gl.uniform4fv(uvScaleLocation, uvScaleValue);
+
 	//
 	// Main render loop
 	//
@@ -498,7 +510,7 @@ var DrawObject = function (program, textures, vertices, indexCount, vertStride, 
 			gl.uniform1i(texLocation, i);
 		}
 	}
-	
+
 	if (!isSMPass) {
 		gl.activeTexture(gl.TEXTURE0 + textures.length);
 		gl.bindTexture(gl.TEXTURE_2D, depthTexture);

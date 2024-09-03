@@ -4,5 +4,3 @@ precision mediump float;
 #define VS_TANGENT
 #define VS_NORMAL
 #define VS_UV
-#define VS_COLOR
-#define PS_ALPHAKILL

@@ -1,4 +1,4 @@
-// Uber shader. Leave first line not functional
+// Uber shader. Leave first line non functional
 #ifdef VS_POSITION
 attribute vec3 vertPosition;
 #endif
@@ -66,27 +66,27 @@ void main()
 #ifdef VS_UV2
   fragTexCoord2 = vertTexCoord2;
 #endif
-
 #ifdef VS_COLOR
   fragColor = vertColor / 255.0;
 #endif
 
+// Transforms
   vec4 worldPos = mWorld * vec4(vertPosition, 1.0);
   gl_Position = mViewProj * worldPos;
-  
 #ifdef VS_NORMAL
   vec4 worldNormal = mWorld * vec4(normalize(vertNormal), 0.0);
   fragNormal = (worldNormal.xyz);
 #endif
 
+// Unused, but neccesary for input assembler
 #if defined(VS_TANGENT)
   gl_Position += vertTangent.xxxx * 0.0000001; // TODO: Implement
 #endif
-
 #if defined(VS_UV2) || defined(VS_UV2_UNUSED)
   gl_Position += vertTexCoord2.xxxx * 0.001; // TODO: Implement
 #endif
 
+// SM projection
 #ifdef RENDER_PASS_COLOR
   v_projectedTexcoord = lightViewProj * worldPos;
 #endif

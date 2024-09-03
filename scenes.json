@@ -9,6 +9,14 @@
             ]
         },
         {
+            "name" : "shader_pos_norm_uv"
+            ,"layout" : [
+                {"name" : "vertPosition", "count" : 3, "sizeElem" : 4},
+                {"name" : "vertNormal", "count" : 3, "sizeElem" : 4},
+                {"name" : "vertTexCoord", "count" : 2, "sizeElem" : 4}
+            ]
+        },
+        {
             "name" : "shader_pos_tangent_norm_uv_ak"
             ,"layout" : [
                 {"name" : "vertPosition", "count" : 3, "sizeElem" : 4},
@@ -18,7 +26,16 @@
             ]
         },
         {
-            "name" : "shader_pos_tangent16_norm_uv16_ak"
+            "name" : "shader_pos_tangent_norm_uv"
+            ,"layout" : [
+                {"name" : "vertPosition", "count" : 3, "sizeElem" : 4},
+                {"name" : "vertTangent", "count" : 4, "sizeElem" : 4},
+                {"name" : "vertNormal", "count" : 3, "sizeElem" : 4},
+                {"name" : "vertTexCoord", "count" : 2, "sizeElem" : 4}
+            ]
+        },
+        {
+            "name" : "shader_pos_tangent16_norm_uv16"
             ,"layout" : [
                 {"name" : "vertPosition", "count" : 3, "sizeElem" : 4},
                 {"name" : "vertTangent", "count" : 4, "sizeElem" : 2},
@@ -27,7 +44,7 @@
             ]
         },
         {
-            "name" : "shader_pos_tangent_norm_uv_color_ak"
+            "name" : "shader_pos_tangent_norm_uv_color"
             ,"layout" : [
                 {"name" : "vertPosition", "count" : 3, "sizeElem" : 4},
                 {"name" : "vertTangent", "count" : 4, "sizeElem" : 4},
@@ -44,7 +61,7 @@
             ]
         },
         {
-            "name" : "shader_pos_norm_color_uv2_tangent_ak"
+            "name" : "shader_pos_norm_color_uv2_tangent"
             ,"layout" : [
                 {"name" : "vertPosition", "count" : 3, "sizeElem" : 4},
                 {"name" : "vertTangent", "count" : 4, "sizeElem" : 4},
@@ -167,135 +184,149 @@
         ,{
             "mesh" : "terrain_18_01.bin"
             , "indexCount" : 507
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_02.bin"
             , "indexCount" : 3219
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_03.bin"
             , "indexCount" : 3024
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_04.bin"
             , "indexCount" : 1623
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_05.bin"
             , "indexCount" : 1353
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_06.bin"
             , "indexCount" : 1038
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_07.bin"
             , "indexCount" : 1080
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_08.bin"
             , "indexCount" : 735
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_09.bin"
             , "indexCount" : 1791
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_10.bin"
             , "indexCount" : 4017
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_11.bin"
             , "indexCount" : 999
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_12.bin"
             , "indexCount" : 1509
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_13.bin"
             , "indexCount" : 6012
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_30.bin"
             , "indexCount" : 2214
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [4.0, 6.0, 8.0, 4.0]
         }  
 
 
         ,{
             "mesh" : "building01_8_01.bin"
             , "indexCount" : 930
-            , "shader" : "shader_pos_norm_uv_ak"
+            , "shader" : "shader_pos_norm_uv"
             , "texture" : "building01_02"
             , "transform" : [
                 1, 0, 0, 1262,
@@ -307,7 +338,7 @@
         ,{
             "mesh" : "building01_8_02.bin"
             , "indexCount" : 1248
-            , "shader" : "shader_pos_norm_uv_ak"
+            , "shader" : "shader_pos_norm_uv"
             , "texture" : "building01_02"
             , "transform" : [
                 1, 0, 0, 1259,
@@ -319,7 +350,7 @@
         ,{
             "mesh" : "building01_8_03.bin"
             , "indexCount" : 930
-            , "shader" : "shader_pos_norm_uv_ak"
+            , "shader" : "shader_pos_norm_uv"
             , "texture" : "building01_02"
             , "transform" : [
                 1, 0, 0, 1252,
@@ -331,7 +362,7 @@
         ,{
             "mesh" : "building01_8_04.bin"
             , "indexCount" : 1224
-            , "shader" : "shader_pos_norm_uv_ak"
+            , "shader" : "shader_pos_norm_uv"
             , "texture" : "building01_02"
             , "transform" : [
                 1, 0, 0, 1261,
@@ -343,7 +374,7 @@
         ,{
             "mesh" : "building01_8_05.bin"
             , "indexCount" : 1140
-            , "shader" : "shader_pos_norm_uv_ak"
+            , "shader" : "shader_pos_norm_uv"
             , "texture" : "building01_02"
             , "transform" : [
                 1, 0, 0, 1245,
@@ -355,7 +386,7 @@
         ,{
             "mesh" : "building01_8_06.bin"
             , "indexCount" : 1062
-            , "shader" : "shader_pos_norm_uv_ak"
+            , "shader" : "shader_pos_norm_uv"
             , "texture" : "building01_02"
             , "transform" : [
                 1, 0, 0, 1228,
@@ -367,7 +398,7 @@
         ,{
             "mesh" : "building01_8_07.bin"
             , "indexCount" : 1140
-            , "shader" : "shader_pos_norm_uv_ak"
+            , "shader" : "shader_pos_norm_uv"
             , "texture" : "building01_02"
             , "transform" : [
                 1, 0, 0, 1233,
@@ -379,7 +410,7 @@
         ,{
             "mesh" : "building01_8_08.bin"
             , "indexCount" : 834
-            , "shader" : "shader_pos_norm_uv_ak"
+            , "shader" : "shader_pos_norm_uv"
             , "texture" : "building01_03"
             , "transform" : [
                 1, 0, 0, 1238,
@@ -391,7 +422,7 @@
         ,{
             "mesh" : "building01_8_13.bin"
             , "indexCount" : 1224
-            , "shader" : "shader_pos_norm_uv_ak"
+            , "shader" : "shader_pos_norm_uv"
             , "texture" : "building01_02"
             , "transform" : [
                 1, 0, 0, 1250,
@@ -403,7 +434,7 @@
         ,{
             "mesh" : "building01_8_09.bin"
             , "indexCount" : 7590
-            , "shader" : "shader_pos_norm_uv_ak"
+            , "shader" : "shader_pos_norm_uv"
             , "texture" : "building01_02"
             , "transform" : [
                 1, 0, 0, 1259,
@@ -415,7 +446,7 @@
         ,{
             "mesh" : "building01_8_10.bin"
             , "indexCount" : 1122
-            , "shader" : "shader_pos_norm_uv_ak"
+            , "shader" : "shader_pos_norm_uv"
             , "texture" : "building01_02"
             , "transform" : [
                 1, 0, 0, 1256,
@@ -427,7 +458,7 @@
         ,{
             "mesh" : "building01_8_11.bin"
             , "indexCount" : 1050
-            , "shader" : "shader_pos_norm_uv_ak"
+            , "shader" : "shader_pos_norm_uv"
             , "texture" : "building01_02"
             , "transform" : [
                 1, 0, 0, 1240,
@@ -439,7 +470,7 @@
         ,{
             "mesh" : "building01_8_12.bin"
             , "indexCount" : 834
-            , "shader" : "shader_pos_norm_uv_ak"
+            , "shader" : "shader_pos_norm_uv"
             , "texture" : "building01_03"
             , "transform" : [
                 0.9, 0.29, 0, 1171,
@@ -453,13 +484,13 @@
         ,{
             "mesh" : "rocks_16_08.bin"
             , "indexCount" : 7245
-            , "shader" : "shader_pos_tangent_norm_uv_color_ak"
+            , "shader" : "shader_pos_tangent_norm_uv_color"
             , "texture" : "terrain_03"
         }
         ,{
             "mesh" : "rocks_16_01.bin"
             , "indexCount" : 4101
-            , "shader" : "shader_pos_tangent_norm_uv_color_ak"
+            , "shader" : "shader_pos_tangent_norm_uv_color"
             , "texture" : "rocks_01"
             , "transform" : [
                 1, 0, 0, 0,
@@ -471,7 +502,7 @@
         ,{
             "mesh" : "rocks_16_02.bin"
             , "indexCount" : 4545
-            , "shader" : "shader_pos_tangent_norm_uv_color_ak"
+            , "shader" : "shader_pos_tangent_norm_uv_color"
             , "texture" : "rocks_01"
             , "transform" : [
                 1, 0, 0, 0,
@@ -483,7 +514,7 @@
         ,{
             "mesh" : "rocks_16_03.bin"
             , "indexCount" : 4941
-            , "shader" : "shader_pos_tangent_norm_uv_color_ak"
+            , "shader" : "shader_pos_tangent_norm_uv_color"
             , "texture" : "rocks_01"
             , "transform" : [
                 1, 0, 0, 0,
@@ -495,7 +526,7 @@
         ,{
             "mesh" : "rocks_16_04.bin"
             , "indexCount" : 4782
-            , "shader" : "shader_pos_tangent_norm_uv_color_ak"
+            , "shader" : "shader_pos_tangent_norm_uv_color"
             , "texture" : "rocks_01"
             , "transform" : [
                 1, 0, 0, 0,
@@ -507,7 +538,7 @@
         ,{
             "mesh" : "rocks_16_05.bin"
             , "indexCount" : 9927
-            , "shader" : "shader_pos_tangent_norm_uv_color_ak"
+            , "shader" : "shader_pos_tangent_norm_uv_color"
             , "texture" : "rocks_01"
             , "transform" : [
                 1, 0, 0, 0,
@@ -519,7 +550,7 @@
         ,{
             "mesh" : "rocks_16_06.bin"
             , "indexCount" : 3102
-            , "shader" : "shader_pos_tangent_norm_uv_color_ak"
+            , "shader" : "shader_pos_tangent_norm_uv_color"
             , "texture" : "rocks_01"
             , "transform" : [
                 1, 0, 0, 0,
@@ -531,7 +562,7 @@
         ,{
             "mesh" : "rocks_16_07.bin"
             , "indexCount" : 3180
-            , "shader" : "shader_pos_tangent_norm_uv_color_ak"
+            , "shader" : "shader_pos_tangent_norm_uv_color"
             , "texture" : "rocks_01"
             , "transform" : [
                 1, 0, 0, 0,
@@ -543,7 +574,7 @@
         ,{
             "mesh" : "terrain_16_01.bin"
             , "indexCount" : 1103
-            , "shader" : "shader_pos_tangent_norm_uv_color_ak"
+            , "shader" : "shader_pos_tangent_norm_uv_color"
             , "texture" : "terrain_02"
             , "strip" : true
             , "transform" : [
@@ -570,199 +601,215 @@
         ,{
             "mesh" : "fence_12_01.bin"
             , "indexCount" : 5856
-            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "shader" : "shader_pos_tangent_norm_uv"
             , "texture" : "fence"
         }
         ,{
             "mesh" : "fence_12_02.bin"
             , "indexCount" : 1476
-            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "shader" : "shader_pos_tangent_norm_uv"
             , "texture" : "fence"
         }
         ,{
             "mesh" : "fence_12_03.bin"
             , "indexCount" : 3912
-            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "shader" : "shader_pos_tangent_norm_uv"
             , "texture" : "fence"
         }
         ,{
             "mesh" : "fence_12_04.bin"
             , "indexCount" : 1836
-            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "shader" : "shader_pos_tangent_norm_uv"
             , "texture" : "fence"
         }
         ,{
             "mesh" : "fence_12_05.bin"
             , "indexCount" : 1707
-            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "shader" : "shader_pos_tangent_norm_uv"
             , "texture" : "fence"
         }
         ,{
             "mesh" : "fence_12_06.bin"
             , "indexCount" : 1707
-            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "shader" : "shader_pos_tangent_norm_uv"
             , "texture" : "fence"
         }
         ,{
             "mesh" : "fence_12_07.bin"
             , "indexCount" : 1707
-            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "shader" : "shader_pos_tangent_norm_uv"
             , "texture" : "fence"
         }
         ,{
             "mesh" : "fence_12_08.bin"
             , "indexCount" : 1836
-            , "shader" : "shader_pos_tangent_norm_uv_ak"
+            , "shader" : "shader_pos_tangent_norm_uv"
             , "texture" : "fence"
         },
         {
             "mesh" : "terrain_18_14.bin"
             , "indexCount" : 1674
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_15.bin"
             , "indexCount" : 495
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_16.bin"
             , "indexCount" : 681
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_17.bin"
             , "indexCount" : 3606
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_18.bin"
             , "indexCount" : 819
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_19.bin"
             , "indexCount" : 2136
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_20.bin"
             , "indexCount" : 111
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_21.bin"
             , "indexCount" : 1590
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_22.bin"
             , "indexCount" : 1464
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_23.bin"
             , "indexCount" : 1332
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_24.bin"
             , "indexCount" : 1011
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_25.bin"
             , "indexCount" : 219
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_26.bin"
             , "indexCount" : 3753
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_27.bin"
             , "indexCount" : 546
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_28.bin"
             , "indexCount" : 651
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }  
         ,{
             "mesh" : "terrain_18_29.bin"
             , "indexCount" : 159
-            , "shader" : "shader_pos_norm_color_uv2_tangent_ak"
+            , "shader" : "shader_pos_norm_color_uv2_tangent"
             , "texture" : "terrain_02"
             , "texture_2" : "terrain_03"
             , "texture_3" : "terrain_04"
             , "texture_4" : "terrain_05"
+            , "uvScale" : [2.0, 3.0, 5.0, 1.0]
         }
         ,{
             "mesh" : "fence_12_09.bin"
             , "indexCount" : 1836
-            , "shader" : "shader_pos_tangent16_norm_uv16_ak"
+            , "shader" : "shader_pos_tangent16_norm_uv16"
             , "texture" : "fence"
             , "transform" : [
                 1, 0, 0, 0,
@@ -774,7 +821,7 @@
         ,{
             "mesh" : "fence_12_10.bin"
             , "indexCount" : 1707
-            , "shader" : "shader_pos_tangent16_norm_uv16_ak"
+            , "shader" : "shader_pos_tangent16_norm_uv16"
             , "texture" : "fence"
             , "transform" : [
                 1, 0, 0, 0,
@@ -786,7 +833,7 @@
         ,{
             "mesh" : "fence_12_11.bin"
             , "indexCount" : 1476
-            , "shader" : "shader_pos_tangent16_norm_uv16_ak"
+            , "shader" : "shader_pos_tangent16_norm_uv16"
             , "texture" : "fence"
             , "transform" : [
                 1, 0, 0, 0,
@@ -896,6 +943,12 @@
             , "indexCount" : 870
             , "shader" : "shader_pos_tangent_norm_uv_ak"
             , "texture" : "birds"
+            , "transform" : [
+                1, 0, 0, 1125,
+                0, 0, 1, 128,
+                0, -1, 0, 1237,
+                0, 0, 0, 1
+            ]
         }
         
         
@@ -1111,13 +1164,8 @@
             , "indexCount" : 12093
             , "shader" : "shader_pos_color"
             , "texture" : "water"
-            , "transform" : [
-                1, 0, 0, 0,
-                0, 0, 1, 0,
-                0, -1, 0, 0,
-                0, 0, 0, 1
-            ]
             , "blend" : "ADD"
+            , "tintColor" : [0.22, 0.49, 0.5, 0.6]
         }
 
            
