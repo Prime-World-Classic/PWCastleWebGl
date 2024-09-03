@@ -1,7 +1,6 @@
 // Uber shader. Leave first line non functional
-#if defined(VS_UV) || defined(VS_UV16)
+
 varying vec2 fragTexCoord;
-#endif
 
 #if defined(VS_UV2) || defined(VS_UV2_UNUSED)
 varying vec2 fragTexCoord2;
@@ -77,18 +76,9 @@ void main()
 #endif
 
   // Albedo
-#if defined(VS_UV) || defined(VS_UV16)
   gl_FragColor = texture2D(tex0, fragTexCoord * uvScale.xx);
-  #ifdef VS_COLOR
-     //gl_FragColor *= vec4(fragColor.www, 1); // weight sampled texture?
-  #endif
-#else
-  #ifdef VS_COLOR
-    gl_FragColor = tintColor; // tint color, no texture
-  #else
-    gl_FragColor = vec4(1.0); // default value
-  #endif
-#endif
+
+  gl_FragColor *= tintColor;
 
   // Alpha test
 #ifdef PS_ALPHAKILL

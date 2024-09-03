@@ -14,13 +14,12 @@ varying vec3 fragNormal;
 
 #if defined(VS_UV)
 attribute vec2 vertTexCoord;
-varying vec2 fragTexCoord;
 #endif
 
 #if defined(VS_UV16)
 attribute vec2 vertTexCoord;
-varying vec2 fragTexCoord;
 #endif
+varying vec2 fragTexCoord;
 
 #if defined(VS_UV2) || defined(VS_UV2_UNUSED)
 attribute vec2 vertTexCoord2;
@@ -57,12 +56,17 @@ vec2 half_to_float(vec2 h)
 
 void main()
 {
-#ifdef VS_UV
-  fragTexCoord = vertTexCoord;
+#if defined(VS_UV) || defined(VS_UV16)
+  #ifdef VS_UV
+    fragTexCoord = vertTexCoord;
+  #endif
+  #ifdef VS_UV16
+    fragTexCoord = half_to_float(vertTexCoord);
+  #endif
+#else
+  fragTexCoord = vec2(vertPosition.xy); //fract(vertPosition.xx);
 #endif
-#ifdef VS_UV16
-  fragTexCoord = half_to_float(vertTexCoord);
-#endif
+
 #ifdef VS_UV2
   fragTexCoord2 = vertTexCoord2;
 #endif

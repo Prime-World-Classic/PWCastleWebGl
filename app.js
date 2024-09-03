@@ -36,6 +36,7 @@ var InitDemo = function () {
 
 	gl.enable(gl.DEPTH_TEST);
 	gl.enable(gl.CULL_FACE);
+	//gl.depthFunc(gl.LEQUAL);
 	gl.frontFace(gl.CCW);
 	gl.cullFace(gl.FRONT);
 
@@ -398,6 +399,9 @@ var LoadResources = function (sceneObjects, shaderNames, texNames) {
 					);
 				}
 				gl.disable(gl.BLEND);
+				gl.colorMask(true, true, true, true);
+				gl.depthMask(true);
+
 				requestAnimationFrame(loop);
 			};
 			requestAnimationFrame(loop);
@@ -444,11 +448,29 @@ var SetupSMCam = function (program) {
 	gl.uniformMatrix4fv(matViewProjUniformLocation, gl.FALSE, lightViewProjMatrix);
 }
 
+var GetBlendFunc = function (blendString) {
+	switch (blendString) {
+		case "SRC_COLOR":
+			return gl.SRC_ALPHA;
+		case "DST_COLOR":
+			return gl.DST_ALPHA;
+		case "SRC_ALPHA":
+			return gl.SRC_ALPHA;
+		case "DST_ALPHA":
+			return gl.DST_ALPHA;
+		case "ONE":
+		default:
+			return gl.ONE;
+	}
+}
 
 var DrawObject = function (program, textures, vertices, indexCount, vertStride, attributes, strip, transform, isSMPass, blend, tintColor, uvScale) {
 	if (blend) {
 		gl.enable(gl.BLEND);
-		gl.blendFunc(gl.SRC_ALPHA, gl.DST_COLOR);
+		gl.blendEquation( gl.FUNC_ADD );
+		gl.colorMask(true, true, true, false);
+		gl.depthMask(false);
+		gl.blendFunc(GetBlendFunc(blend[0]), GetBlendFunc(blend[1]));
 	}
 
 	gl.bindBuffer(gl.ARRAY_BUFFER, vertices);
