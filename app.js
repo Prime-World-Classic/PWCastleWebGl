@@ -450,14 +450,36 @@ var SetupSMCam = function (program) {
 
 var GetBlendFunc = function (blendString) {
 	switch (blendString) {
+		case "ZERO":
+			return gl.ZERO;
+		case "ONE":
+			return gl.ONE;
 		case "SRC_COLOR":
-			return gl.SRC_ALPHA;
+			return gl.SRC_COLOR;
+		case "ONE_MINUS_SRC_COLOR":
+			return gl.ONE_MINUS_SRC_COLOR;
 		case "DST_COLOR":
-			return gl.DST_ALPHA;
+			return gl.DST_COLOR;
+		case "ONE_MINUS_DST_COLOR":
+			return gl.ONE_MINUS_DST_COLOR;
 		case "SRC_ALPHA":
 			return gl.SRC_ALPHA;
+		case "ONE_MINUS_SRC_ALPHA":
+			return gl.ONE_MINUS_SRC_ALPHA;
 		case "DST_ALPHA":
 			return gl.DST_ALPHA;
+		case "ONE_MINUS_DST_ALPHA":
+			return gl.ONE_MINUS_DST_ALPHA;
+			case "CONSTANT_COLOR":
+				return gl.CONSTANT_COLOR;
+				case "ONE_MINUS_CONSTANT_COLOR":
+					return gl.ONE_MINUS_CONSTANT_COLOR;
+					case "CONSTANT_ALPHA":
+						return gl.CONSTANT_ALPHA;
+						case "ONE_MINUS_CONSTANT_ALPHA":
+							return gl.ONE_MINUS_CONSTANT_ALPHA;
+							case "SRC_ALPHA_SATURATE":
+								return gl.SRC_ALPHA_SATURATE;
 		case "ONE":
 		default:
 			return gl.ONE;
