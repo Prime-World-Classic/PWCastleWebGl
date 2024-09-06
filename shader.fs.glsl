@@ -86,7 +86,9 @@ void main()
     discard;
   }
 #endif
-
+  #ifndef VS_COLOR
+    vec4 fragColor = tintColor;
+  #endif
 #ifdef TEX2
   gl_FragColor = mix(gl_FragColor, texture2D(tex0, fragTexCoord * uvScale.yy), fragColor.x);
 #endif

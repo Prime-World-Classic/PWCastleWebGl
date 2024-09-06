@@ -15,11 +15,11 @@ const zNear = 0.1;
 const zFar = 10000.0;
 
 const zNearSM = 0.1;
-const zFarSM = 5000.0;
+const zFarSM = 1200.0;
 
 var scenesJson;
 
-var InitDemo = function () {
+var InitDemo = function (sceneName) {
 	// Prepare WebGL
 	var canvas = document.getElementById('game-surface');
 	gl = canvas.getContext('webgl');
@@ -36,7 +36,6 @@ var InitDemo = function () {
 
 	gl.enable(gl.DEPTH_TEST);
 	gl.enable(gl.CULL_FACE);
-	//gl.depthFunc(gl.LEQUAL);
 	gl.frontFace(gl.CCW);
 	gl.cullFace(gl.FRONT);
 
@@ -53,6 +52,7 @@ var InitDemo = function () {
 	]);
 	mat4.perspective(projMatrix, glMatrix.toRadian(45), canvas.width / canvas.height, zNear, zFar);
 
+	//mat4.ortho(projMatrix, -300, 300, -300, 300, zNearSM, zFarSM);
 	// Light camera
 	isSMEnabled = true;
 	const ext = gl.getExtension('WEBGL_depth_texture');
@@ -61,24 +61,51 @@ var InitDemo = function () {
 	}
 	if (isSMEnabled) {
 		// Setup matrix. Only one viewProj is needed
+		var lightViewMatrix = new Float32Array(16);
+		var lightViewMatrix2 = new Float32Array(16);
 		var lightProjMatrix = new Float32Array(16);
-		mat4.ortho(lightProjMatrix, -200, 200, -200, 200, zNearSM, zFarSM);
+		lightViewProjMatrix = new Float32Array(16);
+		mat4.ortho(lightProjMatrix, -400, 400, -400, 400, zNearSM, zFarSM);
+		/*
 		var lightViewMatrix = new Float32Array([
 			0.162479758, 0.285912007, -0.944380701, 0,
 			0.000258785, 0.957086265, 0.289803177, 0,
 			0.986711979, -0.047331572, 0.155433148, 0,
 			-1581.244507, -332.2875977, 487.700531, 1
+		]);
+		mat4.multiply(lightViewProjMatrix, lightProjMatrix, lightViewMatrix);
+		*/
+		
+		// Adornia
 
-		]);
-		lightViewProjMatrix = new Float32Array([
-			-0.0012, -0.00206, 0.00015, 0,
-			0.00147, -0.00096, -0.00055, 0,
-			-0.00218, 0.00048, -0.00046, 0,
-			4.00097, 1.64843, 1.05647, 1
-		]);
-		//mat4.multiply(lightViewProjMatrix, lightProjMatrix, lightViewMatrix);
-		lightViewProjInvMatrix = new Float32Array(16);
-		mat4.invert(lightViewProjInvMatrix, lightProjMatrix);
+		var smCamParams = [
+			{
+				name: "ad",
+				camPos: [-1239.6, -151, -1433],
+				camRot: [-2.29, 2.813, 3.14]
+			},
+			{
+				name: "doct",
+				camPos: [-1395.8, -291.7, -1338.5],
+				camRot: [-2.4, -1.423, 3.14]
+			}
+		]
+		
+		var quatStart = quat.create();
+		quat.identity(quatStart);
+		var quatX = quat.create();
+		var quatY = quat.create();
+		var quatZ = quat.create();
+		
+		var smCam = smCamParams.find(value => value.name === sceneName);
+		quat.rotateX(quatX, quatStart, smCam.camRot[0]);
+		quat.rotateY(quatY, quatX, smCam.camRot[1]);
+		quat.rotateZ(quatZ, quatY, smCam.camRot[2]);
+
+		mat4.fromRotationTranslation(lightViewMatrix, quatZ, vec3.create());
+		mat4.translate(lightViewMatrix, lightViewMatrix, smCam.camPos);
+		mat4.multiply(lightViewMatrix2, flipMatr, lightViewMatrix);
+		mat4.multiply(lightViewProjMatrix, lightProjMatrix, lightViewMatrix2);
 
 		// Setup textures
 		depthTexture = gl.createTexture();
@@ -150,9 +177,11 @@ var InitDemo = function () {
 			return 1;
 		} else {
 			scenesJson = result;
+
+			currentScene = result.scenes.find(value => value.sceneName === sceneName);
+
 			var loadedScenes = [];
-			loadedScenes.push(result.adornia);
-			// TODO: Docts
+			loadedScenes.push(currentScene.objects);
 
 			var selectedScene = 0;
 			sceneMeshesToLoadCount = loadedScenes[selectedScene].length; // Set scene objects count to some valid value
@@ -288,7 +317,7 @@ var LoadResources = function (sceneObjects, shaderNames, texNames) {
 	}
 
 	function loadTexture(textureId) {
-		texName = 'meshes/' + texNames[textureId] + '.webp';
+		texName = 'textures/' + texNames[textureId] + '.webp';
 		loadImage(texName, function (imgErr, img) {
 			if (imgErr) {
 				alert('Fatal error getting texture ( ' + texName + ' )');
@@ -362,8 +391,7 @@ var LoadResources = function (sceneObjects, shaderNames, texNames) {
 					gl.bindFramebuffer(gl.FRAMEBUFFER, depthFramebuffer);
 					gl.viewport(0, 0, depthTextureSize, depthTextureSize);
 					gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-					gl.cullFace(gl.BACK);
-
+					
 					for (i = 0; i < sceneObjects.length; ++i) {
 						if (sceneObjects[i].blend)
 							break;
@@ -383,7 +411,6 @@ var LoadResources = function (sceneObjects, shaderNames, texNames) {
 				gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 				gl.clearColor(0.75, 0.85, 0.8, 1.0);
 				gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-				gl.cullFace(gl.FRONT);
 
 				for (i = 0; i < sceneObjects.length; ++i) {
 					var meshData = sceneObjects[i].meshData;
@@ -470,16 +497,16 @@ var GetBlendFunc = function (blendString) {
 			return gl.DST_ALPHA;
 		case "ONE_MINUS_DST_ALPHA":
 			return gl.ONE_MINUS_DST_ALPHA;
-			case "CONSTANT_COLOR":
-				return gl.CONSTANT_COLOR;
-				case "ONE_MINUS_CONSTANT_COLOR":
-					return gl.ONE_MINUS_CONSTANT_COLOR;
-					case "CONSTANT_ALPHA":
-						return gl.CONSTANT_ALPHA;
-						case "ONE_MINUS_CONSTANT_ALPHA":
-							return gl.ONE_MINUS_CONSTANT_ALPHA;
-							case "SRC_ALPHA_SATURATE":
-								return gl.SRC_ALPHA_SATURATE;
+		case "CONSTANT_COLOR":
+			return gl.CONSTANT_COLOR;
+		case "ONE_MINUS_CONSTANT_COLOR":
+			return gl.ONE_MINUS_CONSTANT_COLOR;
+		case "CONSTANT_ALPHA":
+			return gl.CONSTANT_ALPHA;
+		case "ONE_MINUS_CONSTANT_ALPHA":
+			return gl.ONE_MINUS_CONSTANT_ALPHA;
+		case "SRC_ALPHA_SATURATE":
+			return gl.SRC_ALPHA_SATURATE;
 		case "ONE":
 		default:
 			return gl.ONE;
@@ -500,7 +527,7 @@ var DrawObject = function (program, textures, vertices, indexCount, vertStride, 
 	var attribOffset = 0;
 	for (const attribute of attributes) {
 		var attribLocation = gl.getAttribLocation(program, attribute.name);
-		var attribType = attribute.sizeElem == 4 ? gl.FLOAT : (attribute.sizeElem == 2 ? gl.SHORT : gl.UNSIGNED_BYTE);
+		var attribType = attribute.sizeElem == 4 ? gl.FLOAT : (attribute.sizeElem == 2 ? gl.UNSIGNED_SHORT : gl.UNSIGNED_BYTE);
 		gl.vertexAttribPointer(
 			attribLocation, // Attribute location
 			attribute.count, // Number of elements per attribute
