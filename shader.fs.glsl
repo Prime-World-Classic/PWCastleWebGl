@@ -35,6 +35,11 @@ uniform vec4 zNear_zFar;
 varying vec4 v_projectedTexcoord;
 #endif
 
+#ifdef PS_GRID
+varying vec2 posXZ;
+uniform vec2 cursorGridPosition;
+#endif
+
 uniform mat4 mViewProj;
 uniform vec4 tintColor;
 uniform vec4 uvScale;
@@ -63,6 +68,22 @@ void main()
   const vec3 lightColor = vec3(1.0, 1.0, 1.0) * 1.6;
   const float shadowContrast = 0.85;
 
+  const float gridFalloffDistance = 50.0;
+
+#ifdef PS_GRID
+  // Grid cells
+  gl_FragColor = vec4(0.0, 0.0, 0.0, max(0.0, (1.5 - mod(posXZ.x, 7.0))) + max(0.0, (1.5 - mod(posXZ.y, 7.0))));
+  gl_FragColor.xyz += vec3(gl_FragColor.a, gl_FragColor.a, 0.1);
+
+  // Grid falloff
+  float falloff = sqrt(dot(posXZ - cursorGridPosition, posXZ - cursorGridPosition)) - gridFalloffDistance;
+  gl_FragColor.w *= 1.0 - falloff;
+  vec3 light = vec3(1.0);
+  
+#ifdef RENDER_PASS_SM
+  discard; // TODO: Remove from SM pass
+#endif
+#else
   // Diffuse lighting
   vec3 light = lightColor;
 #ifdef VS_NORMAL
@@ -73,15 +94,16 @@ void main()
 */
 
   light *= max(0.0, dot(normalize(fragNormal), -normalize(vec3(mViewProj[0].z, mViewProj[1].z, mViewProj[2].z))));
-#endif
+#endif // VS_NORMAL
 
   // Albedo
   gl_FragColor = texture2D(tex0, fragTexCoord * uvScale.xx);
 
   gl_FragColor *= tintColor;
+#endif // PS_GRID
 
   // Alpha test
-#ifdef PS_ALPHAKILL
+#if defined(PS_ALPHAKILL) || defined(PS_GRID)
   if (gl_FragColor.a - 0.9 < 0.0) {
     discard;
   }

@@ -261,6 +261,26 @@
             ]
         },
         {
+            "name": "grid_shader_color_pos_uv",
+            "layout": [
+                {
+                    "name": "vertColor",
+                    "count": 4,
+                    "sizeElem": 1
+                },
+                {
+                    "name": "vertPosition",
+                    "count": 3,
+                    "sizeElem": 4
+                },
+                {
+                    "name": "vertTexCoord",
+                    "count": 2,
+                    "sizeElem": 4
+                }
+            ]
+        },
+        {
             "name": "shader_pos_tangent_norm_uv2",
             "layout": [
                 {
@@ -1291,6 +1311,25 @@
                                 -0.66581, -0.3183, -0.03535, 34.12193 ,
                                 -0.20414, 0.39004, -0.38878, 1388.1488 ,
                                 
+                                0, 0, 0, 1
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "grid",
+                    "translation": [0, 0],
+                    "size": [1, 1],
+                    "objects": [
+                        {
+                            "mesh": "grid_9_01.bin",
+                            "indexCount": 7128,
+                            "shader": "grid_shader_color_pos_uv",
+                            "texture": "doct4124",
+                            "transform": [
+                                1, 0, 0, 124,
+                                0, 1, 0, 27,
+                                0, 0, 1, -45,
                                 0, 0, 0, 1
                             ]
                         }

@@ -37,6 +37,10 @@ uniform mat4 lightViewProj;
 varying vec4 v_projectedTexcoord;
 #endif
 
+#ifdef PS_GRID
+varying vec2 posXZ;
+#endif
+
 uniform mat4 mWorld;
 uniform mat4 mViewProj;
 
@@ -93,5 +97,9 @@ void main()
 // SM projection
 #ifdef RENDER_PASS_COLOR
   v_projectedTexcoord = lightViewProj * worldPos;
+#endif
+
+#ifdef PS_GRID
+posXZ = vertPosition.xz;
 #endif
 }

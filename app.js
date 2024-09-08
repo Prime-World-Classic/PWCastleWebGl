@@ -6,6 +6,9 @@ var flipMatr;
 var viewMatrix2;
 var projMatrix;
 var viewProjMatr;
+var cursorBasis = new Float32Array(16);
+var cursorBasis2 = new Float32Array(16);
+var viewProjInv = new Float32Array(16);
 
 var isSMEnabled;
 var lightViewProjMatrix;
@@ -14,10 +17,14 @@ var depthFramebuffer;
 const depthTextureSize = 2048;
 const zNear = 0.1;
 const zFar = 10000.0;
-var aspectRatio;
+var canvasWidth;
+var canvasHeight;
 
 const zNearSM = 0.1;
 const zFarSM = 1200.0;
+
+const zeroTranslation = [1072, 1360]
+const cursorPosition = [0, 0]
 
 var fov = 45;
 document.onwheel = zoom;
@@ -48,6 +55,8 @@ function moveMouse(e) {
 		camDeltaPos[0] -= e.movementX;
 		camDeltaPos[1] -= e.movementY;
 	}
+	cursorPosition[0] = e.offsetX;
+	cursorPosition[1] = e.offsetY;
   }
 
 var scenesJson;
@@ -91,7 +100,8 @@ var InitDemo = function (sceneName) {
 			0, 0, 1, 0,
 			0, 0, 0, 1
 		]);
-		aspectRatio = canvas.width / canvas.height;
+		canvasWidth = canvas.width;
+		canvasHeight = canvas.height;
 	}
 
 	// Light camera
@@ -484,6 +494,7 @@ var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texName
 					"light_farm",
 					"silver_farm",
 					"talent_farm",
+					"grid",
 				];
 				var buildingsToDraw = [];
 				var buildingSelector = document.getElementsByClassName("buildings");
@@ -495,10 +506,9 @@ var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texName
 					if (buildingSelector[i].checked) {
 						var mesh = sceneBuildings.get(buildings[i]);
 						buildingsToDraw.push({mesh: mesh, rotation: buildingRotation[i].value, 
-							translation: [1072 + (buildingPositionX[i].value * 7.0 + mesh.size[0] / 2.0 * 7.0), 1, 1360 + (buildingPositionZ[i].value * 7.0 + mesh.size[1] / 2.0 * 7.0)]});
+							translation: [zeroTranslation[0] + (buildingPositionX[i].value * 7.0 + mesh.size[0] / 2.0 * 7.0), 1, zeroTranslation[1] + (buildingPositionZ[i].value * 7.0 + mesh.size[1] / 2.0 * 7.0)]});
 					} // 1128, 1416
 				}
-				const zeroTranslation = [1091.764, 1379.797]
 				if (isSMEnabled) {
 					gl.bindFramebuffer(gl.FRAMEBUFFER, depthFramebuffer);
 					gl.viewport(0, 0, depthTextureSize, depthTextureSize);
@@ -546,7 +556,7 @@ var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texName
 
 
 var SetupMainCam = function (program) {
-	mat4.perspective(projMatrix, glMatrix.toRadian(fov), aspectRatio, zNear, zFar);
+	mat4.perspective(projMatrix, glMatrix.toRadian(fov), canvasWidth / canvasHeight, zNear, zFar);
 
 	var camPosElements = document.getElementsByClassName("camPosition");
 	var koef = 0.5;
@@ -578,6 +588,19 @@ var SetupMainCam = function (program) {
 	var zNearFar = gl.getUniformLocation(program, 'zNear_zFar');
 	gl.uniform4f(zNearFar, zNear, zFar, zNearSM, zFarSM);
 
+	var camForw = vec3.fromValues(viewMatrix2[1], viewMatrix2[5], viewMatrix2[9]);
+	mat4.invert(viewProjInv, viewMatrix2); // viewProj -> world
+	
+	mat4.fromTranslation(cursorBasis, [(Number(cursorPosition[0]) - canvasWidth / 2) * canvasHeight / canvasWidth, 20, (Number(cursorPosition[1]) - canvasHeight / 2) * canvasWidth / canvasHeight]);
+	mat4.multiply(cursorBasis2, viewProjInv, cursorBasis);
+	camPos[0] = -cursorBasis2[12] / cursorBasis2[15];
+	camPos[2] = -cursorBasis2[14] / cursorBasis2[15];
+	var t = -camPos[1] / camForw[1];
+	var x = camPos[0] + t * camForw[0] + zeroTranslation[0] + t/1090*1000;
+	var z = camPos[2] + t * camForw[2] + zeroTranslation[1] + t/1090*820;
+
+	var cursorGridPosition = gl.getUniformLocation(program, 'cursorGridPosition');
+	gl.uniform2f(cursorGridPosition, -x, -z);
 }
 
 var SetupSMCam = function (program) {
