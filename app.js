@@ -1,5 +1,6 @@
 var gl;
 
+var identityMatrix;
 var viewMatrix;
 var flipMatr;
 var viewMatrix2;
@@ -13,203 +14,261 @@ var depthFramebuffer;
 const depthTextureSize = 2048;
 const zNear = 0.1;
 const zFar = 10000.0;
+var aspectRatio;
 
 const zNearSM = 0.1;
 const zFarSM = 1200.0;
+
+var fov = 45;
+document.onwheel = zoom;
+function zoom(event) {
+	event.preventDefault();
+
+	fov -= event.deltaY * -0.1;
+
+	// Restrict scale
+	fov = Math.min(Math.max(15, fov), 65);
+
+	// Apply scale transform
+	el.style.transform = `scale(${scale})`;
+}
+
+var doMove = false;
+var camDeltaPos = [0.0, 0.0]
+function prepareMove(event) {
+	event.preventDefault();
+	doMove = true;
+}
+function stopMove(event) {
+	event.preventDefault();
+	doMove = false;
+}
+function moveMouse(e) {
+	if (doMove) {
+		camDeltaPos[0] -= e.movementX;
+		camDeltaPos[1] -= e.movementY;
+	}
+  }
 
 var scenesJson;
 
 var InitDemo = function (sceneName) {
 	// Prepare WebGL
-	var canvas = document.getElementById('game-surface');
-	gl = canvas.getContext('webgl');
+	{
+		var canvas = document.getElementById('game-surface');
 
-	if (!gl) {
-		console.log('WebGL not supported, falling back on experimental-webgl');
-		gl = canvas.getContext('experimental-webgl');
+		canvas.onmousedown = prepareMove
+		canvas.onmouseup = stopMove
+		canvas.addEventListener("mousemove", moveMouse);
+
+		gl = canvas.getContext('webgl');
+
+		if (!gl) {
+			console.log('WebGL not supported, falling back on experimental-webgl');
+			gl = canvas.getContext('experimental-webgl');
+		}
+
+		if (!gl) {
+			console.error('Your browser does not support WebGL');
+			return 1;
+		}
+
+		gl.enable(gl.DEPTH_TEST);
+		gl.enable(gl.CULL_FACE);
+		gl.frontFace(gl.CCW);
+		gl.cullFace(gl.FRONT);
 	}
-
-	if (!gl) {
-		alert('Your browser does not support WebGL');
-		return 1;
-	}
-
-	gl.enable(gl.DEPTH_TEST);
-	gl.enable(gl.CULL_FACE);
-	gl.frontFace(gl.CCW);
-	gl.cullFace(gl.FRONT);
 
 	// Main camera
-	viewMatrix = new Float32Array(16);
-	viewMatrix2 = new Float32Array(16);
-	projMatrix = new Float32Array(16);
-	viewProjMatr = new Float32Array(16);
-	flipMatr = new Float32Array([
-		-1, 0, 0, 0,
-		0, 1, 0, 0,
-		0, 0, 1, 0,
-		0, 0, 0, 1
-	]);
-	mat4.perspective(projMatrix, glMatrix.toRadian(45), canvas.width / canvas.height, zNear, zFar);
-
-	//mat4.ortho(projMatrix, -300, 300, -300, 300, zNearSM, zFarSM);
-	// Light camera
-	isSMEnabled = true;
-	const ext = gl.getExtension('WEBGL_depth_texture');
-	if (!ext) {
-		isSMEnabled = false;
-	}
-	if (isSMEnabled) {
-		// Setup matrix. Only one viewProj is needed
-		var lightViewMatrix = new Float32Array(16);
-		var lightViewMatrix2 = new Float32Array(16);
-		var lightProjMatrix = new Float32Array(16);
-		lightViewProjMatrix = new Float32Array(16);
-		mat4.ortho(lightProjMatrix, -400, 400, -400, 400, zNearSM, zFarSM);
-		/*
-		var lightViewMatrix = new Float32Array([
-			0.162479758, 0.285912007, -0.944380701, 0,
-			0.000258785, 0.957086265, 0.289803177, 0,
-			0.986711979, -0.047331572, 0.155433148, 0,
-			-1581.244507, -332.2875977, 487.700531, 1
+	{
+		viewMatrix = new Float32Array(16);
+		viewMatrix2 = new Float32Array(16);
+		projMatrix = new Float32Array(16);
+		viewProjMatr = new Float32Array(16);
+		flipMatr = new Float32Array([
+			-1, 0, 0, 0,
+			0, 1, 0, 0,
+			0, 0, 1, 0,
+			0, 0, 0, 1
 		]);
-		mat4.multiply(lightViewProjMatrix, lightProjMatrix, lightViewMatrix);
-		*/
-		
-		// Adornia
+		aspectRatio = canvas.width / canvas.height;
+	}
 
-		var smCamParams = [
-			{
-				name: "ad",
-				camPos: [-1239.6, -151, -1433],
-				camRot: [-2.29, 2.813, 3.14]
-			},
-			{
-				name: "doct",
-				camPos: [-1395.8, -291.7, -1338.5],
-				camRot: [-2.4, -1.423, 3.14]
-			}
-		]
-		
-		var quatStart = quat.create();
-		quat.identity(quatStart);
-		var quatX = quat.create();
-		var quatY = quat.create();
-		var quatZ = quat.create();
-		
-		var smCam = smCamParams.find(value => value.name === sceneName);
-		quat.rotateX(quatX, quatStart, smCam.camRot[0]);
-		quat.rotateY(quatY, quatX, smCam.camRot[1]);
-		quat.rotateZ(quatZ, quatY, smCam.camRot[2]);
+	// Light camera
+	{
+		isSMEnabled = true;
+		const ext = gl.getExtension('WEBGL_depth_texture');
+		if (!ext) {
+			isSMEnabled = false;
+		}
+		if (isSMEnabled) {
+			// Setup matrix. Only one viewProj is needed
+			var lightViewMatrix = new Float32Array(16);
+			var lightViewMatrix2 = new Float32Array(16);
+			var lightProjMatrix = new Float32Array(16);
+			lightViewProjMatrix = new Float32Array(16);
+			mat4.ortho(lightProjMatrix, -400, 400, -400, 400, zNearSM, zFarSM);
 
-		mat4.fromRotationTranslation(lightViewMatrix, quatZ, vec3.create());
-		mat4.translate(lightViewMatrix, lightViewMatrix, smCam.camPos);
-		mat4.multiply(lightViewMatrix2, flipMatr, lightViewMatrix);
-		mat4.multiply(lightViewProjMatrix, lightProjMatrix, lightViewMatrix2);
+			var smCamParams = [
+				{
+					name: "ad",
+					camPos: [-1239.6, -151, -1433],
+					camRot: [-2.29, 2.813, 3.14]
+				},
+				{
+					name: "doct",
+					camPos: [-1395.8, -291.7, -1338.5],
+					camRot: [-2.4, -1.423, 3.14]
+				}
+			]
 
-		// Setup textures
-		depthTexture = gl.createTexture();
-		gl.bindTexture(gl.TEXTURE_2D, depthTexture);
-		gl.texImage2D(
-			gl.TEXTURE_2D,      // target
-			0,                  // mip level
-			gl.DEPTH_COMPONENT, // internal format
-			depthTextureSize,   // width
-			depthTextureSize,   // height
-			0,                  // border
-			gl.DEPTH_COMPONENT, // format
-			gl.UNSIGNED_INT,    // type
-			null);              // data
-		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
-		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
-		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
-		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
+			var quatStart = quat.create();
+			quat.identity(quatStart);
+			var quatX = quat.create();
+			var quatY = quat.create();
+			var quatZ = quat.create();
 
-		depthFramebuffer = gl.createFramebuffer();
-		gl.bindFramebuffer(gl.FRAMEBUFFER, depthFramebuffer);
-		gl.framebufferTexture2D(
-			gl.FRAMEBUFFER,       // target
-			gl.DEPTH_ATTACHMENT,  // attachment point
-			gl.TEXTURE_2D,        // texture target
-			depthTexture,         // texture
-			0);                   // mip level
+			var smCam = smCamParams.find(value => value.name === sceneName);
+			quat.rotateX(quatX, quatStart, smCam.camRot[0]);
+			quat.rotateY(quatY, quatX, smCam.camRot[1]);
+			quat.rotateZ(quatZ, quatY, smCam.camRot[2]);
 
-		const unusedTexture = gl.createTexture();
-		gl.bindTexture(gl.TEXTURE_2D, unusedTexture);
-		gl.texImage2D(
-			gl.TEXTURE_2D,
-			0,
-			gl.RGBA,
-			depthTextureSize,
-			depthTextureSize,
-			0,
-			gl.RGBA,
-			gl.UNSIGNED_BYTE,
-			null,
-		);
-		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
-		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
-		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
-		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
+			mat4.fromRotationTranslation(lightViewMatrix, quatZ, vec3.create());
+			mat4.translate(lightViewMatrix, lightViewMatrix, smCam.camPos);
+			mat4.multiply(lightViewMatrix2, flipMatr, lightViewMatrix);
+			mat4.multiply(lightViewProjMatrix, lightProjMatrix, lightViewMatrix2);
 
-		// attach it to the framebuffer
-		gl.framebufferTexture2D(
-			gl.FRAMEBUFFER,        // target
-			gl.COLOR_ATTACHMENT0,  // attachment point
-			gl.TEXTURE_2D,         // texture target
-			unusedTexture,         // texture
-			0);                    // mip level
+			// Setup textures
+			depthTexture = gl.createTexture();
+			gl.bindTexture(gl.TEXTURE_2D, depthTexture);
+			gl.texImage2D(
+				gl.TEXTURE_2D,      // target
+				0,                  // mip level
+				gl.DEPTH_COMPONENT, // internal format
+				depthTextureSize,   // width
+				depthTextureSize,   // height
+				0,                  // border
+				gl.DEPTH_COMPONENT, // format
+				gl.UNSIGNED_INT,    // type
+				null);              // data
+			gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+			gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+			gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
+			gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
+
+			depthFramebuffer = gl.createFramebuffer();
+			gl.bindFramebuffer(gl.FRAMEBUFFER, depthFramebuffer);
+			gl.framebufferTexture2D(
+				gl.FRAMEBUFFER,       // target
+				gl.DEPTH_ATTACHMENT,  // attachment point
+				gl.TEXTURE_2D,        // texture target
+				depthTexture,         // texture
+				0);                   // mip level
+
+			const unusedTexture = gl.createTexture();
+			gl.bindTexture(gl.TEXTURE_2D, unusedTexture);
+			gl.texImage2D(
+				gl.TEXTURE_2D,
+				0,
+				gl.RGBA,
+				depthTextureSize,
+				depthTextureSize,
+				0,
+				gl.RGBA,
+				gl.UNSIGNED_BYTE,
+				null,
+			);
+			gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+			gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+			gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
+			gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
+
+			// attach it to the framebuffer
+			gl.framebufferTexture2D(
+				gl.FRAMEBUFFER,        // target
+				gl.COLOR_ATTACHMENT0,  // attachment point
+				gl.TEXTURE_2D,         // texture target
+				unusedTexture,         // texture
+				0);                    // mip level
+		}
 	}
 
 	// Load scene objects (meshes + binded shader + binded texture) from json
-	var shaderNames = [];
-	var texNames = [];
-	var sceneObjects = [];
-	var uniqShaderNames = [];
-	var uniqTexNames = [];
+	{
+		var shaderNames = [];
+		var texNames = [];
+		var sceneObjects = [];
+		var sceneBuildings = new Map;
+		var uniqShaderNames = [];
+		var uniqTexNames = [];
 
-	var sceneMeshesToLoadCount = -1; // Initial value. Scene must have objects
+		var sceneMeshesToLoadCount = -1; // Initial value. Scene must have objects
 
-	loadJSONResource('scenes', function (err, result) {
-		if (err) {
-			alert('Fatal error getting scene (see console)');
-			console.error(err);
-			return 1;
-		} else {
-			scenesJson = result;
+		loadJSONResource('scenes', function (err, result) {
+			if (err) {
+				console.error('Fatal error getting scene (see console)');
+				console.error(err);
+				return 1;
+			} else {
+				scenesJson = result;
+				currentScene = result.scenes.find(value => value.sceneName === sceneName);
 
-			currentScene = result.scenes.find(value => value.sceneName === sceneName);
+				sceneMeshesToLoadCount = currentScene.objects.length + currentScene.buildings.length; // Set scene objects count to some valid value
 
-			var loadedScenes = [];
-			loadedScenes.push(currentScene.objects);
+				var loadedBuildings = [];
+				loadedBuildings.push(currentScene.buildings);
 
-			var selectedScene = 0;
-			sceneMeshesToLoadCount = loadedScenes[selectedScene].length; // Set scene objects count to some valid value
-
-			for (const obj of loadedScenes[selectedScene]) {
-
-				sceneObjects.push({
-					meshName: obj.mesh, meshData: {}, shader: obj.shader, shaderId: {}, blend: obj.blend,
-					tintColor: obj.tintColor, uvScale: obj.uvScale,
-					texture: obj.texture, texture_2: obj.texture_2, texture_3: obj.texture_3, texture_4: obj.texture_4,
-					textureId: {}, texture2Id: {}, texture3Id: {}, texture4Id: {}, strip: obj.strip, transform: obj.transform, indexCount: obj.indexCount
-				});
-				shaderNames.push(obj.shader);
-				texNames.push(obj.texture);
-				if (obj.texture_2) {
-					texNames.push(obj.texture_2);
-				}
-				if (obj.texture_3) {
-					texNames.push(obj.texture_3);
-				}
-				if (obj.texture_4) {
-					texNames.push(obj.texture_4);
+				function loadObjectResources(obj) {
+					shaderNames.push(obj.shader);
+					texNames.push(obj.texture);
+					if (obj.texture_2) {
+						texNames.push(obj.texture_2);
+					}
+					if (obj.texture_3) {
+						texNames.push(obj.texture_3);
+					}
+					if (obj.texture_4) {
+						texNames.push(obj.texture_4);
+					}
 				}
 
-				sceneMeshesToLoadCount--; // Decrement after each loaded object
+				for (const obj of currentScene.objects) {
+					sceneObjects.push({
+						meshName: obj.mesh, meshData: {}, shader: obj.shader, shaderId: {}, blend: obj.blend,
+						tintColor: obj.tintColor, uvScale: obj.uvScale,
+						texture: obj.texture, texture_2: obj.texture_2, texture_3: obj.texture_3, texture_4: obj.texture_4,
+						textureId: {}, texture2Id: {}, texture3Id: {}, texture4Id: {}, strip: obj.strip, transform: obj.transform, indexCount: obj.indexCount
+					});
+					loadObjectResources(obj);
+
+					sceneMeshesToLoadCount--; // Decrement after each loaded object
+				}
+				
+				identityMatrix = new Float32Array(16);
+				mat4.identity(identityMatrix);
+				for (const building of currentScene.buildings) {
+					var buildingTranslation = building.translation ? building.translation : [0, 0];
+					for (const obj of building.objects) {
+						obj.transform[3] -= buildingTranslation[0];
+						obj.transform[11] -= buildingTranslation[1];
+
+						if (!sceneBuildings.has(building.name)) {
+							sceneBuildings.set(building.name, {size: building.size, objects: []});
+						}
+						sceneBuildings.get(building.name).objects.push({
+							meshName: obj.mesh, meshData: {}, shader: obj.shader, shaderId: {}, blend: obj.blend,
+							tintColor: obj.tintColor, uvScale: obj.uvScale,
+							texture: obj.texture, texture_2: obj.texture_2, texture_3: obj.texture_3, texture_4: obj.texture_4,
+							textureId: {}, texture2Id: {}, texture3Id: {}, texture4Id: {}, strip: obj.strip, transform: obj.transform, indexCount: obj.indexCount
+						});
+						loadObjectResources(obj);
+					}
+
+					sceneMeshesToLoadCount--;
+				}
 			}
-		}
-	});
+		});
+	}
 
 	// Remove duplicates from shaders/textures. Associate object with its shader and texture by id
 	function waitLoadScene() {
@@ -217,15 +276,25 @@ var InitDemo = function (sceneName) {
 			uniqShaderNames = [...new Set(shaderNames)];
 			uniqTexNames = [...new Set(texNames)];
 
-			for (var objId = 0; objId < sceneObjects.length; objId++) {
-				sceneObjects[objId].shaderId = uniqShaderNames.findIndex(value => value === sceneObjects[objId].shader);
-				sceneObjects[objId].textureId = uniqTexNames.findIndex(value => value === sceneObjects[objId].texture);
-				sceneObjects[objId].texture2Id = uniqTexNames.findIndex(value => value === sceneObjects[objId].texture_2);
-				sceneObjects[objId].texture3Id = uniqTexNames.findIndex(value => value === sceneObjects[objId].texture_3);
-				sceneObjects[objId].texture4Id = uniqTexNames.findIndex(value => value === sceneObjects[objId].texture_4);
+			function remapIndices(sceneObjectsContainer, objId) {
+				sceneObjectsContainer[objId].shaderId = uniqShaderNames.findIndex(value => value === sceneObjectsContainer[objId].shader);
+				sceneObjectsContainer[objId].textureId = uniqTexNames.findIndex(value => value === sceneObjectsContainer[objId].texture);
+				sceneObjectsContainer[objId].texture2Id = uniqTexNames.findIndex(value => value === sceneObjectsContainer[objId].texture_2);
+				sceneObjectsContainer[objId].texture3Id = uniqTexNames.findIndex(value => value === sceneObjectsContainer[objId].texture_3);
+				sceneObjectsContainer[objId].texture4Id = uniqTexNames.findIndex(value => value === sceneObjectsContainer[objId].texture_4);
 			}
 
-			LoadResources(sceneObjects, uniqShaderNames, uniqTexNames);
+			for (var objId = 0; objId < sceneObjects.length; objId++) {
+				remapIndices(sceneObjects, objId);
+			}
+			sceneBuildings.forEach(function (value, key, map){
+				var building = value.objects;
+				for (objId = 0; objId < building.length; ++objId) {
+					remapIndices(building, objId);
+				}
+			});
+
+			LoadResources(sceneObjects, sceneBuildings, uniqShaderNames, uniqTexNames);
 		} else {
 			window.setTimeout(waitLoadScene, 100);
 		}
@@ -233,7 +302,7 @@ var InitDemo = function (sceneName) {
 	waitLoadScene();
 };
 
-var LoadResources = function (sceneObjects, shaderNames, texNames) {
+var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texNames) {
 	// Load shaders, textures and meshes to WebGL
 	var sceneTextures = new Array(texNames.length); // Textures array
 	var sceneShaders = new Array(shaderNames.length); // Compiled PSOs
@@ -245,20 +314,20 @@ var LoadResources = function (sceneObjects, shaderNames, texNames) {
 	function loadShaders(shaderId) {
 		loadTextResource(shaderNames[shaderId], '.glsl', function (shaderErr, definesText) { // defines
 			if (shaderErr) {
-				alert('Fatal error getting vertex shader ( ' + shaderNames[shaderId] + ' )');
+				console.error('Fatal error getting vertex shader ( ' + shaderNames[shaderId] + ' )');
 				console.error(vsErr);
 				return 1;
 			} else {
 				loadTextResource('shader', '.vs.glsl', function (vsErr, vsText) { // uber shader VS
 					if (vsErr) {
-						alert('Fatal error getting vertex shader ( shader.vs.glsl )');
+						console.error('Fatal error getting vertex shader ( shader.vs.glsl )');
 						console.error(vsErr);
 						return 1;
 					} else {
 						console.debug('test');
 						loadTextResource('shader', '.fs.glsl', function (fsErr, fsText) { // uber shader FS
 							if (fsErr) {
-								alert('Fatal error getting fragment shader ( shader.fs.glsl )');
+								console.error('Fatal error getting fragment shader ( shader.fs.glsl )');
 								console.error(fsErr);
 								return 1;
 							} else {
@@ -320,7 +389,7 @@ var LoadResources = function (sceneObjects, shaderNames, texNames) {
 		texName = 'textures/' + texNames[textureId] + '.webp';
 		loadImage(texName, function (imgErr, img) {
 			if (imgErr) {
-				alert('Fatal error getting texture ( ' + texName + ' )');
+				console.error('Fatal error getting texture ( ' + texName + ' )');
 				console.error(imgErr);
 				return 1;
 			} else {
@@ -348,11 +417,11 @@ var LoadResources = function (sceneObjects, shaderNames, texNames) {
 	for (i = 0; i < texNames.length; ++i) {
 		loadTexture(i);
 	}
-	function loadMesh(objectId) {
-		var meshName = 'meshes/' + sceneObjects[objectId].meshName;
+	function loadMesh(sceneObjectsContainer, objectId) {
+		var meshName = 'meshes/' + sceneObjectsContainer[objectId].meshName;
 		loadRawTriangles(meshName, function (meshErr, meshData) {
 			if (meshErr) {
-				alert('Fatal error getting mesh (' + meshName + ')');
+				console.error('Fatal error getting mesh (' + meshName + ')');
 				console.error(meshErr);
 				return 1;
 			} else {
@@ -361,18 +430,18 @@ var LoadResources = function (sceneObjects, shaderNames, texNames) {
 				gl.bindBuffer(gl.ARRAY_BUFFER, vertices);
 				gl.bufferData(gl.ARRAY_BUFFER, meshFloat, gl.STATIC_DRAW);
 
-				var attributes = scenesJson.shaderLayouts.find(value => value.name === shaderNames[sceneObjects[objectId].shaderId]).layout;
+				var attributes = scenesJson.shaderLayouts.find(value => value.name === shaderNames[sceneObjectsContainer[objectId].shaderId]).layout;
 				var vertStride = 0;
 				for (const attribute of attributes) {
 					vertStride += attribute.count * attribute.sizeElem;
 				}
 
 				var indexCount = meshFloat.length / (vertStride / 4);
-				if (indexCount != sceneObjects[objectId].indexCount) {
-					alert('Fatal error getting index count (' + meshName + ')');
+				if (indexCount != sceneObjectsContainer[objectId].indexCount) {
+					console.error('Fatal error getting index count (' + meshName + ')');
 				}
 
-				sceneObjects[objectId].meshData = { vertices: vertices, vertStride: vertStride, indexCount: meshFloat.length / (vertStride / 4) };
+				sceneObjectsContainer[objectId].meshData = { vertices: vertices, vertStride: vertStride, indexCount: meshFloat.length / (vertStride / 4) };
 				console.log('Loaded mesh ' + meshName);
 
 				meshesLoaded += 1;
@@ -380,50 +449,86 @@ var LoadResources = function (sceneObjects, shaderNames, texNames) {
 		});
 	}
 	for (i = 0; i < sceneObjects.length; ++i) {
-		loadMesh(i);
+		loadMesh(sceneObjects, i);
+	}
+	var totalMeshes = sceneObjects.length;
+	sceneBuildings.forEach(function (value, key, map){
+		var building = value.objects;
+		for (objId = 0; objId < building.length; ++objId) {
+			loadMesh(building, objId);
+		}
+		totalMeshes += building.length;
+	});
+
+	function PrepareAndDrawObject(obj, isSMPass, rotation, translation) {
+		var meshData = obj.meshData;
+		var associatedTexture = obj.textureId;
+		var associatedTexture2 = obj.texture2Id;
+		var associatedTexture3 = obj.texture3Id;
+		var associatedTexture4 = obj.texture4Id;
+		var associatedShader = sceneShaders[obj.shaderId];
+		var textures = [sceneTextures[associatedTexture], associatedTexture2 ? sceneTextures[associatedTexture2] : {}, 
+			associatedTexture3 ? sceneTextures[associatedTexture3] : {}, associatedTexture4 ? sceneTextures[associatedTexture4] : {}];
+		DrawObject(isSMPass ? associatedShader.PSO_SM : associatedShader.PSO, textures,
+			meshData.vertices, meshData.indexCount, meshData.vertStride, sceneShaders[obj.shaderId].attributes, 
+			obj.strip, obj.transform, isSMPass, obj.blend, obj.tintColor, obj.uvScale, rotation, translation);
 	}
 
-
 	function waitInitialization() {
-		if (shadersLoaded == shaderNames.length && texturesLoaded == texNames.length && meshesLoaded == sceneObjects.length) {
+		if (shadersLoaded == shaderNames.length && texturesLoaded == texNames.length && meshesLoaded == totalMeshes) {
 			var loop = function () {
+				const buildings = [
+					"crystal_farm",
+					"food_farm",
+					"heavy_farm",
+					"light_farm",
+					"silver_farm",
+					"talent_farm",
+				];
+				var buildingsToDraw = [];
+				var buildingSelector = document.getElementsByClassName("buildings");
+				var buildingRotation = document.getElementsByClassName("rotation");
+				var buildingPositionX = document.getElementsByClassName("positionX");
+				var buildingPositionZ = document.getElementsByClassName("positionZ");
+				
+				for (i = 0; i < buildingSelector.length; ++i) {
+					if (buildingSelector[i].checked) {
+						var mesh = sceneBuildings.get(buildings[i]);
+						buildingsToDraw.push({mesh: mesh, rotation: buildingRotation[i].value, 
+							translation: [1072 + (buildingPositionX[i].value * 7.0 + mesh.size[0] / 2.0 * 7.0), 1, 1360 + (buildingPositionZ[i].value * 7.0 + mesh.size[1] / 2.0 * 7.0)]});
+					} // 1128, 1416
+				}
+				const zeroTranslation = [1091.764, 1379.797]
 				if (isSMEnabled) {
 					gl.bindFramebuffer(gl.FRAMEBUFFER, depthFramebuffer);
 					gl.viewport(0, 0, depthTextureSize, depthTextureSize);
 					gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-					
+
 					for (i = 0; i < sceneObjects.length; ++i) {
-						if (sceneObjects[i].blend)
+						obj = sceneObjects[i];
+						if (obj.blend)
 							break;
-						var meshData = sceneObjects[i].meshData;
-						var associatedShader = sceneObjects[i].shaderId;
-						var associatedTexture = sceneObjects[i].textureId;
-						var associatedTexture2 = sceneObjects[i].texture2Id;
-						var associatedTexture3 = sceneObjects[i].texture3Id;
-						var associatedTexture4 = sceneObjects[i].texture4Id;
-						var textures = [sceneTextures[associatedTexture], associatedTexture2 ? sceneTextures[associatedTexture2] : {}, associatedTexture3 ? sceneTextures[associatedTexture3] : {}, associatedTexture4 ? sceneTextures[associatedTexture4] : {}];
-						DrawObject(sceneShaders[associatedShader].PSO_SM, textures,
-							meshData.vertices, meshData.indexCount, meshData.vertStride, sceneShaders[associatedShader].attributes, sceneObjects[i].strip, sceneObjects[i].transform, true);
+						PrepareAndDrawObject(obj, true);
 					}
+					for (buildingToDraw of buildingsToDraw) {
+						for (i = 0; i < buildingToDraw.mesh.objects.length; ++i) {
+							PrepareAndDrawObject(buildingToDraw.mesh.objects[i], true, buildingToDraw.rotation, buildingToDraw.translation);
+						}
+					}
+
 				}
 
 				gl.bindFramebuffer(gl.FRAMEBUFFER, null);
 				gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 				gl.clearColor(0.75, 0.85, 0.8, 1.0);
 				gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-
+				for (buildingToDraw of buildingsToDraw) {
+					for (i = 0; i < buildingToDraw.mesh.objects.length; ++i) {
+						PrepareAndDrawObject(buildingToDraw.mesh.objects[i], false, buildingToDraw.rotation, buildingToDraw.translation);
+					}
+				}
 				for (i = 0; i < sceneObjects.length; ++i) {
-					var meshData = sceneObjects[i].meshData;
-					var associatedShader = sceneObjects[i].shaderId;
-					var associatedTexture = sceneObjects[i].textureId;
-					var associatedTexture2 = sceneObjects[i].texture2Id;
-					var associatedTexture3 = sceneObjects[i].texture3Id;
-					var associatedTexture4 = sceneObjects[i].texture4Id;
-					var textures = [sceneTextures[associatedTexture], associatedTexture2 ? sceneTextures[associatedTexture2] : {}, associatedTexture3 ? sceneTextures[associatedTexture3] : {}, associatedTexture4 ? sceneTextures[associatedTexture4] : {}];
-					DrawObject(sceneShaders[associatedShader].PSO, textures,
-						meshData.vertices, meshData.indexCount, meshData.vertStride, sceneShaders[associatedShader].attributes, sceneObjects[i].strip, sceneObjects[i].transform, false,
-						sceneObjects[i].blend, sceneObjects[i].tintColor, sceneObjects[i].uvScale
-					);
+					PrepareAndDrawObject(sceneObjects[i], false);
 				}
 				gl.disable(gl.BLEND);
 				gl.colorMask(true, true, true, true);
@@ -441,8 +546,13 @@ var LoadResources = function (sceneObjects, shaderNames, texNames) {
 
 
 var SetupMainCam = function (program) {
+	mat4.perspective(projMatrix, glMatrix.toRadian(fov), aspectRatio, zNear, zFar);
+
 	var camPosElements = document.getElementsByClassName("camPosition");
-	var camPos = vec3.fromValues(camPosElements[0].value, camPosElements[1].value, camPosElements[2].value);
+	var koef = 0.5;
+	var camPosX = Number(camPosElements[0].value) + camDeltaPos[0] * koef - camDeltaPos[1] * (1 - koef);
+	var camPosY = Number(camPosElements[2].value) - camDeltaPos[0] * koef - camDeltaPos[1] * (1 - koef);
+	var camPos = vec3.fromValues(camPosX, camPosElements[1].value, camPosY);
 
 	var camForwElements = document.getElementsByClassName("camForward");
 	var quatStart = quat.create();
@@ -513,10 +623,11 @@ var GetBlendFunc = function (blendString) {
 	}
 }
 
-var DrawObject = function (program, textures, vertices, indexCount, vertStride, attributes, strip, transform, isSMPass, blend, tintColor, uvScale) {
+var DrawObject = function (program, textures, vertices, indexCount, vertStride, attributes, 
+	strip, transform, isSMPass, blend, tintColor, uvScale, rotation, translation) {
 	if (blend) {
 		gl.enable(gl.BLEND);
-		gl.blendEquation( gl.FUNC_ADD );
+		gl.blendEquation(gl.FUNC_ADD);
 		gl.colorMask(true, true, true, false);
 		gl.depthMask(false);
 		gl.blendFunc(GetBlendFunc(blend[0]), GetBlendFunc(blend[1]));
@@ -567,7 +678,17 @@ var DrawObject = function (program, textures, vertices, indexCount, vertStride, 
 		0, 0, 0, 1
 	]);
 	var worldMatrix2 = new Float32Array(16);
+	var worldMatrix3 = new Float32Array(16);
 	mat4.transpose(worldMatrix2, worldMatrix);
+	mat4.fromRotation(worldMatrix3, rotation, [0, 1, 0]);
+	if (rotation) {
+		mat4.mul(worldMatrix2, worldMatrix3, worldMatrix2);
+	}
+	if (translation) {
+		worldMatrix2[12] += translation[0];
+		worldMatrix2[13] += translation[1];
+		worldMatrix2[14] += translation[2];
+	}
 
 	var matWorldUniformLocation = gl.getUniformLocation(program, 'mWorld');
 	gl.uniformMatrix4fv(matWorldUniformLocation, gl.FALSE, worldMatrix2);

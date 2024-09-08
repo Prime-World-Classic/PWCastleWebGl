@@ -1,28 +1,85 @@
 <html>
-	<head>
-		<title>Prime World Castle</title>
-		<style>
-			input[type='range']{
-  			  width: 400px;
-} 
-		</style>
-	</head>
-	<body onload="InitDemo('doct');">
-		<canvas id="game-surface" width="1200" height="768">
-			Your browser does not support HTML5
-		</canvas>
-		<br />
-		<i>Demo is above this text</i></br>
-		<script src="util.js"></script>
-		<script src="gl-matrix.js"></script>
-		<script src="app.js"></script>
 
-		<input type="range" step="0.1" min="-2000" max="0" value="-1433" class="camPosition"/>
-		<input type="range" step="0.1" min="-1000" max="0" value="-513" class="camPosition"/>
+<head>
+	<title>Prime World Castle</title>
+	<style>
+		input[type='range'] {
+			width: 400px;
+		}
+
+		canvas {
+			position: absolute;
+			left: 0;
+		}
+
+		.tweakers {
+			position: absolute;
+			right: 10%;
+		}
+	</style>
+</head>
+
+<body onload="InitDemo('doct');">
+	<canvas id="game-surface" width="1200" height="768">
+		Your browser does not support HTML5
+	</canvas>
+	<script src="util.js"></script>
+	<script src="gl-matrix.js"></script>
+	<script src="app.js"></script>
+	<!--
 		<input type="range" step="0.1" min="-2000" max="0" value="-1433" class="camPosition"/></br>
-		
-		<input type="range" step="0.001" min="-3.14" max="3.14" value="-2.08" class="camForward"/>
-		<input type="range" step="0.001" min="-3.14" max="3.14" value="-2.36" class="camForward"/>
-		<input type="range" step="0.001" min="-3.14" max="3.14" value="3.14" class="camForward"/></br>
-	</body>
+		<input type="range" step="0.1" min="-1000" max="0" value="-513" class="camPosition"/></br>
+		<input type="range" step="0.1" min="-2000" max="0" value="-1433" class="camPosition"/></br>
+-->
+	<div class="tweakers">
+		<h1>Camera</h1>
+		Cam position</br>
+		<input type="range" step="0.1" min="-2000" max="0" value="-1433" class="camPosition"/></br>
+		<input type="range" step="0.1" min="-1000" max="0" value="-513" class="camPosition"/></br>
+		<input type="range" step="0.1" min="-2000" max="0" value="-1533" class="camPosition"/></br>
+
+		Cam yaw/pitch/roll</br>
+		<input type="range" step="0.001" min="-3.14" max="3.14" value="-2.08" class="camForward" /></br>
+		<input type="range" step="0.001" min="-3.14" max="3.14" value="-2.36" class="camForward" /></br>
+		<input type="range" step="0.001" min="-3.14" max="3.14" value="3.14" class="camForward" /></br>
+
+		<h1>Buildings</h1>
+		Crystal farm</br>
+		<input type="checkbox"  class="buildings" /></br>
+		<input type="range" step="1" min="0" max="50" value="8" class="positionX" /></br>
+		<input type="range" step="1" min="-18" max="12" value="2" class="positionZ" /></br>
+		<input type="range" step="1.57" min="-3.14" max="3.14" value="0" class="rotation" /></br>
+
+		Food farm</br>
+		<input type="checkbox"  class="buildings" /></br>
+		<input type="range" step="1" min="0" max="50" value="18" class="positionX" /></br>
+		<input type="range" step="1" min="-18" max="12" value="5" class="positionZ" /></br>
+		<input type="range" step="1.57" min="-3.14" max="3.14" value="0" class="rotation" /></br>
+
+		Heavy farm</br>
+		<input type="checkbox"  class="buildings" /></br>
+		<input type="range" step="1" min="0" max="50" value="1" class="positionX" /></br>
+		<input type="range" step="1" min="-18" max="12" value="9" class="positionZ" /></br>
+		<input type="range" step="1.57" min="-3.14" max="3.14" value="0" class="rotation" /></br>
+
+		Light farm</br>
+		<input type="checkbox"  class="buildings" /></br>
+		<input type="range" step="1" min="0" max="50" value="24" class="positionX" /></br>
+		<input type="range" step="1" min="-18" max="12" value="-9" class="positionZ" /></br>
+		<input type="range" step="1.57" min="-3.14" max="3.14" value="0" class="rotation" /></br>
+
+		Silver farm</br>
+		<input type="checkbox"  class="buildings" /></br>
+		<input type="range" step="1" min="0" max="50" value="25" class="positionX" /></br>
+		<input type="range" step="1" min="-18" max="12" value="12" class="positionZ" /></br>
+		<input type="range" step="1.57" min="-3.14" max="3.14" value="0" class="rotation" /></br>
+
+		Talent farm</br>
+		<input type="checkbox"  class="buildings" /></br>
+		<input type="range" step="1" min="0" max="50" value="22" class="positionX" /></br>
+		<input type="range" step="1" min="-18" max="12" value="-2" class="positionZ" /></br>
+		<input type="range" step="1.57" min="-3.14" max="3.14" value="0" class="rotation" /></br>
+	</div>
+</body>
+
 </html>
