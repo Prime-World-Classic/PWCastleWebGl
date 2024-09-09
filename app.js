@@ -29,7 +29,6 @@ const cursorPosition = [0, 0]
 var fov = 45;
 document.onwheel = zoom;
 function zoom(event) {
-	event.preventDefault();
 
 	fov -= event.deltaY * -0.1;
 
@@ -43,11 +42,9 @@ function zoom(event) {
 var doMove = false;
 var camDeltaPos = [0.0, 0.0]
 function prepareMove(event) {
-	event.preventDefault();
 	doMove = true;
 }
 function stopMove(event) {
-	event.preventDefault();
 	doMove = false;
 }
 function moveMouse(e) {
@@ -488,13 +485,31 @@ var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texName
 		if (shadersLoaded == shaderNames.length && texturesLoaded == texNames.length && meshesLoaded == totalMeshes) {
 			var loop = function () {
 				const buildings = [
-					"crystal_farm",
+					"grid",
+
+					"unicorn",
+					//"crystal_farm",
 					"food_farm",
 					"heavy_farm",
 					"light_farm",
 					"silver_farm",
 					"talent_farm",
-					"grid",
+
+					"clan_house",
+					"fair",
+					"house",
+					"library",
+					"storage",
+
+					"agility",
+					"cunning",
+					"health",
+					"intelligence",
+					"strength",
+					"tavern",
+
+					"cat",
+					"dog",
 				];
 				var buildingsToDraw = [];
 				var buildingSelector = document.getElementsByClassName("buildings");

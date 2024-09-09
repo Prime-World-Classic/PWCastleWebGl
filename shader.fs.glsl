@@ -32,6 +32,8 @@ varying vec3 fragNormal;
 uniform sampler2D smTexture;
 uniform vec4 zNear_zFar;
 
+uniform mat4 lightViewProj;
+
 varying vec4 v_projectedTexcoord;
 #endif
 
@@ -66,7 +68,7 @@ vec3 neutral(vec3 color) {
 void main()
 {
   const vec3 lightColor = vec3(1.0, 1.0, 1.0) * 1.6;
-  const float shadowContrast = 0.85;
+  const float shadowContrast = 0.75;
 
   const float gridFalloffDistance = 50.0;
 
@@ -93,7 +95,9 @@ void main()
   return;
 */
 
-  light *= max(0.0, dot(normalize(fragNormal), -normalize(vec3(mViewProj[0].z, mViewProj[1].z, mViewProj[2].z))));
+#ifdef RENDER_PASS_COLOR
+  light *= max(0.0, dot(normalize(fragNormal), -normalize(vec3(lightViewProj[0].z, lightViewProj[1].z, lightViewProj[2].z))));
+#endif
 #endif // VS_NORMAL
 
   // Albedo

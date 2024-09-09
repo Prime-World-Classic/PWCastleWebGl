@@ -481,6 +481,25 @@
             "sceneName": "doct",
             "buildings": [
                 {
+                    "name": "grid",
+                    "translation": [0, 0],
+                    "size": [1, 1],
+                    "objects": [
+                        {
+                            "mesh": "grid_9_01.bin",
+                            "indexCount": 7128,
+                            "shader": "grid_shader_color_pos_uv",
+                            "texture": "doct4124",
+                            "transform": [
+                                1, 0, 0, 124,
+                                0, 1, 0, 27,
+                                0, 0, 1, -45,
+                                0, 0, 0, 1
+                            ]
+                        }
+                    ]
+                },
+                {
                     "name": "crystal_farm",
                     "translation": [1099.5, 1388.5],
                     "size": [8, 8],
@@ -1313,23 +1332,909 @@
                                 
                                 0, 0, 0, 1
                             ]
+                        } 
+                    ]
+                },
+                {
+                    "name": "clan_house",
+                    "translation": [1087.0, 1374.3],
+                    "size": [5, 5],
+                    "objects": [
+                        {
+                            "mesh": "doct/development/c_8_01.bin",
+                            "indexCount": 141,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1522435",
+                            "transform": [
+                                -0.03345, -0.99944, 5.05691E-07, 1087.04883 ,
+                                0.99944, -0.03345, 8.46097E-09, 46.44915  ,
+                                8.46097E-09, 5.05691E-07, 1.00, 1374.59814 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/development/c_8_02.bin",
+                            "indexCount": 5016,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1522435",
+                            "transform": [
+                                0.00, -0.90, 0.00, 1085.50  ,
+                                0.00, 0.00, 0.90, 27.24246  ,
+                                -0.90, 0.00, 0.00, 1374.49988 ,
+                                
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/development/c_12_01.bin",
+                            "indexCount": 768,
+                            "shader": "shader_pos_tangent_norm_uv",
+                            "texture": "build/d724929",
+                            "transform": [
+                                -7.75870E-08, 0.65085, 7.75870E-08, 1087.20703 ,
+                                0.00, -7.75870E-08, 0.65085, 26.67726        ,
+                                0.65085, 7.75870E-08, 9.24909E-15, 1374.30334 ,
+                                
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/development/c_12_02.bin",
+                            "indexCount": 60,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/d334960",
+                            "transform": [
+                                -7.75870E-08, 0.65085, 7.75870E-08, 1087.20703 ,
+                                0.00, -7.75870E-08, 0.65085, 26.7978         ,
+                                0.65085, 7.75870E-08, 9.24909E-15, 1374.30334 ,
+                                
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/development/c_12_03.bin",
+                            "indexCount": 99,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/d1522430",
+                            "transform": [
+                                -0.03345, -0.99944, 5.05691E-07, 1087.04883 ,
+                                0.99944, -0.03345, 8.46097E-09, 46.44915  ,
+                                8.46097E-09, 5.05691E-07, 1.00, 1374.59814 ,
+                                
+                                0, 0, 0, 1
+                            ]
                         }
                     ]
                 },
                 {
-                    "name": "grid",
-                    "translation": [0, 0],
-                    "size": [1, 1],
+                    "name": "fair",
+                    "translation": [1092.50, 1380.95],
+                    "size": [6, 6],
                     "objects": [
                         {
-                            "mesh": "grid_9_01.bin",
-                            "indexCount": 7128,
-                            "shader": "grid_shader_color_pos_uv",
-                            "texture": "doct4124",
+                            "mesh": "doct/development/f_8_01.bin",
+                            "indexCount": 15753,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/d1555577",
                             "transform": [
-                                1, 0, 0, 124,
-                                0, 1, 0, 27,
-                                0, 0, 1, -45,
+                                0.00, -0.62704, 0.00, 1092.50012 ,
+                                0.00, 0.00, 0.62704, 26.79535  ,
+                                -0.62704, 0.00, 0.00, 1381.50  ,
+
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/development/f_12_01.bin",
+                            "indexCount": 408,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/d334960",
+                            "transform": [
+                                1.34813, 0.00, 0.00, 1092.50012        ,
+                                0.00, -1.60710E-07, 1.34813, 26.79535  ,
+                                0.00, -1.34813, -1.60710E-07, 1380.95471 ,
+                                
+                                
+                                0, 0, 0, 1
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "house",
+                    "translation": [1089.4, 1378],
+                    "size": [6, 6],
+                    "objects": [
+                        {
+                            "mesh": "doct/development/h_8_01.bin",
+                            "indexCount": 5430,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/d1387641",
+                            "transform": [
+                                5.55416E-08, 0.93183, 1.11083E-07, 1089.40576 ,
+                                0.00, -1.11083E-07, 0.93183, 26.79739         ,
+                                0.93183, -5.55416E-08, -6.62107E-15, 1377.99988 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/development/h_12_01.bin",
+                            "indexCount": 1296,
+                            "shader": "shader_pos_tangent_norm_uv",
+                            "texture": "build/d724929",
+                            "transform": [
+                                5.55416E-08, 0.93183, 1.11083E-07, 1089.40576 ,
+                                0.00, -1.11083E-07, 0.93183, 26.79739         ,
+                                0.93183, -5.55416E-08, -6.62107E-15, 1377.99988 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/development/h_12_02.bin",
+                            "indexCount": 27,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/d334960",
+                            "transform": [
+                                5.55416E-08, 0.93183, 1.11083E-07, 1089.40576 ,
+                                0.00, -1.11083E-07, 0.93183, 26.79739         ,
+                                0.93183, -5.55416E-08, -6.62107E-15, 1377.99988 ,
+                              
+                                0, 0, 0, 1
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "library",
+                    "translation": [1089.4, 1378],
+                    "size": [6, 6],
+                    "objects": [
+                        {
+                            "mesh": "doct/development/l_8_01.bin",
+                            "indexCount": 912,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1460434",
+                            "transform": [
+                                -1.07288E-07, 0.90, 0.00, 1087.38049      ,
+                                1.07288E-07, 1.27898E-14, 0.90, 41.77039  ,
+                                0.90, 1.07288E-07, -1.07288E-07, 1370.09631 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/development/l_8_02.bin",
+                            "indexCount": 396,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1460434",
+                            "transform": [
+                                0.90, 0.00, 0.00, 1087.13232        ,
+                                0.00, -1.07288E-07, 0.90, 32.66499  ,
+                                0.00, -0.90, -1.07288E-07, 1369.87939 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/development/l_8_03.bin",
+                            "indexCount": 912,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1460434",
+                            "transform": [
+                                -0.90, 1.10218E-16, 0.00, 1078.83643      ,
+                                1.31390E-23, 1.07288E-07, 0.90, 47.23068  ,
+                                1.10218E-16, 0.90, -1.07288E-07, 1383.81042 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/development/l_8_04.bin",
+                            "indexCount": 264,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1460434",
+                            "transform": [
+                                0.90, 0.00, 0.00, 1086.84412     ,
+                                0.00, 0.38934, 0.83236, 31.90194 ,
+                                0.00, -0.9467, 0.34232, 1376.57019 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/development/l_8_05.bin",
+                            "indexCount": 1098,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1460434",
+                            "transform": [
+                                0.90, 0.00, 0.00, 1078.91455      ,
+                                0.00, -1.07288E-07, 0.90, 38.27641 ,
+                                0.00, -0.90, -1.07288E-07, 1383.974 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/development/l_8_06.bin",
+                            "indexCount": 873,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1460434",
+                            "transform": [
+                                -1.07288E-07, 0.90, 0.00, 1090.18958      ,
+                                1.07288E-07, 1.27898E-14, 0.90, 29.99072  ,
+                                0.90, 1.07288E-07, -1.07288E-07, 1384.60413 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/development/l_8_07.bin",
+                            "indexCount": 3960,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1460434",
+                            "transform": [
+                                0.90, 0.00, 0.00, 1088.99988        ,
+                                0.00, -1.07288E-07, 0.90, 26.79739  ,
+                                0.00, -0.90, -1.07288E-07, 1377.99988 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/development/l_12_01.bin",
+                            "indexCount": 768,
+                            "shader": "shader_pos_tangent_norm_uv",
+                            "texture": "build/d724929",
+                            "transform": [
+                                5.55416E-08, 0.93183, 1.11083E-07, 1089.40576 ,
+                                0.00, -1.11083E-07, 0.93183, 26.79739         ,
+                                0.93183, -5.55416E-08, -6.62107E-15, 1377.99988 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/development/l_12_02.bin",
+                            "indexCount": 60,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/d334960",
+                            "transform": [
+                                5.55416E-08, 0.93183, 1.11083E-07, 1089.40576 ,
+                                0.00, -1.11083E-07, 0.93183, 26.79739         ,
+                                0.93183, -5.55416E-08, -6.62107E-15, 1377.99988 ,
+                              
+                                0, 0, 0, 1
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "storage",
+                    "translation": [1092.5, 1381.5],
+                    "size": [6, 6],
+                    "objects": [
+                        {
+                            "mesh": "doct/development/s_8_01.bin",
+                            "indexCount": 5844,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/d1429175",
+                            "transform": [
+                                0.8184, 0.00, 0.00, 1092.50012     ,
+                                0.00, -9.75609E-08, 0.8184, 26.79535 ,
+                                0.00, -0.8184, -9.75609E-08, 1381.50 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/development/s_12_01.bin",
+                            "indexCount": 864,
+                            "shader": "shader_pos_tangent_norm_uv",
+                            "texture": "build/d334960",
+                            "transform": [
+                                0.92509, 0.00, 0.00, 1092.50012     ,
+                                0.00, -1.10279E-07, 0.92509, 26.79535 ,
+                                0.00, -0.92509, -1.10279E-07, 1381.50 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/development/s_12_02.bin",
+                            "indexCount": 51,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/d334960",
+                            "transform": [
+                                0.92509, 0.00, 0.00, 1092.50012     ,
+                                0.00, -1.10279E-07, 0.92509, 26.79535 ,
+                                0.00, -0.92509, -1.10279E-07, 1381.50 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "agility",
+                    "translation": [1089.4, 1378],
+                    "size": [5, 5],
+                    "objects": [
+                        {
+                            "mesh": "doct/for-heroes/a_8_01.bin",
+                            "indexCount": 240,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/d1242011",
+                            "transform": [
+                                1, 0, 0, 0,
+                                0, 1, 0, 1,
+                                0, 0, 1, 0,
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/a_8_02.bin",
+                            "indexCount": 10179,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1242011",
+                            "transform": [
+                                -1.19209E-07, -1.00, -1.19209E-07, 1089.42603 ,
+                                0.00, -1.19209E-07, 1.00, 26.79739          ,
+                                -1.00, 1.19209E-07, 1.42109E-14, 1377.99988 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/a_12_01.bin",
+                            "indexCount": 36,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/d1242016",
+                            "transform": [
+                                -1.19209E-07, -1.00, -1.19209E-07, 1089.42603 ,
+                                0.00, -1.19209E-07, 1.00, 26.79739          ,
+                                -1.00, 1.19209E-07, 1.42109E-14, 1377.99988 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/a_12_02.bin",
+                            "indexCount": 396,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/d334960",
+                            "transform": [
+                                -1.19209E-07, -1.00, -1.19209E-07, 1089.83862 ,
+                                0.00, -1.19209E-07, 1.00, 26.91545          ,
+                                -1.00, 1.19209E-07, 1.42109E-14, 1376.72595 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "cunning",
+                    "translation": [1089.4, 1378],
+                    "size": [5, 5],
+                    "objects": [
+                        {
+                            "mesh": "doct/for-heroes/c_8_01.bin",
+                            "indexCount": 462,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/d1123699",
+                            "transform": [
+                                -0.78267, -0.44411, -0.01353, 1084.30676 ,
+                                -0.01732, 0.0031, 0.89983, 49.86755    ,
+                                -0.44398, 0.78279, -0.01124, 1380.97998 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/c_8_02.bin",
+                            "indexCount": 24,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1123699",
+                            "transform": [
+                                -0.85022, -0.29483, 0.01429, 1085.4447 ,
+                                0.00, 0.04358, 0.89894, 50.86343      ,
+                                -0.29518, 0.84922, -0.04117, 1377.69666 ,
+
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/c_8_03.bin",
+                            "indexCount": 1116,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1123699",
+                            "transform": [
+                                1, 0, 0, 0,
+                                0, 1, 0, 1,
+                                0, 0, 1, 0,
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/c_8_04.bin",
+                            "indexCount": 18,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1123699",
+                            "transform": [
+                                -0.85022, -0.19234, 0.22391, 1092.08215 ,
+                                0.00, 0.6827, 0.58644, 44.57544       ,
+                                -0.29518, 0.554, -0.64494, 1374.17786 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/c_8_05.bin",
+                            "indexCount": 54,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1123699",
+                            "transform": [
+                                1, 0, 0, 0,
+                                0, 1, 0, 1,
+                                0, 0, 1, 0,
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/c_8_06.bin",
+                            "indexCount": 762,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1123699",
+                            "transform": [
+                                -0.85022, -0.26287, 0.13427, 1093.61853 ,
+                                0.00, 0.40939, 0.8015, 41.37516       ,
+                                -0.29518, 0.75717, -0.38675, 1374.45898 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/c_8_07.bin",
+                            "indexCount": 900,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1123699",
+                            "transform": [
+                                -0.85022, -0.29517, 0.0012, 1089.40759 ,
+                                0.00, 0.00366, 0.89999, 41.28064      ,
+                                -0.29518, 0.85021, -0.00346, 1373.42114 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/c_8_08.bin",
+                            "indexCount": 312,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1123699",
+                            "transform": [
+                                -0.85022, -0.26917, 0.12115, 1092.97144 ,
+                                0.00, 0.3694, 0.8207, 40.37639        ,
+                                -0.29518, 0.7753, -0.34897, 1371.65796 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/c_8_09.bin",
+                            "indexCount": 18,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1123699",
+                            "transform": [
+                                -0.85022, -0.26917, 0.12115, 1091.07971 ,
+                                0.00, 0.3694, 0.8207, 38.39011        ,
+                                -0.29518, 0.7753, -0.34897, 1377.37305 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/c_8_10.bin",
+                            "indexCount": 2265,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1123699",
+                            "transform": [
+                                -0.85022, -0.29518, 0.00, 1088.99988 ,
+                                0.00, 0.00, 0.90, 22.66546         ,
+                                -0.29518, 0.85022, 0.00, 1378.92676 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/c_8_11.bin",
+                            "indexCount": 1002,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1123699",
+                            "transform": [
+                                -0.85022, -0.26917, 0.12115, 1088.15381 ,
+                                0.00, 0.3694, 0.8207, 37.27314        ,
+                                -0.29518, 0.7753, -0.34897, 1380.87073 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/c_8_12.bin",
+                            "indexCount": 336,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1123699",
+                            "transform": [
+                                -0.85022, -0.29518, 0.00, 1087.7948 ,
+                                0.00, 0.00, 0.90, 34.55259        ,
+                                -0.29518, 0.85022, 0.00, 1378.06616 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/c_8_13.bin",
+                            "indexCount": 384,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1123699",
+                            "transform": [
+                                -0.85022, -0.29517, -0.00138, 1091.6554 ,
+                                0.00, -0.00421, 0.89999, 47.68623     ,
+                                -0.29518, 0.85021, 0.00398, 1375.95764 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/c_8_14.bin",
+                            "indexCount": 4176,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1242011",
+                            "transform": [
+                                -1.07288E-06, -0.90, -1.07288E-07, 1088.99988 ,
+                                0.00, -1.07288E-07, 0.90, 26.94527          ,
+                                -0.90, 1.07288E-06, 1.27898E-13, 1378.92676 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/c_12_01.bin",
+                            "indexCount": 408,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/d334960",
+                            "transform": [
+                                -1.19209E-07, -1.00, -1.19209E-07, 1089.83862 ,
+                                0.00, -1.19209E-07, 1.00, 26.91545          ,
+                                -1.00, 1.19209E-07, 1.42109E-14, 1376.72595 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "health",
+                    "translation": [1088.2, 1378],
+                    "size": [5, 5],
+                    "objects": [
+                        {
+                            "mesh": "doct/for-heroes/h_8_01.bin",
+                            "indexCount": 2220,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/d1081719",
+                            "transform": [
+                                -5.55153E-07, -0.93139, -1.11031E-07, 1088.22144 ,
+                                0.00, -1.11031E-07, 0.93139, 26.79739          ,
+                                -0.93139, 5.55153E-07, 6.61794E-14, 1377.99988 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/h_8_02.bin",
+                            "indexCount": 99,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1081719",
+                            "transform": [
+                                0.06193, -0.99808, -8.53662E-06, 1078.55457 ,
+                                0.99808, 0.06193, -0.00136, 40.53539      ,
+                                0.00135, 0.00008, 1.00, 1391.08984        ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/h_8_03.bin",
+                            "indexCount": 3720,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/d1081719",
+                            "transform": [
+                                -5.55153E-07, -0.93139, -1.11031E-07, 1088.22144 ,
+                                0.00, -1.11031E-07, 0.93139, 26.79739          ,
+                                -0.93139, 5.55153E-07, 6.61794E-14, 1377.99988 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "intelligence",
+                    "translation": [1089, 1378],
+                    "size": [5, 5],
+                    "objects": [
+                        {
+                            "mesh": "doct/for-heroes/i_8_01.bin",
+                            "indexCount": 6378,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1006123",
+                            "transform": [
+                                -1.87643E-07, -1.57406, -1.87643E-07, 1088.99988 ,
+                                0.00, -1.87643E-07, 1.57406, 26.79739          ,
+                                -1.57406, 1.87643E-07, 2.23687E-14, 1377.99988 ,
+                                
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/i_12_01.bin",
+                            "indexCount": 408,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/d334960",
+                            "transform": [
+                                0.00, -1.00, 0.00, 1089.42603 ,
+                                0.00, 0.00, 1.00, 26.79739  ,
+                                -1.00, 0.00, 0.00, 1377.99988 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/i_12_02b.bin",
+                            "indexCount": 264,
+                            "shader": "shader_pos_tangent_norm_uv",
+                            "texture": "build/d1006123",
+                            "transform": [
+                                -0.78487, -0.29929, -1.00136E-07, 1088.99988 ,
+                                -9.35641E-08, -3.56782E-08, 0.84, 58.65185 ,
+                                -0.29929, 0.78487, 1.19371E-14, 1377.52539 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "strength",
+                    "translation": [1089, 1378],
+                    "size": [5, 5],
+                    "objects": [
+                        {
+                            "mesh": "doct/for-heroes/s_8_01.bin",
+                            "indexCount": 2154,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1192044",
+                            "transform": [
+                                -8.60997E-08, -0.72226, -8.60997E-08, 1089.32458 ,
+                                0.00, -8.60996E-08, 0.72226, 51.65401          ,
+                                -0.72226, 8.60997E-08, 1.02639E-14, 1379.57886 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/s_8_02.bin",
+                            "indexCount": 96,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/d1192044",
+                            "transform": [
+                                1, 0, 0, 0,
+                                0, 1, 0, 1,
+                                0, 0, 1, 0,
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/s_8_03.bin",
+                            "indexCount": 4158,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/d1192044",
+                            "transform": [
+                                -8.60997E-08, -0.72226, -8.60997E-08, 1089.32458 ,
+                                0.00, -8.60996E-08, 0.72226, 26.79739          ,
+                                -0.72226, 8.60997E-08, 1.02639E-14, 1379.36829 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/s_12_01.bin",
+                            "indexCount": 408,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/d334960",
+                            "transform": [
+                                0.00, -1.00, 0.00, 1089.42603 ,
+                                0.00, 0.00, 1.00, 26.79739  ,
+                                -1.00, 0.00, 0.00, 1377.99988 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "tavern",
+                    "translation": [1084.9, 1374.8],
+                    "size": [5, 5],
+                    "objects": [
+                        {
+                            "mesh": "doct/for-heroes/t_8_01.bin",
+                            "indexCount": 6378,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/d959629",
+                            "transform": [
+                                -1.005, 8.32347E-07, -4.29672E-07, 1085.54114 ,
+                                -4.29672E-07, -3.59416E-07, 1.005, 26.7978  ,
+                                8.32347E-07, 1.005, 5.99027E-08, 1375.73291 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/for-heroes/t_12_01.bin",
+                            "indexCount": 720,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/d724929",
+                            "transform": [
+                                -0.675, 5.59039E-07, -2.88585E-07, 1084.91907 ,
+                                -2.88585E-07, -2.41399E-07, 0.675, 26.7978  ,
+                                5.59039E-07, 0.675, 4.02331E-08, 1374.7699  ,
+                                    
+                                0, 0, 0, 1
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "cat",
+                    "translation": [1092.5, 1381.3],
+                    "size": [6, 6],
+                    "objects": [
+                        {
+                            "mesh": "doct/services/c_8_01.bin",
+                            "indexCount": 11208,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/d65387",
+                            "transform": [
+                                -2.62260E-06, 1.00, 0.00, 1092.50012      ,
+                                0.00, -1.19209E-07, 1.00, 27.79535        ,
+                                1.00, 2.50340E-06, -1.19209E-07, 1381.34802 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/services/c_12_01.bin",
+                            "indexCount": 3018,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/d65382",
+                            "transform": [
+                                -0.05698, 0.03562, 0.99774, 1090.79236 ,
+                                -0.06282, -0.99751, 0.03203, 32.07503 ,
+                                0.9964, -0.06085, 0.05907, 1379.36731 ,
+                                    
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/services/c_12_02.bin",
+                            "indexCount": 402,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/d334960",
+                            "transform": [
+                                0.00, -0.9735, 0.00, 1092.50012 ,
+                                0.00, 0.00, 0.9735, 27.79535  ,
+                                -0.9735, 0.00, 0.00, 1381.34802 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "dog",
+                    "translation": [1092.5, 1381.3],
+                    "size": [6, 6],
+                    "objects": [
+                        {
+                            "mesh": "doct/services/d_8_01.bin",
+                            "indexCount": 11958,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/d65387",
+                            "transform": [
+                                -2.62260E-06, 1.00, 0.00, 1092.50012      ,
+                                0.00, -1.19209E-07, 1.00, 27.79535        ,
+                                1.00, 2.50340E-06, -1.19209E-07, 1381.34802 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/services/d_12_01.bin",
+                            "indexCount": 2994,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/d95323",
+                            "transform": [
+                                -0.05698, 0.03562, 0.99774, 1090.79236 ,
+                                -0.06282, -0.99751, 0.03203, 32.07503 ,
+                                0.9964, -0.06085, 0.05907, 1379.36731 ,
+                                    
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/services/c_12_02.bin",
+                            "indexCount": 402,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/d334960",
+                            "transform": [
+                                0.00, -0.9735, 0.00, 1092.50012 ,
+                                0.00, 0.00, 0.9735, 27.79535  ,
+                                -0.9735, 0.00, 0.00, 1381.34802 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "unicorn",
+                    "translation": [1092.5, 1381.3],
+                    "size": [6, 6],
+                    "objects": [
+                        {
+                            "mesh": "doct/services/u_8_01.bin",
+                            "indexCount": 11058,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/d1735569",
+                            "transform": [
+                                -2.62260E-06, 1.00, 0.00, 1092.50012      ,
+                                0.00, -1.19209E-07, 1.00, 27.79535        ,
+                                1.00, 2.50340E-06, -1.19209E-07, 1381.34802 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/services/u_12_01.bin",
+                            "indexCount": 3126,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/d1735588",
+                            "transform": [
+                                -0.05698, 0.03562, 0.99774, 1090.79236 ,
+                                -0.06282, -0.99751, 0.03203, 32.07503 ,
+                                0.9964, -0.06085, 0.05907, 1379.36731 ,
+                                    
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "doct/services/c_12_02.bin",
+                            "indexCount": 402,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/d334960",
+                            "transform": [
+                                0.00, -0.9735, 0.00, 1092.50012 ,
+                                0.00, 0.00, 0.9735, 27.79535  ,
+                                -0.9735, 0.00, 0.00, 1381.34802 ,
+                                
                                 0, 0, 0, 1
                             ]
                         }
