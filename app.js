@@ -34,9 +34,6 @@ function zoom(event) {
 
 	// Restrict scale
 	fov = Math.min(Math.max(15, fov), 65);
-
-	// Apply scale transform
-	el.style.transform = `scale(${scale})`;
 }
 
 var doMove = false;
@@ -260,9 +257,10 @@ var InitDemo = function (sceneName) {
 						obj.transform[11] -= buildingTranslation[1];
 
 						if (!sceneBuildings.has(building.name)) {
-							sceneBuildings.set(building.name, {size: building.size, objects: []});
+							sceneBuildings.set(building.name, {size: building.size, objects: [], transparentObjects: []});
 						}
-						sceneBuildings.get(building.name).objects.push({
+						var selectedContainer = obj.blend ? sceneBuildings.get(building.name).transparentObjects : sceneBuildings.get(building.name).objects;
+						selectedContainer.push({
 							meshName: obj.mesh, meshData: {}, shader: obj.shader, shaderId: {}, blend: obj.blend,
 							tintColor: obj.tintColor, uvScale: obj.uvScale,
 							texture: obj.texture, texture_2: obj.texture_2, texture_3: obj.texture_3, texture_4: obj.texture_4,
@@ -296,6 +294,11 @@ var InitDemo = function (sceneName) {
 			}
 			sceneBuildings.forEach(function (value, key, map){
 				var building = value.objects;
+				for (objId = 0; objId < building.length; ++objId) {
+					remapIndices(building, objId);
+				}
+				
+				building = value.transparentObjects;
 				for (objId = 0; objId < building.length; ++objId) {
 					remapIndices(building, objId);
 				}
@@ -465,6 +468,12 @@ var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texName
 			loadMesh(building, objId);
 		}
 		totalMeshes += building.length;
+
+		building = value.transparentObjects;
+		for (objId = 0; objId < building.length; ++objId) {
+			loadMesh(building, objId);
+		}
+		totalMeshes += building.length;
 	});
 
 	function PrepareAndDrawObject(obj, isSMPass, rotation, translation) {
@@ -487,7 +496,7 @@ var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texName
 				const buildings = [
 					"grid",
 
-					"unicorn",
+					"health",
 					//"crystal_farm",
 					"food_farm",
 					"heavy_farm",
@@ -510,6 +519,7 @@ var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texName
 
 					"cat",
 					"dog",
+					"unicorn",
 				];
 				var buildingsToDraw = [];
 				var buildingSelector = document.getElementsByClassName("buildings");
@@ -555,7 +565,13 @@ var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texName
 				for (i = 0; i < sceneObjects.length; ++i) {
 					PrepareAndDrawObject(sceneObjects[i], false);
 				}
+				for (buildingToDraw of buildingsToDraw) {
+					for (i = 0; i < buildingToDraw.mesh.transparentObjects.length; ++i) {
+						PrepareAndDrawObject(buildingToDraw.mesh.transparentObjects[i], false, buildingToDraw.rotation, buildingToDraw.translation);
+					}
+				}
 				gl.disable(gl.BLEND);
+				gl.enable(gl.CULL_FACE);
 				gl.colorMask(true, true, true, true);
 				gl.depthMask(true);
 
@@ -665,6 +681,7 @@ var DrawObject = function (program, textures, vertices, indexCount, vertStride, 
 	strip, transform, isSMPass, blend, tintColor, uvScale, rotation, translation) {
 	if (blend) {
 		gl.enable(gl.BLEND);
+		gl.disable(gl.CULL_FACE);
 		gl.blendEquation(gl.FUNC_ADD);
 		gl.colorMask(true, true, true, false);
 		gl.depthMask(false);

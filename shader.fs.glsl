@@ -68,7 +68,7 @@ vec3 neutral(vec3 color) {
 void main()
 {
   const vec3 lightColor = vec3(1.0, 1.0, 1.0) * 1.6;
-  const float shadowContrast = 0.75;
+  const float shadowContrast = 0.6;
 
   const float gridFalloffDistance = 50.0;
 
@@ -104,6 +104,9 @@ void main()
   gl_FragColor = texture2D(tex0, fragTexCoord * uvScale.xx);
 
   gl_FragColor *= tintColor;
+#if defined(PS_FALLOFF_BLEND) && defined(VS_COLOR)
+  gl_FragColor *= fragColor;
+#endif
 #endif // PS_GRID
 
   // Alpha test
