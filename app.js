@@ -637,8 +637,8 @@ var SetupMainCam = function (program) {
 	var camRightXY = [camRight[0], camRight[2]];
 	vec2.normalize(camRightXY, camRightXY);
 
-	camDeltaPos[0] -= (camForwXY[0] * cursorDeltaPos[0] + camRightXY[0] * cursorDeltaPos[1]) * 0.001;
-	camDeltaPos[1] -= (camForwXY[1] * cursorDeltaPos[0] + camRightXY[1] * cursorDeltaPos[1]) * 0.001;
+	camDeltaPos[0] -= (camForwXY[1] * cursorDeltaPos[0] - camRightXY[1] * cursorDeltaPos[1]) * 0.003;
+	camDeltaPos[1] -= (camForwXY[0] * cursorDeltaPos[0] - camRightXY[0] * cursorDeltaPos[1]) * 0.003;
 	
 	mat4.invert(viewProjInv, viewProjMatr); // viewProj -> world
 
