@@ -20,7 +20,7 @@
 </head>
 
 <body onload="InitDemo('doct');">
-	<canvas id="game-surface" width="1200" height="768">
+	<canvas id="game-surface" width="800" height="800">
 		Your browser does not support HTML5
 	</canvas>
 	<script src="util.js"></script>
@@ -29,14 +29,22 @@
 	<!--
 		<input type="range" step="0.1" min="-2000" max="0" value="-1433" class="camPosition"/></br>
 		<input type="range" step="0.1" min="-1000" max="0" value="-513" class="camPosition"/></br>
+		<input type="range" step="0.1" min="-2000" max="0" value="-1533" class="camPosition"/></br>
+		
+		<input type="range" step="0.1" min="-2000" max="0" value="-1200" class="camPosition"/></br>
+		<input type="range" step="0.1" min="-1000" max="0" value="-253" class="camPosition"/></br>
 		<input type="range" step="0.1" min="-2000" max="0" value="-1433" class="camPosition"/></br>
+
+		<input type="range" step="0.001" min="-3.14" max="3.14" value="-2.08" class="camForward" /></br>
+		<input type="range" step="0.001" min="-3.14" max="3.14" value="-2.36" class="camForward" /></br>
+		<input type="range" step="0.001" min="-3.14" max="3.14" value="3.14" class="camForward" /></br>
 -->
 	<div class="tweakers">
 		<h2>Camera</h2>
 		Cam position</br>
-		<input type="range" step="0.1" min="-2000" max="0" value="-1200" class="camPosition"/></br>
-		<input type="range" step="0.1" min="-1000" max="0" value="-253" class="camPosition"/></br>
 		<input type="range" step="0.1" min="-2000" max="0" value="-1433" class="camPosition"/></br>
+		<input type="range" step="0.1" min="-1000" max="0" value="-513" class="camPosition"/></br>
+		<input type="range" step="0.1" min="-2000" max="0" value="-1533" class="camPosition"/></br>
 
 		Cam yaw/pitch/roll</br>
 		<input type="range" step="0.001" min="-3.14" max="3.14" value="-2.08" class="camForward" /></br>
@@ -45,7 +53,7 @@
 
 		<h2>Buildings</h2>
 		Grid
-		<input type="checkbox"  class="buildings" /></br><!-- checked -->
+		<input type="checkbox" checked class="buildings" /></br><!-- checked -->
 		<input hidden="true" type="range" step="1" min="0" max="0" value="0" class="positionX" />
 		<input hidden="true" type="range" step="1" min="0" max="0" value="0" class="positionZ" />
 		<input hidden="true" type="range" step="1" min="0" max="0" value="0" class="rotation" />

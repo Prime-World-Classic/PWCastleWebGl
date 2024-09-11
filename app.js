@@ -6,8 +6,8 @@ var flipMatr;
 var viewMatrix2;
 var projMatrix;
 var viewProjMatr;
-var cursorBasis = new Float32Array(16);
-var cursorBasis2 = new Float32Array(16);
+var cursorBasis = new Float32Array(4);
+var cursorBasis2 = new Float32Array(4);
 var viewProjInv = new Float32Array(16);
 
 var isSMEnabled;
@@ -24,7 +24,7 @@ const zNearSM = 0.1;
 const zFarSM = 1200.0;
 
 const zeroTranslation = [1072, 1360]
-const cursorPosition = [0, 0]
+var cursorPosition = [0, 0]
 
 var fov = 45;
 document.onwheel = zoom;
@@ -37,6 +37,7 @@ function zoom(event) {
 }
 
 var doMove = false;
+var cursorDeltaPos = [0.0, 0.0]
 var camDeltaPos = [0.0, 0.0]
 function prepareMove(event) {
 	doMove = true;
@@ -46,8 +47,8 @@ function stopMove(event) {
 }
 function moveMouse(e) {
 	if (doMove) {
-		camDeltaPos[0] -= e.movementX;
-		camDeltaPos[1] -= e.movementY;
+		cursorDeltaPos[0] = e.movementX;
+		cursorDeltaPos[1] = e.movementY;
 	}
 	cursorPosition[0] = e.offsetX;
 	cursorPosition[1] = e.offsetY;
@@ -96,6 +97,7 @@ var InitDemo = function (sceneName) {
 		]);
 		canvasWidth = canvas.width;
 		canvasHeight = canvas.height;
+		cursorPosition = [canvasWidth, canvasHeight]
 	}
 
 	// Light camera
@@ -496,7 +498,7 @@ var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texName
 				const buildings = [
 					"grid",
 
-					"health",
+					"cunning",
 					//"crystal_farm",
 					"food_farm",
 					"heavy_farm",
@@ -591,8 +593,8 @@ var SetupMainCam = function (program) {
 
 	var camPosElements = document.getElementsByClassName("camPosition");
 	var koef = 0.5;
-	var camPosX = Number(camPosElements[0].value) + camDeltaPos[0] * koef - camDeltaPos[1] * (1 - koef);
-	var camPosY = Number(camPosElements[2].value) - camDeltaPos[0] * koef - camDeltaPos[1] * (1 - koef);
+	var camPosX = Number(camPosElements[0].value) + cursorDeltaPos[0] * koef - cursorDeltaPos[1] * (1 - koef);
+	var camPosY = Number(camPosElements[2].value) - cursorDeltaPos[0] * koef - cursorDeltaPos[1] * (1 - koef);
 	var camPos = vec3.fromValues(camPosX, camPosElements[1].value, camPosY);
 
 	var camForwElements = document.getElementsByClassName("camForward");
@@ -619,19 +621,25 @@ var SetupMainCam = function (program) {
 	var zNearFar = gl.getUniformLocation(program, 'zNear_zFar');
 	gl.uniform4f(zNearFar, zNear, zFar, zNearSM, zFarSM);
 
-	var camForw = vec3.fromValues(viewMatrix2[1], viewMatrix2[5], viewMatrix2[9]);
-	mat4.invert(viewProjInv, viewMatrix2); // viewProj -> world
-	
-	mat4.fromTranslation(cursorBasis, [(Number(cursorPosition[0]) - canvasWidth / 2) * canvasHeight / canvasWidth, 20, (Number(cursorPosition[1]) - canvasHeight / 2) * canvasWidth / canvasHeight]);
-	mat4.multiply(cursorBasis2, viewProjInv, cursorBasis);
-	camPos[0] = -cursorBasis2[12] / cursorBasis2[15];
-	camPos[2] = -cursorBasis2[14] / cursorBasis2[15];
-	var t = -camPos[1] / camForw[1];
-	var x = camPos[0] + t * camForw[0] + zeroTranslation[0] + t/1090*1000;
-	var z = camPos[2] + t * camForw[2] + zeroTranslation[1] + t/1090*820;
+	mat4.transpose(viewMatrix, viewMatrix2);
+	var camForwV = [0, 0, 1, 0];
+	vec4.transformMat4(camForwV, camForwV, viewMatrix);
+
+	var camForw = vec3.fromValues(-viewMatrix2[1], -viewMatrix2[5], -viewMatrix2[9]);
+	mat4.invert(viewProjInv, viewProjMatr); // viewProj -> world
+
+	//cursorBasis = [Number(cursorPosition[0]), 20, Number(cursorPosition[1]), 1];
+	var aspectRatio = canvasWidth / canvasHeight;
+	cursorBasis = [(cursorPosition[0] - canvasWidth / 2) * 7, -(cursorPosition[1] - canvasHeight / 2) * 7, 0, 1];
+	vec4.transformMat4(cursorBasis2, cursorBasis, viewProjInv);
+	var cursorCamRelatedPos = [-cursorBasis2[0] / cursorBasis2[3], 0, -cursorBasis2[2] / cursorBasis2[3]];
+	var t = -(camPos[1] + 27) / camForwV[1];
+	var x = cursorCamRelatedPos[0] + t * camForwV[0] + (zeroTranslation[0] + 124);
+	var z = cursorCamRelatedPos[2] + t * camForwV[2] + (zeroTranslation[1] - 45);
 
 	var cursorGridPosition = gl.getUniformLocation(program, 'cursorGridPosition');
 	gl.uniform2f(cursorGridPosition, -x, -z);
+	//gl.uniform2f(cursorGridPosition, -124, 45);
 }
 
 var SetupSMCam = function (program) {
