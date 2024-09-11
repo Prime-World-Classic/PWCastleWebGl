@@ -7,6 +7,7 @@ var viewMatrix2;
 var projMatrix;
 var viewProjMatr;
 var cursorBasis = new Float32Array(4);
+var cursorDeltaBasis = new Float32Array(4);
 var cursorBasis2 = new Float32Array(4);
 var viewProjInv = new Float32Array(16);
 
@@ -49,6 +50,9 @@ function moveMouse(e) {
 	if (doMove) {
 		cursorDeltaPos[0] = e.movementX;
 		cursorDeltaPos[1] = e.movementY;
+	} else {
+		cursorDeltaPos[0] = 0;
+		cursorDeltaPos[1] = 0;
 	}
 	cursorPosition[0] = e.offsetX;
 	cursorPosition[1] = e.offsetY;
@@ -577,6 +581,9 @@ var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texName
 				gl.colorMask(true, true, true, true);
 				gl.depthMask(true);
 
+				cursorDeltaPos[0] = 0;
+				cursorDeltaPos[1] = 0;
+
 				requestAnimationFrame(loop);
 			};
 			requestAnimationFrame(loop);
@@ -592,9 +599,8 @@ var SetupMainCam = function (program) {
 	mat4.perspective(projMatrix, glMatrix.toRadian(fov), canvasWidth / canvasHeight, zNear, zFar);
 
 	var camPosElements = document.getElementsByClassName("camPosition");
-	var koef = 0.5;
-	var camPosX = Number(camPosElements[0].value) + cursorDeltaPos[0] * koef - cursorDeltaPos[1] * (1 - koef);
-	var camPosY = Number(camPosElements[2].value) - cursorDeltaPos[0] * koef - cursorDeltaPos[1] * (1 - koef);
+	var camPosX = Number(camPosElements[0].value) + camDeltaPos[0];
+	var camPosY = Number(camPosElements[2].value) - camDeltaPos[1];
 	var camPos = vec3.fromValues(camPosX, camPosElements[1].value, camPosY);
 
 	var camForwElements = document.getElementsByClassName("camForward");
@@ -621,25 +627,36 @@ var SetupMainCam = function (program) {
 	var zNearFar = gl.getUniformLocation(program, 'zNear_zFar');
 	gl.uniform4f(zNearFar, zNear, zFar, zNearSM, zFarSM);
 
-	mat4.transpose(viewMatrix, viewMatrix2);
-	var camForwV = [0, 0, 1, 0];
-	vec4.transformMat4(camForwV, camForwV, viewMatrix);
+	var aspectRatio = canvasHeight / canvasWidth;
 
-	var camForw = vec3.fromValues(-viewMatrix2[1], -viewMatrix2[5], -viewMatrix2[9]);
+	var camForw = [viewMatrix2[2], viewMatrix2[6], viewMatrix2[10], 0];
+	var camForwXY = [camForw[0], camForw[2]];
+	vec2.normalize(camForwXY, camForwXY);
+
+	var camRight = [viewMatrix2[0], viewMatrix2[4], viewMatrix2[8], 0];
+	var camRightXY = [camRight[0], camRight[2]];
+	vec2.normalize(camRightXY, camRightXY);
+
+	camDeltaPos[0] -= (camForwXY[0] * cursorDeltaPos[0] + camRightXY[0] * cursorDeltaPos[1]) * 0.001;
+	camDeltaPos[1] -= (camForwXY[1] * cursorDeltaPos[0] + camRightXY[1] * cursorDeltaPos[1]) * 0.001;
+	
 	mat4.invert(viewProjInv, viewProjMatr); // viewProj -> world
 
-	//cursorBasis = [Number(cursorPosition[0]), 20, Number(cursorPosition[1]), 1];
-	var aspectRatio = canvasWidth / canvasHeight;
-	cursorBasis = [(cursorPosition[0] - canvasWidth / 2) * 7, -(cursorPosition[1] - canvasHeight / 2) * 7, 0, 1];
+	cursorBasis = [((cursorPosition[0] - canvasWidth / 2) / canvasWidth * 2), -((cursorPosition[1] - canvasHeight / 2) / canvasHeight * 2), 1, 1];
 	vec4.transformMat4(cursorBasis2, cursorBasis, viewProjInv);
-	var cursorCamRelatedPos = [-cursorBasis2[0] / cursorBasis2[3], 0, -cursorBasis2[2] / cursorBasis2[3]];
-	var t = -(camPos[1] + 27) / camForwV[1];
-	var x = cursorCamRelatedPos[0] + t * camForwV[0] + (zeroTranslation[0] + 124);
-	var z = cursorCamRelatedPos[2] + t * camForwV[2] + (zeroTranslation[1] - 45);
+	cursorBasis2[0] /= -cursorBasis2[3];
+	cursorBasis2[1] /= -cursorBasis2[3];
+	cursorBasis2[2] /= -cursorBasis2[3];
+	
+	var camForwNew = [cursorBasis2[0] - camPos[0], cursorBasis2[1] - camPos[1], cursorBasis2[2] - camPos[2]];
+	vec3.normalize(camForwNew, camForwNew);
+	//vec3.subtract()
+	var t = -(camPos[1] + 27) / camForwNew[1];
+	var x = camPos[0] + t * camForwNew[0] + (zeroTranslation[0] + 124);
+	var z = camPos[2] + t * camForwNew[2] + (zeroTranslation[1] - 45);
 
 	var cursorGridPosition = gl.getUniformLocation(program, 'cursorGridPosition');
 	gl.uniform2f(cursorGridPosition, -x, -z);
-	//gl.uniform2f(cursorGridPosition, -124, 45);
 }
 
 var SetupSMCam = function (program) {
