@@ -5445,8 +5445,8 @@
                                 0, 0, 0, 1
                             ],
                             "blend": [
-                                "ONE",
-                                "SRC_ALPHA"
+                                "SRC_ALPHA",
+                                "ONE_MINUS_SRC_ALPHA"
                             ]
                         }
                     ]
@@ -5457,203 +5457,148 @@
                     "size": [8, 8],
                     "objects": [
                         {
-                            "mesh": "doct/production/c_8_01.bin",
-                            "indexCount": 294,
+                            "mesh": "ad/production/c_8_01.bin",
+                            "indexCount": 1200,
                             "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1049102",
-                            "transform": [
-                                0.70484, 0.40669, 0.00, 1109.21118 ,
-                                0.00, 0.00, 0.81375, 33.04479     ,
-                                0.40669, -0.70484, 0.00, 1404.57971 ,
-                                
-                                0, 0, 0, 1
-                            ]
-                        },
-                        {
-                            "mesh": "doct/production/c_8_02.bin",
-                            "indexCount": 384,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1049102",
+                            "texture": "build/a882764",
                             "transform": [
                                 1, 0, 0, 0,
                                 0, 1, 0, 1,
                                 0, 0, 1, 0,
                                 0, 0, 0, 1
+                            ],
+                            "tintColor": [
+                                0.4, 1.0, 1.0, 0.9
                             ]
                         },
                         {
-                            "mesh": "doct/production/c_8_03.bin",
-                            "indexCount": 636,
+                            "mesh": "ad/production/c_8_02.bin",
+                            "indexCount": 528,
                             "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1049102",
+                            "texture": "build/a882764",
                             "transform": [
-                                1, 0, 0, 0,
-                                0, 1, 0, 1,
-                                0, 0, 1, 0,
+                                0.98, 0.00, 0.00, 1099.50        ,
+                                0.00, -1.16825E-07, 0.98, 27.58751 ,
+                                0.00, -0.98, -1.16825E-07, 1388.50 ,
+                                
                                 0, 0, 0, 1
+                            ],
+                            "tintColor": [
+                                0.4, 1.0, 1.0, 0.9
                             ]
                         },
                         {
-                            "mesh": "doct/production/c_8_04.bin",
-                            "indexCount": 1824,
+                            "mesh": "ad/production/c_8_03.bin",
+                            "indexCount": 480,
                             "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1049102",
+                            "texture": "build/a882764",
                             "transform": [
-                                0.70484, 0.40669, 0.00, 1106.39856 ,
-                                0.00, 0.00, 0.81375, 27.08294     ,
-                                0.40669, -0.70484, 0.00, 1399.55762 ,
+                                0.98, 0.00, 0.00, 1099.50        ,
+                                0.00, -1.16825E-07, 0.98, 27.58751 ,
+                                0.00, -0.98, -1.16825E-07, 1388.50 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "tintColor": [
+                                0.4, 1.0, 1.0, 0.9
+                            ]
+                        },
+                        {
+                            "mesh": "ad/production/c_8_04.bin",
+                            "indexCount": 2184,
+                            "shader": "shader_pos_norm_uv",
+                            "texture": "build/a193666",
+                            "transform": [
+                                54.00626, 0.00, 0.00, 1099.50        ,
+                                0.00, -6.43805E-06, 54.00624, 27.81192 ,
+                                0.00, -54.00626, -6.43805E-06, 1388.50 ,
                                 
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/production/c_8_05.bin",
-                            "indexCount": 1692,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1049102",
+                            "mesh": "ad/production/c_8_05.bin",
+                            "indexCount": 168,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/a193661",
                             "transform": [
-                                0.66098, -0.75041, 0.00, 1101.92969        ,
-                                0.00, -2.38419E-07, 1.00, 27.66057         ,
-                                -0.75041, -0.66098, -2.38419E-07, 1378.49084 ,
+                                0.98, 0.00, 0.00, 1098.57886        ,
+                                0.00, -1.16825E-07, 0.98, 28.2989   ,
+                                0.00, -0.98, -1.16825E-07, 1388.59814 ,
                                 
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/production/c_8_06.bin",
-                            "indexCount": 7137,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1049102",
+                            "mesh": "ad/production/c_8_06.bin",
+                            "indexCount": 14826,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/a882764",
                             "transform": [
-                                0.81375, 0.00, 0.00, 1099.50           ,
-                                0.00, -9.70066E-08, 0.81375, 26.79694  ,
-                                0.00, -0.81375, -9.70066E-08, 1388.50012 ,
+                                0.98, 0.00, 0.00, 1099.50        ,
+                                0.00, -1.16825E-07, 0.98, 27.58751 ,
+                                0.00, -0.98, -1.16825E-07, 1388.50 ,
                                 
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/production/c_12_01.bin",
-                            "indexCount": 1098,
-                            "shader": "shader_pos_tangent_norm_uv_ak",
-                            "texture": "build/d334960",
-                            "transform": [
-                                0.94912, 6.78865E-07, 8.09270E-14, 1099.50    ,
-                                0.00, -1.13144E-07, 0.94912, 26.79694         ,
-                                6.78865E-07, -0.94912, -1.13144E-07, 1388.50012 ,
-                                
-                                0, 0, 0, 1
-                            ]
-                        },
-                        {
-                            "mesh": "doct/production/c_12_02.bin",
-                            "indexCount": 2376,
+                            "mesh": "ad/production/c_12_01.bin",
+                            "indexCount": 60,
                             "shader": "shader_pos_tangent_norm_uv",
-                            "texture": "build/d724929",
+                            "texture": "build/a728421",
                             "transform": [
-                                0.94912, 6.78865E-07, 8.09270E-14, 1099.15479 ,
-                                0.00, -1.13144E-07, 0.94912, 29.42583         ,
-                                6.78865E-07, -0.94912, -1.13144E-07, 1388.82446 ,
+                                54.00626, 0.00, 0.00, 1099.50        ,
+                                0.00, -6.43805E-06, 54.00624, 27.81192 ,
+                                0.00, -54.00626, -6.43805E-06, 1388.50 ,
                                 
                                 0, 0, 0, 1
+                            ],
+                            "uvScale": [
+                                4, 0, 0, 1
+                            ],
+                            "tintColor": [
+                                0.4, 2.0, 1.6, 1
                             ]
                         },
                         {
-                            "mesh": "doct/production/c_12_03.bin",
-                            "indexCount": 12,
-                            "shader": "shader_pos_tangent_norm_uv_ak",
-                            "texture": "build/d334960",
+                            "mesh": "ad/production/c_3_01b.bin",
+                            "indexCount": 60,
+                            "shader": "shader_pos",
+                            "texture": "build/a4257",
                             "transform": [
-                                0.94912, 6.78865E-07, 8.09270E-14, 1099.50    ,
-                                0.00, -1.13144E-07, 0.94912, 26.79694         ,
-                                6.78865E-07, -0.94912, -1.13144E-07, 1388.50012 ,
-                                
-                                0, 0, 0, 1
-                            ]
-                        },
-                        {
-                            "mesh": "doct/production/c_9_01b.bin",
-                            "indexCount": 48,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d3754",
-                            "transform": [
-                                0.54831, 0.41495, -0.45318, 1108.0459 ,
-                                0.55633, -0.07738, 0.60226, 32.1354   ,
-                                0.26088, -0.70713, -0.33183, 1383.04065 ,
+                                54.00626, 0.00, 0.00, 1099.50        ,
+                                0.00, -6.43805E-06, 54.00624, 28.54605 ,
+                                0.00, -54.00626, -6.43805E-06, 1388.50 ,
                                 
                                 0, 0, 0, 1
                             ],
                             "blend": [
                                 "SRC_ALPHA",
                                 "ONE"
+                            ],
+                            "uvScale": [
+                                -3.66, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/production/c_9_02b.bin",
-                            "indexCount": 96,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d3754",
+                            "mesh": "ad/production/c_12_02b.bin",
+                            "indexCount": 150,
+                            "shader": "shader_pos_tangent_norm_uv",
+                            "texture": "build/a4375",
                             "transform": [
-                                0.81375, -1.42281E-07, -1.69612E-14, 1110.58276 ,
-                                0.00, -9.70066E-08, 0.81375, 37.61873          ,
-                                -1.42281E-07, -0.81375, -9.70066E-08, 1384.98401 ,
+                                54.00626, 0.00, 0.00, 1099.50        ,
+                                0.00, -6.43805E-06, 54.00624, 27.81192 ,
+                                0.00, -54.00626, -6.43805E-06, 1388.50 ,
                                 
                                 0, 0, 0, 1
                             ],
                             "blend": [
                                 "SRC_ALPHA",
                                 "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/production/c_9_03b.bin",
-                            "indexCount": 186,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d723435",
-                            "transform": [
-                                0.01216, -0.81366, 0.00, 1106.57178 ,
-                                0.00, 0.00, 1.10726, 39.87085      ,
-                                -0.81366, -0.01216, 0.00, 1399.64954 ,
-                                
-                                0, 0, 0, 1
                             ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/production/c_9_04b.bin",
-                            "indexCount": 288,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d723448",
-                            "transform": [
-                                0.814, -1.42281E-07, -1.69612E-14, 1099.50   ,
-                                0.00, -9.70066E-08, 0.814, 27.29694          ,
-                                -1.42281E-07, -0.814, -9.70066E-08, 1388.50012 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/production/c_9_05b.bin",
-                            "indexCount": 108,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d723448",
-                            "transform": [
-                                0.81375, -1.42281E-07, -1.69612E-14, 1110.5365 ,
-                                0.00, -9.70066E-08, 0.81375, 38.57549          ,
-                                -1.42281E-07, -0.81375, -9.70066E-08, 1385.20093 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
+                            "uvScale": [
+                                11, 0, 0, 1
                             ]
                         }
                     ]
@@ -5664,134 +5609,482 @@
                     "size": [6, 6],
                     "objects": [
                         {
-                            "mesh": "doct/production/f_8_01.bin",
-                            "indexCount": 1362,
+                            "mesh": "ad/production/f_8_01.bin",
+                            "indexCount": 5496,
                             "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1020726",
+                            "texture": "build/a801871",
                             "transform": [
-                                -0.91156, -0.11136, -0.2229, 1087.26477 ,
-                                0.22447, -1.11868E-07, -0.91795, 54.78824 ,
-                                0.10818, -0.93842, 0.02645, 1385.46521  ,
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
                                 
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/production/f_8_02.bin",
+                            "mesh": "ad/production/f_8_02.bin",
+                            "indexCount": 5442,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/a801871",
+                            "transform": [
+                                0.90, 0.00, 0.00, 1092.50        ,
+                                0.00, -1.07288E-07, 0.90, 27.58751 ,
+                                0.00, -0.90, -1.07288E-07, 1381.50 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "ad/production/f_8_03.bin",
+                            "indexCount": 2094,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/a193666",
+                            "transform": [
+                                0.90, 0.00, 0.00, 1092.50        ,
+                                0.00, -1.07288E-07, 0.90, 27.58751 ,
+                                0.00, -0.90, -1.07288E-07, 1381.50 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "ad/production/f_8_04.bin",
+                            "indexCount": 48,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/a193661",
+                            "transform": [
+                                0.90, 0.00, 0.00, 1092.50        ,
+                                0.00, -1.07288E-07, 0.90, 27.58751 ,
+                                0.00, -0.90, -1.07288E-07, 1381.50 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "ad/production/f_9_01b.bin",
+                            "indexCount": 984,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a650404",
+                            "transform": [
+                                0.89991, 0.00, 0.00, 1092.50        ,
+                                0.00, -1.07278E-07, 0.89991, 27.58751 ,
+                                0.00, -0.89991, -1.07278E-07, 1381.50 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/production/f_9_02b.bin",
+                            "indexCount": 300,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a516719",
+                            "transform": [
+                                0.981, 0.00, 0.00, 1092.50647       ,
+                                0.00, -1.16944E-07, 0.981, 27.58751 ,
+                                0.00, -0.981, -1.16944E-07, 1382.7677 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/production/f_9_03b.bin",
+                            "indexCount": 480,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a516719",
+                            "transform": [
+                                1.71512, -0.10177, 3.11641, 1080.1925    ,
+                                0.08622, 2.02441, 0.15667, 45.21561      ,
+                                -3.12034, 3.04780E-10, 1.71729, 1375.12622 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/production/f_9_04b.bin",
+                            "indexCount": 480,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a516719",
+                            "transform": [
+                                3.32641, 0.12013, 0.05962, 1088.88989 ,
+                                -0.15768, 2.62952, 0.75624, 44.06976  ,
+                                -0.02439, -0.61545, 3.24268, 1369.47961 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/production/f_9_05b.bin",
+                            "indexCount": 600,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a4186",
+                            "transform": [
+                                1, 0, 0, 0,
+                                0, 1, 0, 1,
+                                0, 0, 1, 0,
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                0.5, 0.5, 0.5, 0.15
+                            ]
+                        },
+                        {
+                            "mesh": "ad/production/f_9_06b.bin",
+                            "indexCount": 126,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a3937",
+                            "transform": [
+                                1, 0, 0, 0,
+                                0, 1, 0, 1,
+                                0, 0, 1, 0,
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                0.5, 0.5, 0.5, 0.15
+                            ]
+                        },
+                        {
+                            "mesh": "ad/production/f_9_07b.bin",
+                            "indexCount": 138,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a3937",
+                            "transform": [
+                                1, 0, 0, 0,
+                                0, 1, 0, 1,
+                                0, 0, 1, 0,
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                0.5, 0.5, 0.5, 0.15
+                            ]
+                        },
+                        {
+                            "mesh": "ad/production/f_9_08b.bin",
+                            "indexCount": 72,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a4206",
+                            "transform": [
+                                1, 0, 0, 0,
+                                0, 1, 0, 1,
+                                0, 0, 1, 0,
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/production/f_9_09b.bin",
+                            "indexCount": 960,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a516719",
+                            "transform": [
+                                0.90, 0.00, 0.00, 1092.50        ,
+                                0.00, -1.07288E-07, 0.90, 27.58751 ,
+                                0.00, -0.90, -1.07288E-07, 1381.50 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/production/f_9_10b.bin",
+                            "indexCount": 864,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a3753",
+                            "transform": [
+                                1, 0, 0, 0,
+                                0, 1, 0, 1,
+                                0, 0, 1, 0,
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/production/f_9_11b.bin",
+                            "indexCount": 162,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a801886",
+                            "transform": [
+                                1, 0, 0, 0,
+                                0, 1, 0, 1,
+                                0, 0, 1, 0,
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "strip" : true
+                        },
+                        {
+                            "mesh": "ad/production/f_9_12b.bin",
                             "indexCount": 336,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1020726",
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a801891",
                             "transform": [
-                                0.93842, -0.0988, 0.05139, 1084.08936  ,
-                                -1.32755E-08, 0.43609, 0.83836, 59.00387 ,
-                                -0.11136, -0.83252, 0.43305, 1371.89001 ,
-                                
+                                1, 0, 0, 0,
+                                0, 1, 0, 1,
+                                0, 0, 1, 0,
                                 0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
                             ]
                         },
                         {
-                            "mesh": "doct/production/f_8_03.bin",
-                            "indexCount": 276,
-                            "shader": "shader_pos_norm_uv_ak",
-                            "texture": "build/d1020726",
+                            "mesh": "ad/production/f_9_13b.bin",
+                            "indexCount": 78,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a4206",
                             "transform": [
-                                0.8847, 0.3265, -0.06109, 1107.15796 ,
-                                0.0749, -0.02678, 0.94165, 27.05876  ,
-                                0.32361, -0.8864, -0.05095, 1392.48926 ,
-                                
+                                1, 0, 0, 0,
+                                0, 1, 0, 1,
+                                0, 0, 1, 0,
                                 0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
                             ]
                         },
                         {
-                            "mesh": "doct/production/f_8_04.bin",
-                            "indexCount": 1332,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1020726",
+                            "mesh": "ad/production/f_9_14b.bin",
+                            "indexCount": 258,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a801886",
                             "transform": [
-                                0.93842, -0.11136, 0.00, 1086.30127        ,
-                                -1.32755E-08, -1.11868E-07, 0.945, 54.78824 ,
-                                -0.11136, -0.93842, -1.12653E-07, 1380.12939 ,
-                                
+                                1, 0, 0, 0,
+                                0, 1, 0, 1,
+                                0, 0, 1, 0,
                                 0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "strip" : true
+                        },
+                        {
+                            "mesh": "ad/production/f_9_15b.bin",
+                            "indexCount": 570,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a3753",
+                            "transform": [
+                                1, 0, 0, 0,
+                                0, 1, 0, 1,
+                                0, 0, 1, 0,
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
                             ]
                         },
                         {
-                            "mesh": "doct/production/f_8_05.bin",
-                            "indexCount": 504,
-                            "shader": "shader_pos_norm_uv_ak",
-                            "texture": "build/d1020726",
+                            "mesh": "ad/production/f_9_16b.bin",
+                            "indexCount": 360,
+                            "shader": "shader_pos_color_uv_falloff",
+                            "texture": "build/a3868",
                             "transform": [
-                                0.93792, -0.11268, -0.02523, 1103.2179 ,
-                                0.0293, 0.03247, 0.94399, 25.94328   ,
-                                -0.11169, -0.9377, 0.03572, 1392.6864 ,
+                                0.90, 0.00, 0.00, 1092.50        ,
+                                0.00, -1.07288E-07, 0.90, 27.58751 ,
+                                0.00, -0.90, -1.07288E-07, 1381.50 ,
                                 
                                 0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
                             ]
                         },
                         {
-                            "mesh": "doct/production/f_8_06.bin",
-                            "indexCount": 3024,
-                            "shader": "shader_pos_norm_uv_ak",
-                            "texture": "build/d1020726",
+                            "mesh": "ad/production/f_9_17b.bin",
+                            "indexCount": 480,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a728471",
                             "transform": [
-                                -2.38419E-07, 0.00, 1.00, 1088.19812 ,
-                                -1.00, -2.38419E-07, 0.00, 26.79535 ,
-                                0.00, -1.00, -2.38419E-07, 1390.38525 ,
+                                0.90, 0.00, 0.00, 1092.50        ,
+                                0.00, -1.07288E-07, 0.90, 27.58751 ,
+                                0.00, -0.90, -1.07288E-07, 1381.50 ,
                                 
                                 0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
                             ]
                         },
                         {
-                            "mesh": "doct/production/f_8_07.bin",
-                            "indexCount": 2628,
-                            "shader": "shader_pos_norm_uv_ak",
-                            "texture": "build/d1020726",
+                            "mesh": "ad/production/f_9_18b.bin",
+                            "indexCount": 480,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a4335",
                             "transform": [
-                                0.945, 0.00, 0.00, 1092.50012     ,
-                                0.00, -1.12653E-07, 0.945, 26.79535 ,
-                                0.00, -0.945, -1.12653E-07, 1381.50 ,
-                                
+                                1, 0, 0, 0,
+                                0, 1, 0, 1,
+                                0, 0, 1, 0,
                                 0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE_MINUS_SRC_ALPHA"
                             ]
                         },
                         {
-                            "mesh": "doct/production/f_8_08.bin",
-                            "indexCount": 12,
-                            "shader": "shader_pos_norm_uv_ak",
-                            "texture": "build/d1020736",
+                            "mesh": "ad/production/f_9_19b.bin",
+                            "indexCount": 126,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a801896",
                             "transform": [
-                                0.945, 0.00, 0.00, 1092.50012     ,
-                                0.00, -1.12653E-07, 0.945, 26.79535 ,
-                                0.00, -0.945, -1.12653E-07, 1381.50 ,
+                                1, 0, 0, 0,
+                                0, 1, 0, 1,
+                                0, 0, 1, 0,
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "strip" : true
+                        },
+                        {
+                            "mesh": "ad/production/f_9_20b.bin",
+                            "indexCount": 480,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a516719",
+                            "transform": [
+                                0.12126, 0.52494, 3.40597, 1093.89661 ,
+                                0.32516, 2.22668, -0.80734, 42.28352 ,
+                                -3.48337, 0.22612, 0.0432, 1381.87634 ,
                                 
                                 0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
                             ]
                         },
                         {
-                            "mesh": "doct/production/f_12_01.bin",
-                            "indexCount": 1959,
-                            "shader": "shader_pos_tangent_norm_uv",
-                            "texture": "build/d724929",
+                            "mesh": "ad/production/f_9_21b.bin",
+                            "indexCount": 108,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a3937",
                             "transform": [
-                                1.04414, 0.00, 0.00, 1092.4541         ,
-                                0.00, -1.24471E-07, 1.04414, 27.08729  ,
-                                0.00, -1.04414, -1.24471E-07, 1381.38049 ,
-                                
+                                1, 0, 0, 0,
+                                0, 1, 0, 1,
+                                0, 0, 1, 0,
                                 0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                0.5, 0.5, 0.5, 0.15
                             ]
                         },
                         {
-                            "mesh": "doct/production/f_12_02.bin",
-                            "indexCount": 33,
-                            "shader": "shader_pos_tangent_norm_uv_ak",
-                            "texture": "build/d334960",
+                            "mesh": "ad/production/f_9_22b.bin",
+                            "indexCount": 480,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a516719",
                             "transform": [
-                                1.04414, 0.00, 0.00, 1092.50012     ,
-                                0.00, -1.24471E-07, 1.04414, 26.79535 ,
-                                0.00, -1.04414, -1.24471E-07, 1381.50 ,
-                                
+                                -3.60468, 0.17065, 1.73887, 1089.10449 ,
+                                0.54073, 2.25304, 0.44053, 43.77391   ,
+                                -1.67955, 0.35911, -3.59017, 1385.16174 ,
                                 
                                 0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/production/f_9_23b.bin",
+                            "indexCount": 78,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a4206",
+                            "transform": [
+                                1, 0, 0, 0,
+                                0, 1, 0, 1,
+                                0, 0, 1, 0,
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/production/f_9_24b.bin",
+                            "indexCount": 102,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a3937",
+                            "transform": [
+                                1, 0, 0, 0,
+                                0, 1, 0, 1,
+                                0, 0, 1, 0,
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                0.5, 0.5, 0.5, 0.15
+                            ]
+                        },
+                        {
+                            "mesh": "ad/production/f_9_25b.bin",
+                            "indexCount": 78,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a4206",
+                            "transform": [
+                                1, 0, 0, 0,
+                                0, 1, 0, 1,
+                                0, 0, 1, 0,
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
                             ]
                         }
                     ]

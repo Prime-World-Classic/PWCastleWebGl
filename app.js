@@ -26,6 +26,7 @@ const zFarSM = 1200.0;
 
 const zeroTranslation = [1072, 1360]
 var cursorPosition = [0, 0]
+var camUpdated
 
 var fov = 45;
 document.onwheel = zoom;
@@ -365,7 +366,7 @@ var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texName
 										console.error('ERROR compiling fragment shader!', gl.getShaderInfoLog(fragmentShader));
 										return 1;
 									}
-									console.log('Loaded shader ' + shaderNames[shaderId]);
+									//console.log('Loaded shader ' + shaderNames[shaderId]);
 
 									var program = gl.createProgram();
 									gl.attachShader(program, vertexShader);
@@ -423,7 +424,7 @@ var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texName
 				gl.generateMipmap(gl.TEXTURE_2D);
 
 				sceneTextures[textureId] = texture;
-				console.log('Loaded texture ' + texName);
+				//console.log('Loaded texture ' + texName);
 
 				texturesLoaded += 1;
 			}
@@ -458,7 +459,7 @@ var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texName
 				}
 
 				sceneObjectsContainer[objectId].meshData = { vertices: vertices, vertStride: vertStride, indexCount: meshFloat.length / (vertStride / 4) };
-				console.log('Loaded mesh ' + meshName);
+				//console.log('Loaded mesh ' + meshName);
 
 				meshesLoaded += 1;
 			}
@@ -502,7 +503,7 @@ var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texName
 				const buildings = [
 					"grid",
 
-					"cunning",
+					"food_farm",
 					//"crystal_farm",
 					"food_farm",
 					"heavy_farm",
@@ -540,6 +541,7 @@ var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texName
 							translation: [zeroTranslation[0] + (buildingPositionX[i].value * 7.0 + mesh.size[0] / 2.0 * 7.0), 1, zeroTranslation[1] + (buildingPositionZ[i].value * 7.0 + mesh.size[1] / 2.0 * 7.0)]});
 					} // 1128, 1416
 				}
+				camUpdated = false;
 				if (isSMEnabled) {
 					gl.bindFramebuffer(gl.FRAMEBUFFER, depthFramebuffer);
 					gl.viewport(0, 0, depthTextureSize, depthTextureSize);
@@ -627,8 +629,6 @@ var SetupMainCam = function (program) {
 	var zNearFar = gl.getUniformLocation(program, 'zNear_zFar');
 	gl.uniform4f(zNearFar, zNear, zFar, zNearSM, zFarSM);
 
-	var aspectRatio = canvasHeight / canvasWidth;
-
 	var camForw = [viewMatrix2[2], viewMatrix2[6], viewMatrix2[10], 0];
 	var camForwXY = [camForw[0], camForw[2]];
 	vec2.normalize(camForwXY, camForwXY);
@@ -637,8 +637,11 @@ var SetupMainCam = function (program) {
 	var camRightXY = [camRight[0], camRight[2]];
 	vec2.normalize(camRightXY, camRightXY);
 
-	camDeltaPos[0] -= (camForwXY[1] * cursorDeltaPos[0] - camRightXY[1] * cursorDeltaPos[1]) * 0.003;
-	camDeltaPos[1] -= (camForwXY[0] * cursorDeltaPos[0] - camRightXY[0] * cursorDeltaPos[1]) * 0.003;
+	if (!camUpdated) {
+		camDeltaPos[0] -= (camForwXY[1] * cursorDeltaPos[0] - camRightXY[1] * cursorDeltaPos[1]) * 0.3;
+		camDeltaPos[1] -= (camForwXY[0] * cursorDeltaPos[0] - camRightXY[0] * cursorDeltaPos[1]) * 0.3;
+		camUpdated = true;
+	}
 	
 	mat4.invert(viewProjInv, viewProjMatr); // viewProj -> world
 
