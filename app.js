@@ -520,7 +520,7 @@ var MainLoop = function(sceneObjects, sceneBuildings, sceneShaders, sceneTexture
 		const buildings = [
 			"grid",
 
-			//"talent_farm",
+			"storage",
 			
 			"crystal_farm",
 			"food_farm",
