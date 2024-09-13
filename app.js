@@ -15,7 +15,7 @@ var isSMEnabled;
 var lightViewProjMatrix;
 var depthTexture;
 var depthFramebuffer;
-const depthTextureSize = 2048;
+const depthTextureSize = 8192;
 const zNear = 0.1;
 const zFar = 10000.0;
 var canvasWidth;
@@ -25,8 +25,10 @@ const zNearSM = 0.1;
 const zFarSM = 1200.0;
 
 const zeroTranslation = [1072, 1360]
-var cursorPosition = [0, 0]
-var camUpdated
+var gridTranslation;
+var cursorPosition = [0, 0];
+var gridCursorPosX;
+var gridCursorPosZ;
 
 var fov = 45;
 document.onwheel = zoom;
@@ -41,12 +43,15 @@ function zoom(event) {
 var doMove = false;
 var cursorDeltaPos = [0.0, 0.0]
 var camDeltaPos = [0.0, 0.0]
+
 function prepareMove(event) {
 	doMove = true;
 }
+
 function stopMove(event) {
 	doMove = false;
 }
+
 function moveMouse(e) {
 	if (doMove) {
 		cursorDeltaPos[0] = e.movementX;
@@ -57,7 +62,7 @@ function moveMouse(e) {
 	}
 	cursorPosition[0] = e.offsetX;
 	cursorPosition[1] = e.offsetY;
-  }
+}
 
 var scenesJson;
 
@@ -483,6 +488,17 @@ var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texName
 		totalMeshes += building.length;
 	});
 
+	function waitInitialization() {
+		if (shadersLoaded == shaderNames.length && texturesLoaded == texNames.length && meshesLoaded == totalMeshes) {
+			MainLoop(sceneObjects, sceneBuildings, sceneShaders, sceneTextures);
+		} else {
+			window.setTimeout(waitInitialization, 100);
+		}
+	}
+	waitInitialization();
+}
+
+var MainLoop = function(sceneObjects, sceneBuildings, sceneShaders, sceneTextures) {
 	function PrepareAndDrawObject(obj, isSMPass, rotation, translation) {
 		var meshData = obj.meshData;
 		var associatedTexture = obj.textureId;
@@ -497,107 +513,105 @@ var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texName
 			obj.strip, obj.transform, isSMPass, obj.blend, obj.tintColor, obj.uvScale, rotation, translation);
 	}
 
-	function waitInitialization() {
-		if (shadersLoaded == shaderNames.length && texturesLoaded == texNames.length && meshesLoaded == totalMeshes) {
-			var loop = function () {
-				const buildings = [
-					"grid",
+	var gridBuilding = sceneBuildings.get('grid');
+	var gridTransform = gridBuilding.transparentObjects[0].transform;
+	gridTranslation = [gridTransform[3], gridTransform[11]];
+	var loop = function () {
+		const buildings = [
+			"grid",
 
-					"food_farm",
-					//"crystal_farm",
-					"food_farm",
-					"heavy_farm",
-					"light_farm",
-					"silver_farm",
-					"talent_farm",
+			//"talent_farm",
+			
+			"crystal_farm",
+			"food_farm",
+			"heavy_farm",
+			"light_farm",
+			"silver_farm",
+			"talent_farm",
 
-					"clan_house",
-					"fair",
-					"house",
-					"library",
-					"storage",
+			"clan_house",
+			"fair",
+			"house",
+			"library",
+			"storage",
 
-					"agility",
-					"cunning",
-					"health",
-					"intelligence",
-					"strength",
-					"tavern",
+			"agility",
+			"cunning",
+			"health",
+			"intelligence",
+			"strength",
+			"tavern",
 
-					"cat",
-					"dog",
-					"unicorn",
-				];
-				var buildingsToDraw = [];
-				var buildingSelector = document.getElementsByClassName("buildings");
-				var buildingRotation = document.getElementsByClassName("rotation");
-				var buildingPositionX = document.getElementsByClassName("positionX");
-				var buildingPositionZ = document.getElementsByClassName("positionZ");
-				
-				for (i = 0; i < buildingSelector.length; ++i) {
-					if (buildingSelector[i].checked) {
-						var mesh = sceneBuildings.get(buildings[i]);
-						buildingsToDraw.push({mesh: mesh, rotation: buildingRotation[i].value, 
-							translation: [zeroTranslation[0] + (buildingPositionX[i].value * 7.0 + mesh.size[0] / 2.0 * 7.0), 1, zeroTranslation[1] + (buildingPositionZ[i].value * 7.0 + mesh.size[1] / 2.0 * 7.0)]});
-					} // 1128, 1416
-				}
-				camUpdated = false;
-				if (isSMEnabled) {
-					gl.bindFramebuffer(gl.FRAMEBUFFER, depthFramebuffer);
-					gl.viewport(0, 0, depthTextureSize, depthTextureSize);
-					gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-
-					for (i = 0; i < sceneObjects.length; ++i) {
-						obj = sceneObjects[i];
-						if (obj.blend)
-							break;
-						PrepareAndDrawObject(obj, true);
-					}
-					for (buildingToDraw of buildingsToDraw) {
-						for (i = 0; i < buildingToDraw.mesh.objects.length; ++i) {
-							PrepareAndDrawObject(buildingToDraw.mesh.objects[i], true, buildingToDraw.rotation, buildingToDraw.translation);
-						}
-					}
-
-				}
-
-				gl.bindFramebuffer(gl.FRAMEBUFFER, null);
-				gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
-				gl.clearColor(0.75, 0.85, 0.8, 1.0);
-				gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-				for (buildingToDraw of buildingsToDraw) {
-					for (i = 0; i < buildingToDraw.mesh.objects.length; ++i) {
-						PrepareAndDrawObject(buildingToDraw.mesh.objects[i], false, buildingToDraw.rotation, buildingToDraw.translation);
-					}
-				}
-				for (i = 0; i < sceneObjects.length; ++i) {
-					PrepareAndDrawObject(sceneObjects[i], false);
-				}
-				for (buildingToDraw of buildingsToDraw) {
-					for (i = 0; i < buildingToDraw.mesh.transparentObjects.length; ++i) {
-						PrepareAndDrawObject(buildingToDraw.mesh.transparentObjects[i], false, buildingToDraw.rotation, buildingToDraw.translation);
-					}
-				}
-				gl.disable(gl.BLEND);
-				gl.enable(gl.CULL_FACE);
-				gl.colorMask(true, true, true, true);
-				gl.depthMask(true);
-
-				cursorDeltaPos[0] = 0;
-				cursorDeltaPos[1] = 0;
-
-				requestAnimationFrame(loop);
-			};
-			requestAnimationFrame(loop);
-		} else {
-			window.setTimeout(waitInitialization, 100);
+			"cat",
+			"dog",
+			"unicorn",
+		];
+		var buildingsToDraw = [];
+		var buildingSelector = document.getElementsByClassName("buildings");
+		var buildingRotation = document.getElementsByClassName("rotation");
+		var buildingPositionX = document.getElementsByClassName("positionX");
+		var buildingPositionZ = document.getElementsByClassName("positionZ");
+		
+		for (i = 0; i < buildingSelector.length; ++i) {
+			if (buildingSelector[i].checked) {
+				var mesh = sceneBuildings.get(buildings[i]);
+				buildingsToDraw.push({mesh: mesh, rotation: buildingRotation[i].value, 
+					translation: [zeroTranslation[0] + (buildingPositionX[i].value * 7.0 + mesh.size[0] / 2.0 * 7.0), 1, zeroTranslation[1] + (buildingPositionZ[i].value * 7.0 + mesh.size[1] / 2.0 * 7.0)]});
+			}
 		}
-	}
-	waitInitialization();
+
+		UpdateMainCam();
+		
+		if (isSMEnabled) {
+			gl.bindFramebuffer(gl.FRAMEBUFFER, depthFramebuffer);
+			gl.viewport(0, 0, depthTextureSize, depthTextureSize);
+			gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+			for (i = 0; i < sceneObjects.length; ++i) {
+				obj = sceneObjects[i];
+				if (obj.blend)
+					break;
+				PrepareAndDrawObject(obj, true);
+			}
+			for (buildingToDraw of buildingsToDraw) {
+				for (i = 0; i < buildingToDraw.mesh.objects.length; ++i) {
+					PrepareAndDrawObject(buildingToDraw.mesh.objects[i], true, buildingToDraw.rotation, buildingToDraw.translation);
+				}
+			}
+
+		}
+
+		gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+		gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+		gl.clearColor(0.75, 0.85, 0.8, 1.0);
+		gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+		for (buildingToDraw of buildingsToDraw) {
+			for (i = 0; i < buildingToDraw.mesh.objects.length; ++i) {
+				PrepareAndDrawObject(buildingToDraw.mesh.objects[i], false, buildingToDraw.rotation, buildingToDraw.translation);
+			}
+		}
+		for (i = 0; i < sceneObjects.length; ++i) {
+			PrepareAndDrawObject(sceneObjects[i], false);
+		}
+		for (buildingToDraw of buildingsToDraw) {
+			for (i = 0; i < buildingToDraw.mesh.transparentObjects.length; ++i) {
+				PrepareAndDrawObject(buildingToDraw.mesh.transparentObjects[i], false, buildingToDraw.rotation, buildingToDraw.translation);
+			}
+		}
+		gl.disable(gl.BLEND);
+		gl.enable(gl.CULL_FACE);
+		gl.colorMask(true, true, true, true);
+		gl.depthMask(true);
+
+		cursorDeltaPos[0] = 0;
+		cursorDeltaPos[1] = 0;
+
+		requestAnimationFrame(loop);
+	};
+	requestAnimationFrame(loop);
 }
 
-
-var SetupMainCam = function (program) {
+var UpdateMainCam = function () {
 	mat4.perspective(projMatrix, glMatrix.toRadian(fov), canvasWidth / canvasHeight, zNear, zFar);
 
 	var camPosElements = document.getElementsByClassName("camPosition");
@@ -620,15 +634,6 @@ var SetupMainCam = function (program) {
 	mat4.multiply(viewMatrix2, flipMatr, viewMatrix);
 	mat4.multiply(viewProjMatr, projMatrix, viewMatrix2);
 
-	var matViewProjUniformLocation = gl.getUniformLocation(program, 'mViewProj');
-	gl.uniformMatrix4fv(matViewProjUniformLocation, gl.FALSE, viewProjMatr);
-
-	var matViewProjSMUniformLocation = gl.getUniformLocation(program, 'lightViewProj');
-	gl.uniformMatrix4fv(matViewProjSMUniformLocation, gl.FALSE, lightViewProjMatrix);
-
-	var zNearFar = gl.getUniformLocation(program, 'zNear_zFar');
-	gl.uniform4f(zNearFar, zNear, zFar, zNearSM, zFarSM);
-
 	var camForw = [viewMatrix2[2], viewMatrix2[6], viewMatrix2[10], 0];
 	var camForwXY = [camForw[0], camForw[2]];
 	vec2.normalize(camForwXY, camForwXY);
@@ -637,11 +642,8 @@ var SetupMainCam = function (program) {
 	var camRightXY = [camRight[0], camRight[2]];
 	vec2.normalize(camRightXY, camRightXY);
 
-	if (!camUpdated) {
-		camDeltaPos[0] -= (camForwXY[1] * cursorDeltaPos[0] - camRightXY[1] * cursorDeltaPos[1]) * 0.3;
-		camDeltaPos[1] -= (camForwXY[0] * cursorDeltaPos[0] - camRightXY[0] * cursorDeltaPos[1]) * 0.3;
-		camUpdated = true;
-	}
+	camDeltaPos[0] -= (camForwXY[1] * cursorDeltaPos[0] - camRightXY[1] * cursorDeltaPos[1]) * 0.1;
+	camDeltaPos[1] -= (camForwXY[0] * cursorDeltaPos[0] - camRightXY[0] * cursorDeltaPos[1]) * 0.1;
 	
 	mat4.invert(viewProjInv, viewProjMatr); // viewProj -> world
 
@@ -653,13 +655,23 @@ var SetupMainCam = function (program) {
 	
 	var camForwNew = [cursorBasis2[0] - camPos[0], cursorBasis2[1] - camPos[1], cursorBasis2[2] - camPos[2]];
 	vec3.normalize(camForwNew, camForwNew);
-	//vec3.subtract()
 	var t = -(camPos[1] + 27) / camForwNew[1];
-	var x = camPos[0] + t * camForwNew[0] + (zeroTranslation[0] + 124);
-	var z = camPos[2] + t * camForwNew[2] + (zeroTranslation[1] - 45);
+	gridCursorPosX = camPos[0] + t * camForwNew[0] + (zeroTranslation[0] + gridTranslation[0]);
+	gridCursorPosZ = camPos[2] + t * camForwNew[2] + (zeroTranslation[1] + gridTranslation[1]);
+}
+
+var SetupMainCam = function (program) {
+	var matViewProjUniformLocation = gl.getUniformLocation(program, 'mViewProj');
+	gl.uniformMatrix4fv(matViewProjUniformLocation, gl.FALSE, viewProjMatr);
+
+	var matViewProjSMUniformLocation = gl.getUniformLocation(program, 'lightViewProj');
+	gl.uniformMatrix4fv(matViewProjSMUniformLocation, gl.FALSE, lightViewProjMatrix);
+
+	var zNearFar = gl.getUniformLocation(program, 'zNear_zFar');
+	gl.uniform4f(zNearFar, zNear, zFar, zNearSM, zFarSM);
 
 	var cursorGridPosition = gl.getUniformLocation(program, 'cursorGridPosition');
-	gl.uniform2f(cursorGridPosition, -x, -z);
+	gl.uniform2f(cursorGridPosition, -gridCursorPosX, -gridCursorPosZ);
 }
 
 var SetupSMCam = function (program) {
