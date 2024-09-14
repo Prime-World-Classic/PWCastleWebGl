@@ -8435,97 +8435,99 @@
                     "size": [5, 5],
                     "objects": [
                         {
-                            "mesh": "doct/for-heroes/a_8_01.bin",
-                            "indexCount": 240,
+                            "mesh": "ad/for-heroes/a_8_01.bin",
+                            "indexCount": 3708,
                             "shader": "shader_pos_norm_uv_ak",
-                            "texture": "build/d1242011",
+                            "texture": "build/a193666",
                             "transform": [
-                                1, 0, 0, 0,
-                                0, 1, 0, 1,
-                                0, 0, 1, 0,
-                                0, 0, 0, 1
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/a_8_02.bin",
-                            "indexCount": 10179,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1242011",
-                            "transform": [
-                                -1.19209E-07, -1.00, -1.19209E-07, 1089.42603 ,
-                                0.00, -1.19209E-07, 1.00, 26.79739          ,
-                                -1.00, 1.19209E-07, 1.42109E-14, 1377.99988 ,
+                                -0.9352, -0.12763, 0.00, 1087.70459        ,
+                                -1.52144E-08, 1.11484E-07, 0.94387, 30.17232 ,
+                                -0.12763, 0.9352, -1.12518E-07, 1378.88281 ,
                                 
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/a_12_01.bin",
-                            "indexCount": 36,
+                            "mesh": "ad/for-heroes/a_8_02.bin",
+                            "indexCount": 48,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/a193661",
+                            "transform": [
+                                0.80, 0.00, 0.00, 1089.00        ,
+                                0.00, -9.53674E-08, 0.80, 27.58751 ,
+                                0.00, -0.80, -9.53674E-08, 1378.00 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/a_12_01.bin",
+                            "indexCount": 174,
                             "shader": "shader_pos_tangent_norm_uv_ak",
-                            "texture": "build/d1242016",
+                            "texture": "build/a688815",
                             "transform": [
-                                -1.19209E-07, -1.00, -1.19209E-07, 1089.42603 ,
-                                0.00, -1.19209E-07, 1.00, 26.79739          ,
-                                -1.00, 1.19209E-07, 1.42109E-14, 1377.99988 ,
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
                                 
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/a_12_02.bin",
-                            "indexCount": 396,
+                            "mesh": "ad/for-heroes/a_12_02.bin",
+                            "indexCount": 192,
                             "shader": "shader_pos_tangent_norm_uv_ak",
-                            "texture": "build/d334960",
+                            "texture": "build/a688815",
                             "transform": [
-                                -1.19209E-07, -1.00, -1.19209E-07, 1089.83862 ,
-                                0.00, -1.19209E-07, 1.00, 26.91545          ,
-                                -1.00, 1.19209E-07, 1.42109E-14, 1376.72595 ,
+                                -0.4631, -0.11689, 0.87857, 1088.97705   ,
+                                -0.85185, -0.21502, -0.47762, 27.58751   ,
+                                0.24474, -0.96959, -3.57628E-07, 1378.1853 ,
                                 
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/a_9_01b.bin",
-                            "indexCount": 6,
+                            "mesh": "ad/for-heroes/a_12_03.bin",
+                            "indexCount": 6249,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/a688815",
+                            "transform": [
+                                0.80, 0.00, 0.00, 1089.00        ,
+                                0.00, -9.53674E-08, 0.80, 27.58751 ,
+                                0.00, -0.80, -9.53674E-08, 1378.00 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/a_9_01b.bin",
+                            "indexCount": 126,
                             "shader": "shader_pos_color_uv",
-                            "texture": "build/d683912",
+                            "texture": "build/a4032",
                             "transform": [
-                                -1, 0, 0, 2169,
-                                0, 1, 0, 1,
-                                0, 0, 1, 0,
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
+                                
                                 0, 0, 0, 1
                             ],
                             "blend": [
                                 "SRC_ALPHA",
                                 "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/a_9_02b.bin",
-                            "indexCount": 24,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d683912",
-                            "transform": [
-                                1, 0, 0, 0,
-                                0, 1, 0, 1,
-                                0, 0, 1, 0,
-                                0, 0, 0, 1
                             ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
+                            "tintColor" : [
+                                0.4, 0.4, 0.4, 0.8
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/a_9_03b.bin",
-                            "indexCount": 72,
+                            "mesh": "ad/for-heroes/a_9_02b.bin",
+                            "indexCount": 288,
                             "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d683902",
+                            "texture": "build/a4032",
                             "transform": [
-                                2.45638, -0.36992, -5.31563E-08, 1084.63733 ,
-                                0.00, -3.31825E-07, 3.35536, 30.52242      ,
-                                -0.36992, -2.45638, -3.52976E-07, 1361.74365 ,
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
                                 
                                 0, 0, 0, 1
                             ],
@@ -8535,218 +8537,63 @@
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/a_9_04b.bin",
-                            "indexCount": 6,
+                            "mesh": "ad/for-heroes/a_9_03b.bin",
+                            "indexCount": 174,
                             "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d683912",
+                            "texture": "build/a4186",
                             "transform": [
-                                -1, 0, 0, 2190,
-                                0, 1, 0, 1,
-                                0, 0, 1, 0,
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/a_9_05b.bin",
-                            "indexCount": 18,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d683912",
-                            "transform": [
-                                1, 0, 0, 0,
-                                0, 1, 0, 1,
-                                0, 0, 1, 0,
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/a_9_06b.bin",
-                            "indexCount": 72,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d1242021",
-                            "transform": [
-                                1.0631, -0.15619, 0.01347, 1086.28113 ,
-                                -0.00778, 0.02775, 1.54904, 29.30291  ,
-                                -0.15638, -1.06287, 0.03023, 1372.65881 ,
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
                                 
                                 0, 0, 0, 1
                             ],
                             "blend": [
                                 "SRC_ALPHA",
                                 "ONE"
+                            ],
+                            "tintColor" : [
+                                0.4, 0.4, 0.9, 0.4
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/a_9_07b.bin",
-                            "indexCount": 72,
+                            "mesh": "ad/for-heroes/a_9_04b.bin",
+                            "indexCount": 150,
                             "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d683902",
+                            "texture": "build/a3753",
                             "transform": [
-                                2.45638, -0.36992, -5.31563E-08, 1095.02502 ,
-                                0.00, -3.31825E-07, 3.35536, 30.52242      ,
-                                -0.36992, -2.45638, -3.52976E-07, 1361.74365 ,
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
                                 
                                 0, 0, 0, 1
                             ],
                             "blend": [
                                 "SRC_ALPHA",
                                 "ONE"
+                            ],
+                            "tintColor" : [
+                                0.4, 0.4, 0.4, 8
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/a_9_08b.bin",
-                            "indexCount": 72,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d1242021",
+                            "mesh": "ad/for-heroes/a_9_05b.bin",
+                            "indexCount": 210,
+                            "shader": "shader_pos_color_uv_falloff",
+                            "texture": "build/a4032",
                             "transform": [
-                                1.0631, -0.15619, 0.01347, 1096.6687  ,
-                                -0.00778, 0.02775, 1.54904, 29.30291  ,
-                                -0.15638, -1.06287, 0.03023, 1372.65881 ,
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
                                 
                                 0, 0, 0, 1
                             ],
                             "blend": [
                                 "SRC_ALPHA",
                                 "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/a_9_09b.bin",
-                            "indexCount": 6,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d683912",
-                            "transform": [
-                                -1, 0, 0, 2179,
-                                0, 1, 0, 1,
-                                0, 0, 1, 0,
-                                0, 0, 0, 1
                             ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/a_9_10b.bin",
-                            "indexCount": 24,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d683912",
-                            "transform": [
-                                1, 0, 0, 0,
-                                0, 1, 0, 1,
-                                0, 0, 1, 0,
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/a_9_11b.bin",
-                            "indexCount": 6,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d683912",
-                            "transform": [
-                                -1, 0, 0, 2179,
-                                0, 1, 0, 1,
-                                0, 0, 1, 0,
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/a_9_12b.bin",
-                            "indexCount": 30,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d683912",
-                            "transform": [
-                                1, 0, 0, 0,
-                                0, 1, 0, 1,
-                                0, 0, 1, 0,
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/a_9_13b.bin",
-                            "indexCount": 72,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d1242021",
-                            "transform": [
-                                0.00367, -1.07427, 0.0319, 1097.20117  ,
-                                -0.01193, 0.04258, 2.37707, 35.54015   ,
-                                -1.07454, -0.00383, -0.00882, 1380.01245 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/a_9_14b.bin",
-                            "indexCount": 72,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d683902",
-                            "transform": [
-                                -2.96125E-07, -2.48408, -3.56956E-07, 1086.16296 ,
-                                0.00, -5.09199E-07, 5.14893, 37.41152          ,
-                                -2.48408, 2.96125E-07, 4.25525E-14, 1380.01245 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/a_9_15b.bin",
-                            "indexCount": 72,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d683902",
-                            "transform": [
-                                2.45638, -0.36992, -5.31563E-08, 1092.90747 ,
-                                0.00, -5.09199E-07, 5.14893, 37.24755      ,
-                                -0.36992, -2.45638, -3.52976E-07, 1379.81348 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/a_9_16b.bin",
-                            "indexCount": 72,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d1242021",
-                            "transform": [
-                                1.0631, -0.15619, 0.01347, 1094.55115 ,
-                                -0.01193, 0.04258, 2.37707, 35.37617  ,
-                                -0.15638, -1.06286, 0.03023, 1390.72864 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
+                            "tintColor" : [
+                                0.4, 0.4, 0.4, 0.8
                             ]
                         }
                     ]
@@ -8757,277 +8604,62 @@
                     "size": [5, 5],
                     "objects": [
                         {
-                            "mesh": "doct/for-heroes/c_8_01.bin",
-                            "indexCount": 462,
+                            "mesh": "ad/for-heroes/c_8_01.bin",
+                            "indexCount": 9816,
                             "shader": "shader_pos_norm_uv_ak",
-                            "texture": "build/d1123699",
+                            "texture": "build/a598440",
                             "transform": [
-                                -0.78267, -0.44411, -0.01353, 1084.30676 ,
-                                -0.01732, 0.0031, 0.89983, 49.86755    ,
-                                -0.44398, 0.78279, -0.01124, 1380.97998 ,
+                                -0.02026, 0.0496, 0.99856, 1088.69788 ,
+                                -0.99428, 0.10375, -0.02533, 29.52122 ,
+                                -0.10486, -0.99337, 0.04722, 1378.35388 ,
                                 
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/c_8_02.bin",
-                            "indexCount": 24,
+                            "mesh": "ad/for-heroes/c_8_02.bin",
+                            "indexCount": 624,
                             "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1123699",
+                            "texture": "build/a598440",
                             "transform": [
-                                -0.85022, -0.29483, 0.01429, 1085.4447 ,
-                                0.00, 0.04358, 0.89894, 50.86343      ,
-                                -0.29518, 0.84922, -0.04117, 1377.69666 ,
-
-                                0, 0, 0, 1
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_8_03.bin",
-                            "indexCount": 1116,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1123699",
-                            "transform": [
-                                1, 0, 0, 0,
-                                0, 1, 0, 1,
-                                0, 0, 1, 0,
-                                0, 0, 0, 1
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_8_04.bin",
-                            "indexCount": 18,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1123699",
-                            "transform": [
-                                -0.85022, -0.19234, 0.22391, 1092.08215 ,
-                                0.00, 0.6827, 0.58644, 44.57544       ,
-                                -0.29518, 0.554, -0.64494, 1374.17786 ,
+                                0.75, 0.00, 0.00, 1089.00        ,
+                                0.00, -8.94070E-08, 0.75, 27.58751 ,
+                                0.00, -0.75, -8.94070E-08, 1378.00 ,
                                 
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/c_8_05.bin",
-                            "indexCount": 54,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1123699",
+                            "mesh": "ad/for-heroes/c_8_03.bin",
+                            "indexCount": 1134,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/a193666",
                             "transform": [
-                                1, 0, 0, 0,
-                                0, 1, 0, 1,
-                                0, 0, 1, 0,
-                                0, 0, 0, 1
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_8_06.bin",
-                            "indexCount": 762,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1123699",
-                            "transform": [
-                                -0.85022, -0.26287, 0.13427, 1093.61853 ,
-                                0.00, 0.40939, 0.8015, 41.37516       ,
-                                -0.29518, 0.75717, -0.38675, 1374.45898 ,
+                                0.88441, 0.00, 0.00, 1089.00        ,
+                                0.00, -1.05430E-07, 0.88441, 27.58751 ,
+                                0.00, -0.88441, -1.05430E-07, 1378.00 ,
                                 
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/c_8_07.bin",
-                            "indexCount": 900,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1123699",
+                            "mesh": "ad/for-heroes/c_8_04.bin",
+                            "indexCount": 30,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/a193661",
                             "transform": [
-                                -0.85022, -0.29517, 0.0012, 1089.40759 ,
-                                0.00, 0.00366, 0.89999, 41.28064      ,
-                                -0.29518, 0.85021, -0.00346, 1373.42114 ,
+                                0.88441, 0.00, 0.00, 1089.00        ,
+                                0.00, -1.05430E-07, 0.88441, 27.58751 ,
+                                0.00, -0.88441, -1.05430E-07, 1378.00 ,
                                 
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/c_8_08.bin",
-                            "indexCount": 312,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1123699",
-                            "transform": [
-                                -0.85022, -0.26917, 0.12115, 1092.97144 ,
-                                0.00, 0.3694, 0.8207, 40.37639        ,
-                                -0.29518, 0.7753, -0.34897, 1371.65796 ,
-                                
-                                0, 0, 0, 1
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_8_09.bin",
-                            "indexCount": 18,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1123699",
-                            "transform": [
-                                -0.85022, -0.26917, 0.12115, 1091.07971 ,
-                                0.00, 0.3694, 0.8207, 38.39011        ,
-                                -0.29518, 0.7753, -0.34897, 1377.37305 ,
-                                
-                                0, 0, 0, 1
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_8_10.bin",
-                            "indexCount": 2265,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1123699",
-                            "transform": [
-                                -0.85022, -0.29518, 0.00, 1088.99988 ,
-                                0.00, 0.00, 0.90, 22.66546         ,
-                                -0.29518, 0.85022, 0.00, 1378.92676 ,
-                                
-                                0, 0, 0, 1
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_8_11.bin",
-                            "indexCount": 1002,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1123699",
-                            "transform": [
-                                -0.85022, -0.26917, 0.12115, 1088.15381 ,
-                                0.00, 0.3694, 0.8207, 37.27314        ,
-                                -0.29518, 0.7753, -0.34897, 1380.87073 ,
-                                
-                                0, 0, 0, 1
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_8_12.bin",
-                            "indexCount": 336,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1123699",
-                            "transform": [
-                                -0.85022, -0.29518, 0.00, 1087.7948 ,
-                                0.00, 0.00, 0.90, 34.55259        ,
-                                -0.29518, 0.85022, 0.00, 1378.06616 ,
-                                
-                                0, 0, 0, 1
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_8_13.bin",
-                            "indexCount": 384,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1123699",
-                            "transform": [
-                                -0.85022, -0.29517, -0.00138, 1091.6554 ,
-                                0.00, -0.00421, 0.89999, 47.68623     ,
-                                -0.29518, 0.85021, 0.00398, 1375.95764 ,
-                                
-                                0, 0, 0, 1
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_8_14.bin",
-                            "indexCount": 4176,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1242011",
-                            "transform": [
-                                -1.07288E-06, -0.90, -1.07288E-07, 1088.99988 ,
-                                0.00, -1.07288E-07, 0.90, 26.94527          ,
-                                -0.90, 1.07288E-06, 1.27898E-13, 1378.92676 ,
-                                
-                                0, 0, 0, 1
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_12_01.bin",
-                            "indexCount": 408,
-                            "shader": "shader_pos_tangent_norm_uv_ak",
-                            "texture": "build/d334960",
-                            "transform": [
-                                -1.19209E-07, -1.00, -1.19209E-07, 1089.83862 ,
-                                0.00, -1.19209E-07, 1.00, 26.91545          ,
-                                -1.00, 1.19209E-07, 1.42109E-14, 1376.72595 ,
-                                
-                                0, 0, 0, 1
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_9_01b.bin",
-                            "indexCount": 168,
+                            "mesh": "ad/for-heroes/c_9_01b.bin",
+                            "indexCount": 78,
                             "shader": "shader_pos_color_uv",
-                            "texture": "build/d1123714",
-                            "transform": [
-                                -1.29360E-06, -1.08515, -1.29360E-07, 1081.9303 ,
-                                0.00, -1.83492E-07, 1.53924, 29.10749         ,
-                                -1.08515, 1.29360E-06, 1.54210E-13, 1364.73083 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_9_02b.bin",
-                            "indexCount": 18,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d924057",
-                            "transform": [
-                                1.00, 0.00, 0.00, 0.00 ,
-                                0.00, 1.00, 0.00, 0.50 ,
-                                0.00, 0.00, 1.00, 0.00 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ],
-                            "tintColor": [
-                                1, 1, 1, 0.2
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_9_03b.bin",
-                            "indexCount": 84,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d1123719",
-                            "transform": [
-                                1.00, 0.00, 0.00, 0.00 ,
-                                0.00, 1.00, 0.00, 0 ,
-                                0.00, 0.00, 1.00, 0.00 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_9_04b.bin",
-                            "indexCount": 66,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d3512",
-                            "transform": [
-                                1.00, 0.00, 0.00, 0.00 ,
-                                0.00, 1.00, 0.00, 0.00 ,
-                                0.00, 0.00, 1.00, 0.00 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE_MINUS_SRC_ALPHA"
-                            ],
-                            "tintColor": [
-                                1, 1, 1, 0.2
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_9_05b.bin",
-                            "indexCount": 66,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d959649",
+                            "texture": "build/a4032",
                             "transform": [
                                 1.00, 0.00, 0.00, 0.00 ,
                                 0.00, 1.00, 0.00, 0.00 ,
@@ -9041,31 +8673,14 @@
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/c_9_06b.bin",
-                            "indexCount": 168,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d1123714",
+                            "mesh": "ad/for-heroes/c_9_02b.bin",
+                            "indexCount": 324,
+                            "shader": "shader_pos_color_uv_falloff",
+                            "texture": "build/a598470",
                             "transform": [
-                                -0.88989, 0.62101, 7.40303E-08, 1095.92517 ,
-                                0.00, -1.83492E-07, 1.53924, 29.10749    ,
-                                0.62101, 0.88989, 1.06083E-07, 1364.86487 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_9_07b.bin",
-                            "indexCount": 24,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d924057",
-                            "transform": [
-                                1.00, 0.00, 0.00, 0.00 ,
-                                0.00, 1.00, 0.00, 0 ,
-                                0.00, 0.00, 1.00, 0.00 ,
+                                0.50321, 0.00, 0.00, 1089.00           ,
+                                0.00, -5.99869E-08, 4.3392, 6.58381    ,
+                                0.00, -0.50321, -5.17273E-07, 1378.13013 ,
                                 
                                 0, 0, 0, 1
                             ],
@@ -9074,180 +8689,27 @@
                                 "ONE"
                             ],
                             "tintColor": [
-                                1, 1, 1, 0.2
+                                1, 1, 1, 1
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/c_9_08b.bin",
-                            "indexCount": 84,
+                            "mesh": "ad/for-heroes/c_9_03b.bin",
+                            "indexCount": 252,
                             "shader": "shader_pos_color_uv",
-                            "texture": "build/d1123719",
+                            "texture": "build/a516719",
                             "transform": [
-                                1.00, 0.00, 0.00, 0.00 ,
-                                0.00, 1.00, 0.00, 0 ,
-                                0.00, 0.00, 1.00, 0.00 ,
+                                0.75, 0.00, 0.00, 1087.84192        ,
+                                0.00, -8.94070E-08, 0.75, 28.9019   ,
+                                0.00, -0.75, -8.94070E-08, 1379.74634 ,
                                 
                                 0, 0, 0, 1
                             ],
                             "blend": [
                                 "SRC_ALPHA",
                                 "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_9_09b.bin",
-                            "indexCount": 60,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d959649",
-                            "transform": [
-                                1.00, 0.00, 0.00, 0.00 ,
-                                0.00, 1.00, 0.00, 0 ,
-                                0.00, 0.00, 1.00, 0.00 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_9_10b.bin",
-                            "indexCount": 60,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d3512",
-                            "transform": [
-                                1.00, 0.00, 0.00, 0.00 ,
-                                0.00, 1.00, 0.00, 0 ,
-                                0.00, 0.00, 1.00, 0.00 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE_MINUS_SRC_ALPHA"
                             ],
                             "tintColor": [
-                                1, 1, 1, 0.2
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_9_11b.bin",
-                            "indexCount": 312,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d1123709",
-                            "transform": [
-                                -0.85022, -0.29518, 2.48815E-08, 1088.99988 ,
-                                2.03484E-14, 7.58643E-08, 0.90, 26.97581  ,
-                                -0.29518, 0.85022, -7.16680E-08, 1378.92676 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_9_12b.bin",
-                            "indexCount": 126,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d3695",
-                            "transform": [
-                                -0.46671, 0.04861, 0.00063, 1090.25854 ,
-                                0.00081, 0.00173, 0.46923, 40.87462  ,
-                                0.04861, 0.4667, -0.0018, 1368.46228 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_9_13b.bin",
-                            "indexCount": 480,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d3695",
-                            "transform": [
-                                -0.4389, -0.15237, 0.00062, 1091.86914 ,
-                                0.00, 0.00189, 0.46459, 40.43778     ,
-                                -0.15238, 0.4389, -0.00178, 1370.84607 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_9_14b.bin",
-                            "indexCount": 288,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d1123724",
-                            "transform": [
-                                -1.42509E-06, -1.19546, -1.42509E-07, 1081.9303 ,
-                                0.00, -2.02143E-07, 1.6957, 29.42872          ,
-                                -1.19546, 1.42509E-06, 1.69885E-13, 1364.73083 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_9_15b.bin",
-                            "indexCount": 480,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d1123724",
-                            "transform": [
-                                -1.42509E-06, -1.19546, -1.42509E-07, 1081.9303 ,
-                                0.00, -2.02143E-07, 1.6957, 29.42872          ,
-                                -1.19546, 1.42509E-06, 1.69885E-13, 1364.73083 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_9_16b.bin",
-                            "indexCount": 288,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d1123724",
-                            "transform": [
-                                -0.98034, 0.68413, 8.15552E-08, 1095.92517 ,
-                                0.00, -2.02143E-07, 1.6957, 29.42872     ,
-                                0.68413, 0.98034, 1.16866E-07, 1364.86487 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/c_9_17b.bin",
-                            "indexCount": 480,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d1123724",
-                            "transform": [
-                                -0.98034, 0.68413, 8.15552E-08, 1095.92517 ,
-                                0.00, -2.02143E-07, 1.6957, 29.42872     ,
-                                0.68413, 0.98034, 1.16866E-07, 1364.86487 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
+                                3, 3, 3, 10
                             ]
                         }
                     ]
@@ -9258,53 +8720,79 @@
                     "size": [5, 5],
                     "objects": [
                         {
-                            "mesh": "doct/for-heroes/h_8_01.bin",
-                            "indexCount": 2220,
+                            "mesh": "ad/for-heroes/h_8_01.bin",
+                            "indexCount": 1614,
                             "shader": "shader_pos_norm_uv_ak",
-                            "texture": "build/d1081719",
+                            "texture": "build/a193666",
                             "transform": [
-                                -0.52309, -0.77063, -1.11031E-07, 1088.22144 ,
-                                -6.23568E-08, -9.18662E-08, 0.93139, 24.60754 ,
-                                -0.77063, 0.52309, 6.61794E-14, 1377.99988  ,
+                                -1.00622E-07, -0.84408, -1.00622E-07, 1091.38269 ,
+                                0.00, -1.00622E-07, 0.84408, 28.01619          ,
+                                -0.84408, 1.00622E-07, 1.19951E-14, 1376.88599 ,
                                 
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/h_8_02.bin",
-                            "indexCount": 99,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1081719",
-                            "transform": [
-                                0.06193, -0.99808, -8.53662E-06, 1078.55457 ,
-                                0.99808, 0.06193, -0.00136, 40.53539      ,
-                                0.00135, 0.00008, 1.00, 1391.08984        ,
-                                
-                                0, 0, 0, 1
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/h_8_03.bin",
-                            "indexCount": 3720,
+                            "mesh": "ad/for-heroes/h_8_02.bin",
+                            "indexCount": 48,
                             "shader": "shader_pos_norm_uv_ak",
-                            "texture": "build/d1081719",
+                            "texture": "build/a193661",
                             "transform": [
-                                -5.55153E-07, -0.93139, -1.11031E-07, 1088.22144 ,
-                                0.00, -1.11031E-07, 0.93139, 26.79739          ,
-                                -0.93139, 5.55153E-07, 6.61794E-14, 1377.99988 ,
+                                -1.00622E-07, -0.84408, -1.00622E-07, 1091.38269 ,
+                                0.00, -1.00622E-07, 0.84408, 28.01619          ,
+                                -0.84408, 1.00622E-07, 1.19951E-14, 1376.88599 ,
                                 
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/h_9_01b.bin",
-                            "indexCount": 930,
+                            "mesh": "ad/for-heroes/h_12_01.bin",
+                            "indexCount": 780,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/a556422",
+                            "transform": [
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/h_12_02.bin",
+                            "indexCount": 657,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/a556422",
+                            "transform": [
+                                -0.00823, -0.99997, 4.47035E-08, 1088.40588 ,
+                                -0.92235, 0.00759, 0.38629, 47.56349      ,
+                                -0.38628, 0.00318, -0.92238, 1369.62622   ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/h_12_03.bin",
+                            "indexCount": 7314,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/a556422",
+                            "transform": [
+                                -1.14997E-07, -0.96466, -1.14997E-07, 1091.37744 ,
+                                0.00, -1.14997E-07, 0.96466, 28.01619          ,
+                                -0.96466, 1.14997E-07, 1.37087E-14, 1376.88599 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/h_9_01b.bin",
+                            "indexCount": 240,
                             "shader": "shader_pos_color_uv",
-                            "texture": "build/d1006151",
+                            "texture": "build/a556447",
                             "transform": [
-                                -0.53205, -0.76447, -1.11031E-07, 1088.22144 ,
-                                -6.34250E-08, -9.11320E-08, 0.93139, 25.52902 ,
-                                -0.76447, 0.53205, 6.61794E-14, 1377.99988  ,
+                                -0.78661, 9.37708E-08, 0.00, 1091.38269 ,
+                                0.00, 0.00, 0.99529, 28.01619         ,
+                                9.37708E-08, 0.78661, 0.00, 1377.19556 ,
                                 
                                 0, 0, 0, 1
                             ],
@@ -9317,14 +8805,274 @@
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/h_9_02b.bin",
-                            "indexCount": 960,
+                            "mesh": "ad/for-heroes/h_9_02b.bin",
+                            "indexCount": 108,
                             "shader": "shader_pos_color_uv",
-                            "texture": "build/d1006166",
+                            "texture": "build/a556462",
                             "transform": [
-                                -0.33444, -0.86928, -1.11031E-07, 1088.22144 ,
-                                -3.98680E-08, -1.03626E-07, 0.93139, 24.52902 ,
-                                -0.86928, 0.33444, 6.61794E-14, 1377.99988  ,
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.5
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/h_9_03b.bin",
+                            "indexCount": 372,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a556462",
+                            "transform": [
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.5
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/h_9_04b.bin",
+                            "indexCount": 318,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a3783",
+                            "transform": [
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.5
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/h_9_05b.bin",
+                            "indexCount": 348,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a556462",
+                            "transform": [
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.5
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/h_9_06b.bin",
+                            "indexCount": 240,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a556452",
+                            "transform": [
+                                -0.78661, 9.37708E-08, 0.00, 1091.38269 ,
+                                0.00, 0.00, 0.99529, 28.01619         ,
+                                9.37708E-08, 0.78661, 0.00, 1377.19556 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.5
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/h_9_07b.bin",
+                            "indexCount": 240,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a3909",
+                            "transform": [
+                                -0.78661, 9.37708E-08, 0.00, 1091.38269 ,
+                                0.00, 0.00, 0.99529, 28.01619         ,
+                                9.37708E-08, 0.78661, 0.00, 1377.19556 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.5
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/h_9_08b.bin",
+                            "indexCount": 60,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a556427",
+                            "transform": [
+                                -3.31144E-07, -0.7076, 5.00122E-08, 1088.22571 ,
+                                0.74076, -3.37410E-07, -8.75214E-08, 32.74427 ,
+                                1.76610E-07, 8.43524E-08, 0.41953, 1383.72839 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.5
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/h_9_09b.bin",
+                            "indexCount": 189,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a556437",
+                            "transform": [
+                                -1.49136E-07, -0.96466, -2.74802E-07, 1091.38269 ,
+                                -2.87492E-08, -2.83561E-07, 0.96466, 27.62947  ,
+                                -0.96466, 1.47340E-07, -2.87491E-08, 1376.88599 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.5
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/h_9_10b.bin",
+                            "indexCount": 90,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a556437",
+                            "transform": [
+                                -1.14997E-07, -0.82585, -1.14997E-07, 1090.87793 ,
+                                0.00, -9.84484E-08, 0.96466, 28.01619          ,
+                                -0.96466, 9.84484E-08, 1.37087E-14, 1376.88599 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.5
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/h_9_11b.bin",
+                            "indexCount": 120,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a556442",
+                            "transform": [
+                                3.05301E-08, 0.65065, -0.02347, 1088.05701 ,
+                                1.02442, 0.00, 2.64159E-08, 32.57869     ,
+                                -3.63947E-15, 0.01724, 0.88606, 1387.70984 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.5
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/h_9_12b.bin",
+                            "indexCount": 120,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a556442",
+                            "transform": [
+                                -0.49122, 0.12678, 0.04638, 1082.09326 ,
+                                0.0085, -0.0341, 0.86937, 40.55013     ,
+                                -0.20134, -0.31075, -0.07647, 1383.77051 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.5
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/h_9_13b.bin",
+                            "indexCount": 48,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a556437",
+                            "transform": [
+                                -0.21516, 1.11308, -2.66644E-07, 1081.95508 ,
+                                -1.29865E-07, 1.75813E-07, 0.79732, 41.78465 ,
+                                0.26776, 0.89445, 1.79682E-07, 1383.63525  ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.5
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/h_9_14b.bin",
+                            "indexCount": 531,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a556477",
+                            "transform": [
+                                -1.14997E-07, -0.96466, -1.14997E-07, 1091.38269 ,
+                                0.00, -1.14997E-07, 0.96466, 28.01619          ,
+                                -0.96466, 1.14997E-07, 1.37087E-14, 1376.88599 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.5
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/h_9_15b.bin",
+                            "indexCount": 60,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a556472",
+                            "transform": [
+                                -3.43538E-06, -0.88624, -6.28481E-08, 1092.60693 ,
+                                -0.05298, 1.05648E-07, 0.4963, 44.83138        ,
+                                -0.8763, 3.45832E-06, -0.03001, 1375.43762     ,
                                 
                                 0, 0, 0, 1
                             ],
@@ -9344,58 +9092,27 @@
                     "size": [5, 5],
                     "objects": [
                         {
-                            "mesh": "doct/for-heroes/i_8_01.bin",
-                            "indexCount": 6378,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1006123",
+                            "mesh": "ad/for-heroes/i_8_01.bin",
+                            "indexCount": 5736,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/a516701",
                             "transform": [
-                                -1.87643E-07, -1.57406, -1.87643E-07, 1088.99988 ,
-                                0.00, -1.87643E-07, 1.57406, 26.79739          ,
-                                -1.57406, 1.87643E-07, 2.23687E-14, 1377.99988 ,
-                                
+                                1.00, 0.00, 0.00, 1089.00        ,
+                                0.00, -1.19209E-07, 1.00, 27.58751 ,
+                                0.00, -1.00, -1.19209E-07, 1378.00 ,
                                 
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/i_12_01.bin",
-                            "indexCount": 408,
-                            "shader": "shader_pos_tangent_norm_uv_ak",
-                            "texture": "build/d334960",
-                            "transform": [
-                                0.00, -1.00, 0.00, 1089.42603 ,
-                                0.00, 0.00, 1.00, 26.79739  ,
-                                -1.00, 0.00, 0.00, 1377.99988 ,
-                                
-                                0, 0, 0, 1
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/i_12_02b.bin",
-                            "indexCount": 264,
-                            "shader": "shader_pos_tangent_norm_uv",
-                            "texture": "build/d1006123",
-                            "transform": [
-                                -0.78487, -0.29929, -1.00136E-07, 1088.99988 ,
-                                -9.35641E-08, -3.56782E-08, 0.84, 58.65185 ,
-                                -0.29929, 0.78487, 1.19371E-14, 1377.52539 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/i_9_01b.bin",
-                            "indexCount": 120,
+                            "mesh": "ad/for-heroes/i_9_01b.bin",
+                            "indexCount": 216,
                             "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d1006166",
+                            "texture": "build/a4206",
                             "transform": [
-                                0.05942, -1.26818, -1.59106E-07, 1088.99194 ,
-                                0.00, -1.51312E-07, 1.33468, 35.45609     ,
-                                1.41302, 0.05333, 1.89669E-14, 1370.77405 ,
+                                0.87682, 0.00, 0.00, 1089.00        ,
+                                0.00, -1.04525E-07, 0.87682, 27.58146 ,
+                                0.00, -0.87682, -1.04525E-07, 1378.00 ,
                                 
                                 0, 0, 0, 1
                             ],
@@ -9405,301 +9122,48 @@
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/i_9_02b.bin",
+                            "mesh": "ad/for-heroes/i_9_02b.bin",
+                            "indexCount": 720,
+                            "shader": "shader_pos_color_uv_falloff",
+                            "texture": "build/a516724",
+                            "transform": [
+                                1.00, 0.00, 0.00, 1089.00        ,
+                                0.00, -1.19209E-07, 1.00, 12.80157 ,
+                                0.00, -1.00, -1.19209E-07, 1378.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/i_9_03b.bin",
+                            "indexCount": 792,
+                            "shader": "shader_pos_color_uv_falloff",
+                            "texture": "build/a516719",
+                            "transform": [
+                                0.07746, -3.79579E-07, -3.18414, 1089.77991 ,
+                                3.79579E-07, 3.18508, -3.70457E-07, 58.54018 ,
+                                3.18414, -3.70457E-07, 0.07746, 1377.57886 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/i_9_04b.bin",
                             "indexCount": 138,
                             "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d924057",
+                            "texture": "build/a4186",
                             "transform": [
-                                1, 0, 0, 0,
-                                0, 1, 0, 1,
-                                0, 0, 1, 0,
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/i_9_03b.bin",
-                            "indexCount": 78,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d1006166",
-                            "transform": [
-                                1.11144E-07, -1.63617, -1.95046E-07, 1089.01196 ,
-                                0.00, -1.95046E-07, 1.63617, 40.1652          ,
-                                0.93234, 1.95046E-07, 2.32513E-14, 1372.32776 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/i_9_04b.bin",
-                            "indexCount": 48,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d1006166",
-                            "transform": [
-                                0.7284, -0.3957, -1.13935E-07, 1084.72437 ,
-                                1.38547E-07, 0.00, 0.47788, 41.65223     ,
-                                0.26414, 1.09119, -8.54515E-08, 1376.61584 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/i_9_05b.bin",
-                            "indexCount": 48,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d1006166",
-                            "transform": [
-                                -0.7981, 0.37359, -1.11926E-07, 1093.13318 ,
-                                -1.00463E-07, 0.00, 0.46945, 41.63303    ,
-                                0.27064, 1.1017, -2.79814E-08, 1376.69678 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/i_9_06b.bin",
-                            "indexCount": 54,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d1006166",
-                            "transform": [
-                                0.00177, -0.80568, -2.92556E-07, 1085.95056 ,
-                                3.18268E-10, 0.00, 1.22707, 47.16991      ,
-                                0.0012, 1.19161, -1.82848E-07, 1375.91907 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/i_9_07b.bin",
-                            "indexCount": 54,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d1006166",
-                            "transform": [
-                                0.00054, -1.40239, 1.93865E-15, 1088.01807 ,
-                                -3.20683E-11, 0.00, 1.09137, 47.21107    ,
-                                0.00208, 0.36591, 1.62626E-08, 1374.91724 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/i_9_08b.bin",
-                            "indexCount": 54,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d1006166",
-                            "transform": [
-                                0.00201, 0.02274, -4.26248E-07, 1085.46338 ,
-                                3.59228E-10, -1.61284E-07, 1.19188, 47.18036 ,
-                                -0.00003, 1.35276, -7.10413E-08, 1377.95129 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/i_9_09b.bin",
-                            "indexCount": 54,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d1006166",
-                            "transform": [
-                                -0.00067, -1.37725, -1.54242E-07, 1089.9823 ,
-                                3.20683E-11, -1.72774E-07, 1.29388, 47.23389 ,
-                                0.00205, -0.45139, -1.92802E-08, 1374.55078 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/i_9_10b.bin",
-                            "indexCount": 54,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d1006166",
-                            "transform": [
-                                -0.00175, -0.84822, 0.00, 1091.6311 ,
-                                0.00, 0.00, 1.09078, 47.16144     ,
-                                0.00126, -1.1752, 0.00, 1376.05139 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/i_9_11b.bin",
-                            "indexCount": 54,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d1006166",
-                            "transform": [
-                                -0.00223, -0.09931, -0.02627, 1092.61304 ,
-                                -0.00005, -0.00216, 1.20855, 47.18056    ,
-                                0.00015, -1.50152, 7.51837E-08, 1377.98547 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/i_9_12b.bin",
-                            "indexCount": 240,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d1006146",
-                            "transform": [
-                                -9.08261E-08, -0.76191, -9.08261E-08, 1089.32458 ,
-                                0.00, -9.08261E-08, 0.7619, 22.60353           ,
-                                -0.7619, 9.08261E-08, 1.08273E-14, 1377.99988  ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/i_9_13b.bin",
-                            "indexCount": 6,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d3814",
-                            "transform": [
-                                2.36816, 1.78651E-15, 8.04571, 1089.35913 ,
-                                0.00, 8.387, -1.86229E-15, 51.5018       ,
-                                -8.04571, 5.25836E-16, 2.36816, 1378.00891 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/i_9_14b.bin",
-                            "indexCount": 6,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d1006135",
-                            "transform": [
-                                -6.25522E-07, 1.16513E-15, 5.24726, 1089.31738 ,
-                                0.00, 5.24726, -1.16513E-15, 51.89478          ,
-                                -5.24726, -1.38894E-22, -6.25522E-07, 1378.00891 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/i_9_15b.bin",
-                            "indexCount": 456,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d1006146",
-                            "transform": [
-                                -9.08261E-08, -0.76191, -9.08261E-08, 1089.32458 ,
-                                0.00, -9.08261E-08, 0.7619, 22.60353           ,
-                                -0.7619, 9.08261E-08, 1.08273E-14, 1377.99988  ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/i_9_16b.bin",
-                            "indexCount": 216,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d1006161",
-                            "transform": [
-                                -1.24469, 0.47467, -7.12046E-08, 1089.51318 ,
-                                0.00, 1.58802E-07, 0.59731, 51.98948      ,
-                                -0.47467, -1.24469, 8.48825E-15, 1377.88245 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/i_9_17b.bin",
-                            "indexCount": 240,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d3487",
-                            "transform": [
-                                -2.99622, 0.00, 2.96412, 1089.32458 ,
-                                0.00, 4.74662, 0.00, 51.84467      ,
-                                -2.96412, 0.00, -2.99622, 1377.99988 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/i_9_18b.bin",
-                            "indexCount": 204,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d1006140",
-                            "transform": [
-                                1, 0, 0, 0,
-                                0, 1, 0, 1,
-                                0, 0, 1, 0,
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/i_9_19b.bin",
-                            "indexCount": 144,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d1006151",
-                            "transform": [
-                                -1.45902E-07, -1.22392, -7.98545E-08, 1089.32458 ,
-                                0.00, -1.45902E-07, 0.66987, 52.05211          ,
-                                -1.22392, 1.45902E-07, 9.51940E-15, 1377.99988 ,
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
                                 
                                 0, 0, 0, 1
                             ],
@@ -9708,66 +9172,41 @@
                                 "ONE"
                             ],
                             "tintColor": [
-                                0.99,
-                                0.99,
-                                0.99,
-                                0.15
+                                1, 0.5, 0, 0.08
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/i_9_20b.bin",
-                            "indexCount": 216,
+                            "mesh": "ad/for-heroes/i_9_05b.bin",
+                            "indexCount": 360,
                             "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d1006156",
+                            "texture": "build/a4206",
                             "transform": [
-                                -1.00933, 0.38491, 0.00, 1089.51318 ,
-                                0.00, 0.00, 1.71043, 51.98948      ,
-                                -0.38491, -1.00933, 0.00, 1377.88245 ,
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
                                 
                                 0, 0, 0, 1
                             ],
                             "blend": [
                                 "SRC_ALPHA",
                                 "ONE"
-                            ],
-                            "tintColor": [
-                                0.99,
-                                0.99,
-                                0.99,
-                                0.15
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/i_9_21b.bin",
-                            "indexCount": 18,
+                            "mesh": "ad/for-heroes/i_9_06b.bin",
+                            "indexCount": 948,
                             "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d959639",
+                            "texture": "build/a516729",
                             "transform": [
-                                1, 0, 0, 0,
-                                0, 1, 0, 1,
-                                0, 0, 1, 0,
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/i_9_22b.bin",
-                            "indexCount": 144,
-                            "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d3789",
-                            "transform": [
-                                0.27666, -0.10097, 7.21283E-08, 1089.45715 ,
-                                -8.77700E-09, 5.26621E-08, 0.60506, 62.40528 ,
-                                -0.10097, -0.27666, 5.40962E-08, 1378.01636 ,
+                                1.00, 0.00, 0.00, 1089.00        ,
+                                0.00, -1.19209E-07, 1.00, 12.80157 ,
+                                0.00, -1.00, -1.19209E-07, 1378.00 ,
                                 
                                 0, 0, 0, 1
                             ],
                             "blend": [
                                 "SRC_ALPHA",
-                                "ONE_MINUS_SRC_ALPHA"
+                                "ONE"
                             ]
                         }
                     ]
@@ -9778,65 +9217,79 @@
                     "size": [5, 5],
                     "objects": [
                         {
-                            "mesh": "doct/for-heroes/s_8_01.bin",
-                            "indexCount": 2154,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1192044",
-                            "transform": [
-                                -8.60997E-08, -0.72226, -8.60997E-08, 1089.32458 ,
-                                0.00, -8.60996E-08, 0.72226, 51.65401          ,
-                                -0.72226, 8.60997E-08, 1.02639E-14, 1379.57886 ,
-                                
-                                0, 0, 0, 1
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/s_8_02.bin",
-                            "indexCount": 96,
+                            "mesh": "ad/for-heroes/s_8_01.bin",
+                            "indexCount": 2568,
                             "shader": "shader_pos_norm_uv_ak",
-                            "texture": "build/d1192044",
+                            "texture": "build/a193666",
                             "transform": [
-                                1, 0, 0, 0,
-                                0, 1, 0, 1,
-                                0, 0, 1, 0,
-                                0, 0, 0, 1
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/s_8_03.bin",
-                            "indexCount": 4158,
-                            "shader": "shader_pos_norm_uv",
-                            "texture": "build/d1192044",
-                            "transform": [
-                                -8.60997E-08, -0.72226, -8.60997E-08, 1089.32458 ,
-                                0.00, -8.60996E-08, 0.72226, 26.79739          ,
-                                -0.72226, 8.60997E-08, 1.02639E-14, 1379.36829 ,
+                                0.02634, -0.79957, 0.00, 1087.96021        ,
+                                0.00, -9.53674E-08, 0.80, 27.58751         ,
+                                -0.79957, -0.02634, -9.53674E-08, 1423.85181 ,
                                 
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/s_12_01.bin",
-                            "indexCount": 408,
+                            "mesh": "ad/for-heroes/s_8_02.bin",
+                            "indexCount": 42,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/a193661",
+                            "transform": [
+                                0.02634, -0.79957, 0.00, 1089.45459        ,
+                                0.00, -9.53674E-08, 0.80, 27.58751         ,
+                                -0.79957, -0.02634, -9.53674E-08, 1378.48682 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/s_12_01.bin",
+                            "indexCount": 1530,
                             "shader": "shader_pos_tangent_norm_uv_ak",
-                            "texture": "build/d334960",
+                            "texture": "build/a650384",
                             "transform": [
-                                0.00, -1.00, 0.00, 1089.42603 ,
-                                0.00, 0.00, 1.00, 26.79739  ,
-                                -1.00, 0.00, 0.00, 1377.99988 ,
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
                                 
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/s_9_01b.bin",
-                            "indexCount": 360,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d1192069",
+                            "mesh": "ad/for-heroes/s_12_02.bin",
+                            "indexCount": 840,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/a650384",
                             "transform": [
-                                -8.43777E-08, -0.70781, -1.06527E-07, 1089.28076 ,
-                                0.00, -8.43777E-08, 0.89361, 23.65706          ,
-                                -0.70781, 8.43777E-08, 1.26990E-14, 1379.25635 ,
+                                0.79336, -0.08873, -0.05209, 1088.76526 ,
+                                0.05954, 0.06567, 0.79507, 54.17001   ,
+                                -0.08391, -0.79235, 0.07173, 1377.68433 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/s_12_03.bin",
+                            "indexCount": 6252,
+                            "shader": "shader_pos_tangent_norm_uv_ak",
+                            "texture": "build/a650384",
+                            "transform": [
+                                0.80, 0.00, 0.00, 1089.00        ,
+                                0.00, -9.53674E-08, 0.80, 27.58751 ,
+                                0.00, -0.80, -9.53674E-08, 1378.00 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/s_9_01b.bin",
+                            "indexCount": 144,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a650384",
+                            "transform": [
+                                0.79336, -0.08873, -0.05209, 1090.44836 ,
+                                0.05954, 0.06567, 0.79507, 23.54105   ,
+                                -0.08391, -0.79235, 0.07173, 1375.94531 ,
                                 
                                 0, 0, 0, 1
                             ],
@@ -9846,116 +9299,284 @@
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/s_9_02b.bin",
-                            "indexCount": 36,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d3874",
-                            "transform": [
-                                -8.60997E-08, -0.72226, -8.60997E-08, 1089.32458 ,
-                                0.00, -8.60997E-08, 0.72226, 26.79739          ,
-                                -0.72226, 8.60997E-08, 1.02639E-14, 1379.36829 ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/s_9_03b.bin",
-                            "indexCount": 168,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d3695",
-                            "transform": [
-                                -8.81124E-08, -0.72226, -8.40387E-08, 1089.32458 ,
-                                0.01709, -8.60996E-08, 0.72205, 24.33241       ,
-                                -0.72205, 8.60997E-08, 0.01709, 1381.17395     ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/s_9_04b.bin",
-                            "indexCount": 84,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d683912",
-                            "transform": [
-                                -8.81124E-08, -0.72226, -8.40387E-08, 1089.32458 ,
-                                0.01709, -8.60996E-08, 0.72205, 24.38841       ,
-                                -0.72205, 8.60997E-08, 0.01709, 1380.51587     ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/s_9_05b.bin",
-                            "indexCount": 870,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d1192054",
-                            "transform": [
-                                -8.74886E-08, -0.72226, -8.46880E-08, 1089.32458 ,
-                                0.01175, -8.60996E-08, 0.72216, 25.69596       ,
-                                -0.72216, 8.60997E-08, 0.01175, 1383.72864     ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/s_9_06b.bin",
-                            "indexCount": 690,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d1192059",
-                            "transform": [
-                                -8.74886E-08, -0.72226, -8.46880E-08, 1089.32458 ,
-                                0.01175, -8.60996E-08, 0.72216, 25.69596       ,
-                                -0.72216, 8.60997E-08, 0.01175, 1383.72864     ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/s_9_07b.bin",
-                            "indexCount": 360,
-                            "shader": "shader_pos_color_uv",
-                            "texture": "build/d1192054",
-                            "transform": [
-                                -7.77197E-08, -0.72226, -9.37334E-08, 1089.32458 ,
-                                -0.06717, -8.60996E-08, 0.71913, 25.67925      ,
-                                -0.71913, 8.60997E-08, -0.06717, 1383.5498     ,
-                                
-                                0, 0, 0, 1
-                            ],
-                            "blend": [
-                                "SRC_ALPHA",
-                                "ONE"
-                            ]
-                        },
-                        {
-                            "mesh": "doct/for-heroes/s_9_08b.bin",
-                            "indexCount": 6,
+                            "mesh": "ad/for-heroes/s_9_02b.bin",
+                            "indexCount": 2238,
                             "shader": "shader_pos_color_uv_falloff",
-                            "texture": "build/d1192064",
+                            "texture": "build/a516724",
+                            "transform": [
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                0.5, 0.5, 1, 0.8
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/s_9_03b.bin",
+                            "indexCount": 432,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a4146",
+                            "transform": [
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/s_9_04b.bin",
+                            "indexCount": 72,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a650409",
+                            "transform": [
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/s_9_05b.bin",
+                            "indexCount": 108,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a3937",
+                            "transform": [
+                                0.80, 0.00, 0.00, 1089.00        ,
+                                0.00, -9.53674E-08, 0.80, 23.84989 ,
+                                0.00, -0.80, -9.53674E-08, 1378.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/s_9_06b.bin",
+                            "indexCount": 108,
+                            "shader": "shader_pos_color_uv_falloff",
+                            "texture": "build/a417797",
+                            "transform": [
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                0, 0.5, 1, 0.3
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/s_9_07b.bin",
+                            "indexCount": 60,
+                            "shader": "shader_pos_color_uv_falloff",
+                            "texture": "build/a4146",
+                            "transform": [
+                                0.69182, 0.00, 0.00, 1089.08264        ,
+                                0.00, -8.24708E-08, 0.69182, 28.57452  ,
+                                0.00, -0.69182, -8.24708E-08, 1378.09998 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/s_9_08b.bin",
+                            "indexCount": 48,
+                            "shader": "shader_pos_color_uv_falloff",
+                            "texture": "build/a650409",
                             "transform": [
                                 1.00, 0.00, 0.00, 0.00 ,
                                 0.00, 1.00, 0.00, 0.50 ,
                                 0.00, 0.00, 1.00, 0.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/s_9_09b.bin",
+                            "indexCount": 156,
+                            "shader": "shader_pos_color_uv_falloff",
+                            "texture": "build/a650409",
+                            "transform": [
+                                0.80, 0.00, 0.00, 1089.00        ,
+                                0.00, -9.53674E-08, 0.80, 23.38442 ,
+                                0.00, -0.80, -9.53674E-08, 1378.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/s_9_10b.bin",
+                            "indexCount": 372,
+                            "shader": "shader_pos_color_uv_falloff",
+                            "texture": "build/a650409",
+                            "transform": [
+                                0.80, 0.00, 0.00, 1089.00        ,
+                                0.00, -9.53674E-08, 0.80, 23.60684 ,
+                                0.00, -0.80, -9.53674E-08, 1378.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/s_9_11b.bin",
+                            "indexCount": 282,
+                            "shader": "shader_pos_color_uv_falloff",
+                            "texture": "build/a650409",
+                            "transform": [
+                                0.80221, 0.00, 0.00, 1088.98706        ,
+                                0.00, -9.56311E-08, 0.80221, 23.47866  ,
+                                0.00, -0.80221, -9.56311E-08, 1378.05127 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/s_9_12b.bin",
+                            "indexCount": 624,
+                            "shader": "shader_pos_color_uv_falloff",
+                            "texture": "build/a650409",
+                            "transform": [
+                                0.80, 0.00, 0.00, 1089.00        ,
+                                0.00, -9.53674E-08, 0.80, 23.58125 ,
+                                0.00, -0.80, -9.53674E-08, 1378.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/s_9_13b.bin",
+                            "indexCount": 222,
+                            "shader": "shader_pos_color_uv_falloff",
+                            "texture": "build/a650409",
+                            "transform": [
+                                0.80, 0.00, 0.00, 1089.00        ,
+                                0.00, -9.53674E-08, 0.80, 27.58751 ,
+                                0.00, -0.80, -9.53674E-08, 1378.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/s_9_14b.bin",
+                            "indexCount": 852,
+                            "shader": "shader_pos_color_uv_falloff",
+                            "texture": "build/a650409",
+                            "transform": [
+                                0.80, 0.00, 0.00, 1089.00        ,
+                                0.00, -9.53674E-08, 0.80, 23.42852 ,
+                                0.00, -0.80, -9.53674E-08, 1378.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 0, 0.1
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/s_9_15b.bin",
+                            "indexCount": 852,
+                            "shader": "shader_pos_color_uv_falloff",
+                            "texture": "build/a650409",
+                            "transform": [
+                                0.80, 0.00, 0.00, 1089.00        ,
+                                0.00, -9.53674E-08, 0.80, 23.42852 ,
+                                0.00, -0.80, -9.53674E-08, 1378.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE_MINUS_SRC_ALPHA"
+                            ],
+                            "tintColor": [
+                                1, 1, 0, 0.1
+                            ],
+                            "uvScale" : [
+                                2, 0, 0, 0
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/s_9_16b.bin",
+                            "indexCount": 42,
+                            "shader": "shader_pos_color_uv_falloff",
+                            "texture": "build/a650409",
+                            "transform": [
+                                0.80, 0.00, 0.00, 1089.00        ,
+                                0.00, -9.53674E-08, 0.80, 23.41168 ,
+                                0.00, -0.80, -9.53674E-08, 1378.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/s_9_17b.bin",
+                            "indexCount": 168,
+                            "shader": "shader_pos_color_uv_falloff",
+                            "texture": "build/a650409",
+                            "transform": [
+                                0.7996, 0.01863, 0.01719, 1088.49182 ,
+                                -0.01744, 0.01062, 0.79974, 23.42252 ,
+                                0.0184, -0.79971, 0.01102, 1377.58508 ,
                                 
                                 0, 0, 0, 1
                             ],
@@ -9972,28 +9593,41 @@
                     "size": [5, 5],
                     "objects": [
                         {
-                            "mesh": "doct/for-heroes/t_8_01.bin",
-                            "indexCount": 6378,
+                            "mesh": "ad/for-heroes/t_8_01.bin",
+                            "indexCount": 11862,
                             "shader": "shader_pos_norm_uv_ak",
-                            "texture": "build/d959629",
+                            "texture": "build/a417787",
                             "transform": [
-                                -1.005, 8.32347E-07, -4.29672E-07, 1085.54114 ,
-                                -4.29672E-07, -3.59416E-07, 1.005, 26.7978  ,
-                                8.32347E-07, 1.005, 5.99027E-08, 1375.73291 ,
+                                -0.85891, 0.29606, 0.00, 1086.46472      ,
+                                0.00, -1.08302E-07, 0.9085, 27.58751     ,
+                                0.29606, 0.85891, -1.08302E-07, 1373.75403 ,
                                 
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/for-heroes/t_12_01.bin",
-                            "indexCount": 720,
-                            "shader": "shader_pos_tangent_norm_uv_ak",
-                            "texture": "build/d724929",
+                            "mesh": "ad/for-heroes/t_8_02.bin",
+                            "indexCount": 1764,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/a193666",
                             "transform": [
-                                -0.675, 5.59039E-07, -2.88585E-07, 1084.91907 ,
-                                -2.88585E-07, -2.41399E-07, 0.675, 26.7978  ,
-                                5.59039E-07, 0.675, 4.02331E-08, 1374.7699  ,
-                                    
+                                0.49284, 0.23906, 6.15068E-08, 1084.98242 ,
+                                0.00, -2.49906E-07, 0.52409, 29.99236    ,
+                                0.28147, -0.47135, -2.50214E-07, 1375.1842 ,
+                                  
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "ad/for-heroes/t_8_03.bin",
+                            "indexCount": 42,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/a193661",
+                            "transform": [
+                                0.44195, -0.46968, -5.59900E-08, 1088.10193 ,
+                                0.00, -7.35575E-08, 0.61705, 28.23691      ,
+                                -0.43061, -0.48205, -5.74644E-08, 1377.06128 ,
+                                   
                                 0, 0, 0, 1
                             ]
                         }
@@ -10005,42 +9639,135 @@
                     "size": [6, 6],
                     "objects": [
                         {
-                            "mesh": "doct/services/c_8_01.bin",
-                            "indexCount": 11208,
+                            "mesh": "ad/services/c_8_01.bin",
+                            "indexCount": 15381,
                             "shader": "shader_pos_norm_uv_ak",
-                            "texture": "build/d65387",
+                            "texture": "build/a193676",
                             "transform": [
-                                -2.62260E-06, 1.00, 0.00, 1092.50012      ,
-                                0.00, -1.19209E-07, 1.00, 27.79535        ,
-                                1.00, 2.50340E-06, -1.19209E-07, 1381.34802 ,
+                                1.00, 0.00, 0.00, 1092.50        ,
+                                0.00, -1.19209E-07, 1.00, 27.98047 ,
+                                0.00, -1.00, -1.19209E-07, 1381.50 ,
                                 
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/services/c_12_01.bin",
+                            "mesh": "ad/services/c_8_02.bin",
+                            "indexCount": 2085,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/a193666",
+                            "transform": [
+                                1.00, 0.00, 0.00, 1092.50        ,
+                                0.00, -1.19209E-07, 1.00, 27.58751 ,
+                                0.00, -1.00, -1.19209E-07, 1381.50 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "ad/services/c_8_03.bin",
+                            "indexCount": 48,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/a193661",
+                            "transform": [
+                                1.00, 0.00, 0.00, 1092.50        ,
+                                0.00, -1.19209E-07, 1.00, 27.58751 ,
+                                0.00, -1.00, -1.19209E-07, 1381.50 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "ad/services/c_12_01.bin",
                             "indexCount": 3018,
                             "shader": "shader_pos_tangent_norm_uv_ak",
-                            "texture": "build/d65382",
+                            "texture": "build/a193656",
                             "transform": [
-                                -0.05698, 0.03562, 0.99774, 1090.79236 ,
-                                -0.06282, -0.99751, 0.03203, 32.07503 ,
-                                0.9964, -0.06085, 0.05907, 1379.36731 ,
-                                    
+                             0.79101, -0.02552, -0.61127, 1092.37341 ,
+                                -0.03224, -0.99948, 1.11759E-08, 33.76091 ,
+                                -0.61095, 0.01971, -0.79142, 1381.25574 ,
+                                
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/services/c_12_02.bin",
-                            "indexCount": 402,
-                            "shader": "shader_pos_tangent_norm_uv_ak",
-                            "texture": "build/d334960",
+                            "mesh": "ad/services/c_9_01b.bin",
+                            "indexCount": 84,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a193691",
                             "transform": [
-                                0.00, -0.9735, 0.00, 1092.50012 ,
-                                0.00, 0.00, 0.9735, 27.79535  ,
-                                -0.9735, 0.00, 0.00, 1381.34802 ,
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
                                 
                                 0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.2
+                            ]
+                        },
+                        {
+                            "mesh": "ad/services/c_9_02b.bin",
+                            "indexCount": 84,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a193691",
+                            "transform": [
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.2
+                            ]
+                        },
+                        {
+                            "mesh": "ad/services/c_9_03b.bin",
+                            "indexCount": 84,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a193691",
+                            "transform": [
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.2
+                            ]
+                        },
+                        {
+                            "mesh": "ad/services/c_9_04b.bin",
+                            "indexCount": 84,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a193691",
+                            "transform": [
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.2
                             ]
                         }
                     ]
@@ -10051,42 +9778,135 @@
                     "size": [6, 6],
                     "objects": [
                         {
-                            "mesh": "doct/services/d_8_01.bin",
-                            "indexCount": 11958,
+                            "mesh": "ad/services/d_8_01.bin",
+                            "indexCount": 15498,
                             "shader": "shader_pos_norm_uv_ak",
-                            "texture": "build/d65387",
+                            "texture": "build/a221489",
                             "transform": [
-                                -2.62260E-06, 1.00, 0.00, 1092.50012      ,
-                                0.00, -1.19209E-07, 1.00, 27.79535        ,
-                                1.00, 2.50340E-06, -1.19209E-07, 1381.34802 ,
+                                1.00, 0.00, 0.00, 1092.50        ,
+                                0.00, -1.19209E-07, 1.00, 27.98047 ,
+                                0.00, -1.00, -1.19209E-07, 1381.50 ,
                                 
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/services/d_12_01.bin",
+                            "mesh": "ad/services/d_8_02.bin",
+                            "indexCount": 2085,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/a193666",
+                            "transform": [
+                                1.00, 0.00, 0.00, 1092.50        ,
+                                0.00, -1.19209E-07, 1.00, 27.58751 ,
+                                0.00, -1.00, -1.19209E-07, 1381.50 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "ad/services/d_8_03.bin",
+                            "indexCount": 48,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/a193661",
+                            "transform": [
+                                1.00, 0.00, 0.00, 1092.50        ,
+                                0.00, -1.19209E-07, 1.00, 27.58751 ,
+                                0.00, -1.00, -1.19209E-07, 1381.50 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "ad/services/d_12_01.bin",
                             "indexCount": 2994,
                             "shader": "shader_pos_tangent_norm_uv_ak",
-                            "texture": "build/d95323",
+                            "texture": "build/a221484",
                             "transform": [
-                                -0.05698, 0.03562, 0.99774, 1090.79236 ,
-                                -0.06282, -0.99751, 0.03203, 32.07503 ,
-                                0.9964, -0.06085, 0.05907, 1379.36731 ,
-                                    
+                             0.79101, -0.02552, -0.61127, 1092.37341 ,
+                                -0.03224, -0.99948, 1.11759E-08, 33.76091 ,
+                                -0.61095, 0.01971, -0.79142, 1381.25574 ,
+                                
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/services/c_12_02.bin",
-                            "indexCount": 402,
-                            "shader": "shader_pos_tangent_norm_uv_ak",
-                            "texture": "build/d334960",
+                            "mesh": "ad/services/d_9_01b.bin",
+                            "indexCount": 84,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a193691",
                             "transform": [
-                                0.00, -0.9735, 0.00, 1092.50012 ,
-                                0.00, 0.00, 0.9735, 27.79535  ,
-                                -0.9735, 0.00, 0.00, 1381.34802 ,
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
                                 
                                 0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.2
+                            ]
+                        },
+                        {
+                            "mesh": "ad/services/d_9_02b.bin",
+                            "indexCount": 84,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a193691",
+                            "transform": [
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.2
+                            ]
+                        },
+                        {
+                            "mesh": "ad/services/d_9_03b.bin",
+                            "indexCount": 84,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a193691",
+                            "transform": [
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.2
+                            ]
+                        },
+                        {
+                            "mesh": "ad/services/d_9_04b.bin",
+                            "indexCount": 84,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a193691",
+                            "transform": [
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.2
                             ]
                         }
                     ]
@@ -10097,42 +9917,135 @@
                     "size": [6, 6],
                     "objects": [
                         {
-                            "mesh": "doct/services/u_8_01.bin",
-                            "indexCount": 11058,
+                            "mesh": "ad/services/u_8_01.bin",
+                            "indexCount": 15402,
                             "shader": "shader_pos_norm_uv_ak",
-                            "texture": "build/d1735569",
+                            "texture": "build/a243318",
                             "transform": [
-                                -2.62260E-06, 1.00, 0.00, 1092.50012      ,
-                                0.00, -1.19209E-07, 1.00, 27.79535        ,
-                                1.00, 2.50340E-06, -1.19209E-07, 1381.34802 ,
+                                1.00, 0.00, 0.00, 1092.50        ,
+                                0.00, -1.19209E-07, 1.00, 27.98047 ,
+                                0.00, -1.00, -1.19209E-07, 1381.50 ,
                                 
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/services/u_12_01.bin",
+                            "mesh": "ad/services/u_8_02.bin",
+                            "indexCount": 2085,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/a193666",
+                            "transform": [
+                                1.00, 0.00, 0.00, 1092.50        ,
+                                0.00, -1.19209E-07, 1.00, 27.58751 ,
+                                0.00, -1.00, -1.19209E-07, 1381.50 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "ad/services/u_8_03.bin",
+                            "indexCount": 48,
+                            "shader": "shader_pos_norm_uv_ak",
+                            "texture": "build/a193661",
+                            "transform": [
+                                1.00, 0.00, 0.00, 1092.50        ,
+                                0.00, -1.19209E-07, 1.00, 27.58751 ,
+                                0.00, -1.00, -1.19209E-07, 1381.50 ,
+                                
+                                0, 0, 0, 1
+                            ]
+                        },
+                        {
+                            "mesh": "ad/services/u_12_01.bin",
                             "indexCount": 3126,
                             "shader": "shader_pos_tangent_norm_uv_ak",
-                            "texture": "build/d1735588",
+                            "texture": "build/a243333",
                             "transform": [
-                                -0.05698, 0.03562, 0.99774, 1090.79236 ,
-                                -0.06282, -0.99751, 0.03203, 32.07503 ,
-                                0.9964, -0.06085, 0.05907, 1379.36731 ,
-                                    
+                             0.79101, -0.02552, -0.61127, 1092.37341 ,
+                                -0.03224, -0.99948, 1.11759E-08, 33.76091 ,
+                                -0.61095, 0.01971, -0.79142, 1381.25574 ,
+                                
                                 0, 0, 0, 1
                             ]
                         },
                         {
-                            "mesh": "doct/services/c_12_02.bin",
-                            "indexCount": 402,
-                            "shader": "shader_pos_tangent_norm_uv_ak",
-                            "texture": "build/d334960",
+                            "mesh": "ad/services/u_9_01b.bin",
+                            "indexCount": 84,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a193691",
                             "transform": [
-                                0.00, -0.9735, 0.00, 1092.50012 ,
-                                0.00, 0.00, 0.9735, 27.79535  ,
-                                -0.9735, 0.00, 0.00, 1381.34802 ,
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
                                 
                                 0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.2
+                            ]
+                        },
+                        {
+                            "mesh": "ad/services/u_9_02b.bin",
+                            "indexCount": 84,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a193691",
+                            "transform": [
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.2
+                            ]
+                        },
+                        {
+                            "mesh": "ad/services/u_9_03b.bin",
+                            "indexCount": 84,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a193691",
+                            "transform": [
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.2
+                            ]
+                        },
+                        {
+                            "mesh": "ad/services/u_9_04b.bin",
+                            "indexCount": 84,
+                            "shader": "shader_pos_color_uv",
+                            "texture": "build/a193691",
+                            "transform": [
+                                1.00, 0.00, 0.00, 0.00 ,
+                                0.00, 1.00, 0.00, 0.00 ,
+                                0.00, 0.00, 1.00, 0.00 ,
+                                
+                                0, 0, 0, 1
+                            ],
+                            "blend": [
+                                "SRC_ALPHA",
+                                "ONE"
+                            ],
+                            "tintColor": [
+                                1, 1, 1, 0.2
                             ]
                         }
                     ]

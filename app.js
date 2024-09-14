@@ -31,13 +31,14 @@ var gridCursorPosX;
 var gridCursorPosZ;
 
 var fov = 45;
+const minFov = 25;
+const maxFov = 55;
 document.onwheel = zoom;
 function zoom(event) {
-
-	fov -= event.deltaY * -0.1;
+	fov -= event.deltaY * -0.05;
 
 	// Restrict scale
-	fov = Math.min(Math.max(15, fov), 65);
+	fov = Math.min(Math.max(minFov, fov), maxFov);
 }
 
 var doMove = false;
@@ -519,8 +520,6 @@ var MainLoop = function(sceneObjects, sceneBuildings, sceneShaders, sceneTexture
 	var loop = function () {
 		const buildings = [
 			"grid",
-
-			"storage",
 			
 			"crystal_farm",
 			"food_farm",
@@ -644,6 +643,9 @@ var UpdateMainCam = function () {
 
 	camDeltaPos[0] -= (camForwXY[1] * cursorDeltaPos[0] - camRightXY[1] * cursorDeltaPos[1]) * 0.1;
 	camDeltaPos[1] -= (camForwXY[0] * cursorDeltaPos[0] - camRightXY[0] * cursorDeltaPos[1]) * 0.1;
+
+	camDeltaPos[0] = Math.min(Math.max(-10, camDeltaPos[0]), 100);
+	camDeltaPos[1] = Math.min(Math.max(-10, camDeltaPos[1]), 100);
 	
 	mat4.invert(viewProjInv, viewProjMatr); // viewProj -> world
 
