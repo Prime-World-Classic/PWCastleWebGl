@@ -12,6 +12,7 @@ var cursorBasis2 = new Float32Array(4);
 var viewProjInv = new Float32Array(16);
 
 var isSMEnabled;
+var isStaticSMCached = false;
 var lightViewProjMatrix;
 var depthTexture;
 var depthFramebuffer;
@@ -561,7 +562,8 @@ var MainLoop = function(sceneObjects, sceneBuildings, sceneShaders, sceneTexture
 
 		UpdateMainCam();
 		
-		if (isSMEnabled) {
+		if (isSMEnabled && !isStaticSMCached) {
+			isStaticSMCached = true;
 			gl.bindFramebuffer(gl.FRAMEBUFFER, depthFramebuffer);
 			gl.viewport(0, 0, depthTextureSize, depthTextureSize);
 			gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
