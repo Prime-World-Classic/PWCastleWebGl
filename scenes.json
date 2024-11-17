@@ -4675,7 +4675,7 @@
                     "shader": "shader_pos_tangent_norm_uv_ak",
                     "texture": "birds",
                     "transform": [
-                        1.00,
+                        0.00,
                         0.00,
                         0.00,
                         1123.72278,
@@ -11084,7 +11084,7 @@
                     "shader": "shader_pos_tangent_norm_uv_ak",
                     "texture": "birds",
                     "transform": [
-                        1, 0, 0, 1125,
+                        0, 0, 0, 1125,
                         0, 0, 1, 128,
                         0, -1, 0, 1237,
                         0, 0, 0, 1
