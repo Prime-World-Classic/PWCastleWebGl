@@ -45,6 +45,7 @@ uniform vec2 cursorGridPosition;
 uniform mat4 mViewProj;
 uniform vec4 tintColor;
 uniform vec4 uvScale;
+uniform vec2 uvScroll;
 
 vec3 neutral(vec3 color) {
   const float startCompression = 0.8 - 0.04;
@@ -103,7 +104,7 @@ void main()
 #endif // VS_NORMAL
 
   // Albedo
-  gl_FragColor = texture2D(tex0, fragTexCoord * uvScale.xx);
+  gl_FragColor = texture2D(tex0, fragTexCoord + uvScroll * uvScale.xx);
 
   gl_FragColor *= tintColor;
 #if defined(PS_FALLOFF_BLEND) && defined(VS_COLOR)

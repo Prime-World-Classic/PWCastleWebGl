@@ -4975,6 +4975,10 @@
                     "blend": [
                         "SRC_ALPHA",
                         "ONE_MINUS_SRC_ALPHA"
+                    ],
+                    "uvScroll": [
+                        0.0,
+                        0.1
                     ]
                 },
                 {
@@ -5047,6 +5051,10 @@
                     "blend": [
                         "SRC_ALPHA",
                         "ONE_MINUS_SRC_ALPHA"
+                    ],
+                    "uvScroll": [
+                        0.0,
+                        0.1
                     ]
                 },
                 {
@@ -5063,6 +5071,10 @@
                     "blend": [
                         "SRC_ALPHA",
                         "ONE_MINUS_SRC_ALPHA"
+                    ],
+                    "uvScroll": [
+                        0.0,
+                        0.1
                     ]
                 },
                 {
@@ -5113,6 +5125,10 @@
                         0.00, -1.19209E-07, 0.41462, 12.58595,
                         0.00, -1.00, -4.94264E-08, 1488.92627,
                         0, 0, 0, 1
+                    ],
+                    "uvScroll": [
+                        0.0,
+                        0.1
                     ]
                 },
                 {
@@ -5141,6 +5157,10 @@
                         0.00, -1.19209E-07, 1.01193, 14.23322,
                         0.00, -1.00, -1.20631E-07, 1488.92627,
                         0, 0, 0, 1
+                    ],
+                    "uvScroll": [
+                        0.0,
+                        0.1
                     ]
                 },
                 {
@@ -5163,6 +5183,10 @@
                         0.00, -1.19209E-07, 1.00, 11.69897,
                         0.00, -1.00, -1.19209E-07, 1252.79126,
                         0, 0, 0, 1
+                    ],
+                    "uvScroll": [
+                        0.0,
+                        -0.04
                     ]
                 },
                 {
@@ -5207,6 +5231,10 @@
                     "blend": [
                         "SRC_ALPHA",
                         "ONE_MINUS_SRC_ALPHA"
+                    ],
+                    "uvScroll": [
+                        0.0,
+                        0.1
                     ]
                 },
                 {
@@ -5289,6 +5317,10 @@
                         3.70673E-15, 62.06685, -1.99152E-14, 13.24457,
                         -13.08519, 1.38512E-14, 90.15412, 1168.74426,
                         0, 0, 0, 1
+                    ],
+                    "uvScroll": [
+                        0.0,
+                        0.1
                     ]
                 },
                 {
@@ -11528,6 +11560,10 @@
                         1.22891E-06, 1.53167, -4.57377E-07, 77.4,
                         10.30888, 0.00, 18.22029, 766.54523,
                         0, 0, 0, 1
+                    ],
+                    "uvScroll": [
+                        0.0,
+                        0.05
                     ]
                 },
                 {
@@ -11566,6 +11602,10 @@
                         0, 0, 1.01, 65,
                         0, -1.01, 0, 1188,
                         0, 0, 0, 1
+                    ],
+                    "uvScroll": [
+                        0.0,
+                        0.05
                     ]
                 },
                 {
@@ -11588,6 +11628,10 @@
                         0, 0, 1.01, 65,
                         0, -1.01, 0, 1188,
                         0, 0, 0, 1
+                    ],
+                    "uvScroll": [
+                        0.0,
+                        0.05
                     ]
                 },
                 {
@@ -11616,6 +11660,10 @@
                         0, 0, 1.01, 0.1,
                         0, -1.01, 0, 0,
                         0, 0, 0, 1
+                    ],
+                    "uvScroll": [
+                        0.0,
+                        0.1
                     ]
                 },
                 {
@@ -11898,7 +11946,7 @@
                 {
                     "mesh": "ad/particle_9_11.bin",
                     "indexCount": 978,
-                    "shader": "shader_pos_color_uv",
+                    "shader": "shader_pos_color_uv_falloff",
                     "texture": "particle4120",
                     "blend": [
                         "SRC_ALPHA",
@@ -11915,6 +11963,10 @@
                         0, 1, 0, 0,
                         0, 0, 1, 0,
                         0, 0, 0, 1
+                    ],
+                    "uvScroll": [
+                        0.1,
+                        0.1
                     ]
                 },
                 {
@@ -12024,7 +12076,7 @@
                 {
                     "mesh": "ad/particle_9_17.bin",
                     "indexCount": 1722,
-                    "shader": "shader_pos_color_uv",
+                    "shader": "shader_pos_color_uv_falloff",
                     "texture": "particle4120",
                     "blend": [
                         "SRC_ALPHA",
@@ -12041,12 +12093,16 @@
                         0, 1, 0, 0,
                         0, 0, 1, 0,
                         0, 0, 0, 1
+                    ],
+                    "uvScroll": [
+                        0.1,
+                        0.1
                     ]
                 },
                 {
                     "mesh": "ad/particle_9_18.bin",
                     "indexCount": 1776,
-                    "shader": "shader_pos_color_uv",
+                    "shader": "shader_pos_color_uv_falloff",
                     "texture": "particle4120",
                     "blend": [
                         "SRC_ALPHA",
@@ -12063,6 +12119,10 @@
                         0, 1, 0, 0,
                         0, 0, 1, 0,
                         0, 0, 0, 1
+                    ],
+                    "uvScroll": [
+                        0.1,
+                        0.1
                     ]
                 },
                 {
@@ -12748,7 +12808,7 @@
                 {
                     "mesh": "ad/particle_9_61.bin",
                     "indexCount": 84,
-                    "shader": "shader_pos_color_uv",
+                    "shader": "shader_pos_color_uv_falloff",
                     "texture": "particle4105",
                     "blend": [
                         "SRC_ALPHA",
@@ -12762,6 +12822,10 @@
                     ],
                     "tintColor": [
                         1, 1, 0, 0.1
+                    ],
+                    "uvScroll": [
+                        0.2,
+                        0.1
                     ]
                 },
                 {
@@ -12913,7 +12977,7 @@
                 {
                     "mesh": "ad/particle_9_70.bin",
                     "indexCount": 108,
-                    "shader": "shader_pos_color_uv",
+                    "shader": "shader_pos_color_uv_falloff",
                     "texture": "particle4120",
                     "blend": [
                         "SRC_ALPHA",
@@ -12930,6 +12994,10 @@
                         0, 1, 0, 0,
                         0, 0, 1, 0,
                         0, 0, 0, 1
+                    ],
+                    "uvScroll": [
+                        0.1,
+                        0.1
                     ]
                 },
                 {
@@ -13083,7 +13151,7 @@
                 {
                     "mesh": "ad/particle_9_78.bin",
                     "indexCount": 102,
-                    "shader": "shader_pos_color_uv",
+                    "shader": "shader_pos_color_uv_falloff",
                     "texture": "particle4120",
                     "blend": [
                         "SRC_ALPHA",
@@ -13100,6 +13168,10 @@
                         0, 1, 0, 0,
                         0, 0, 1, 0,
                         0, 0, 0, 1
+                    ],
+                    "uvScroll": [
+                        0.1,
+                        0.1
                     ]
                 },
                 {
@@ -13171,7 +13243,7 @@
                 {
                     "mesh": "ad/particle_9_82.bin",
                     "indexCount": 90,
-                    "shader": "shader_pos_color_uv",
+                    "shader": "shader_pos_color_uv_falloff",
                     "texture": "particle4120",
                     "blend": [
                         "SRC_ALPHA",
@@ -13188,12 +13260,16 @@
                         0, 1, 0, 0,
                         0, 0, 1, 0,
                         0, 0, 0, 1
+                    ],
+                    "uvScroll": [
+                        0.1,
+                        0.1
                     ]
                 },
                 {
                     "mesh": "ad/particle_9_83.bin",
                     "indexCount": 102,
-                    "shader": "shader_pos_color_uv",
+                    "shader": "shader_pos_color_uv_falloff",
                     "texture": "particle4120",
                     "blend": [
                         "SRC_ALPHA",
@@ -13210,6 +13286,10 @@
                         0, 1, 0, 0,
                         0, 0, 1, 0,
                         0, 0, 0, 1
+                    ],
+                    "uvScroll": [
+                        0.1,
+                        0.1
                     ]
                 },
                 {
@@ -13237,7 +13317,7 @@
                 {
                     "mesh": "ad/particle_9_85.bin",
                     "indexCount": 114,
-                    "shader": "shader_pos_color_uv",
+                    "shader": "shader_pos_color_uv_falloff",
                     "texture": "particle4120",
                     "blend": [
                         "SRC_ALPHA",
@@ -13254,12 +13334,16 @@
                         0, 1, 0, 0,
                         0, 0, 1, 0,
                         0, 0, 0, 1
+                    ],
+                    "uvScroll": [
+                        0.1,
+                        0.1
                     ]
                 },
                 {
                     "mesh": "ad/particle_9_86.bin",
                     "indexCount": 102,
-                    "shader": "shader_pos_color_uv",
+                    "shader": "shader_pos_color_uv_falloff",
                     "texture": "particle4120",
                     "blend": [
                         "SRC_ALPHA",
@@ -13276,6 +13360,10 @@
                         0, 1, 0, 0,
                         0, 0, 1, 0,
                         0, 0, 0, 1
+                    ],
+                    "uvScroll": [
+                        0.1,
+                        0.1
                     ]
                 },
                 {

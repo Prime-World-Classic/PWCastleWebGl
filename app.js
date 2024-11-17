@@ -46,6 +46,9 @@ var doMove = false;
 var cursorDeltaPos = [0.0, 0.0]
 var camDeltaPos = [0.0, 0.0]
 
+var loadTime = Date.now();
+var currentTime;
+
 function prepareMove(event) {
 	doMove = true;
 }
@@ -253,7 +256,7 @@ var InitDemo = function (sceneName) {
 				for (const obj of currentScene.objects) {
 					sceneObjects.push({
 						meshName: obj.mesh, meshData: {}, shader: obj.shader, shaderId: {}, blend: obj.blend,
-						tintColor: obj.tintColor, uvScale: obj.uvScale,
+						tintColor: obj.tintColor, uvScale: obj.uvScale, uvScroll: obj.uvScroll,
 						texture: obj.texture, texture_2: obj.texture_2, texture_3: obj.texture_3, texture_4: obj.texture_4,
 						textureId: {}, texture2Id: {}, texture3Id: {}, texture4Id: {}, strip: obj.strip, transform: obj.transform, indexCount: obj.indexCount
 					});
@@ -276,7 +279,7 @@ var InitDemo = function (sceneName) {
 						var selectedContainer = obj.blend ? sceneBuildings.get(building.name).transparentObjects : sceneBuildings.get(building.name).objects;
 						selectedContainer.push({
 							meshName: obj.mesh, meshData: {}, shader: obj.shader, shaderId: {}, blend: obj.blend,
-							tintColor: obj.tintColor, uvScale: obj.uvScale,
+							tintColor: obj.tintColor, uvScale: obj.uvScale, uvScroll: obj.uvScroll,
 							texture: obj.texture, texture_2: obj.texture_2, texture_3: obj.texture_3, texture_4: obj.texture_4,
 							textureId: {}, texture2Id: {}, texture3Id: {}, texture4Id: {}, strip: obj.strip, transform: obj.transform, indexCount: obj.indexCount
 						});
@@ -323,6 +326,8 @@ var InitDemo = function (sceneName) {
 			window.setTimeout(waitLoadScene, 100);
 		}
 	}
+
+
 	waitLoadScene();
 };
 
@@ -510,15 +515,22 @@ var MainLoop = function(sceneObjects, sceneBuildings, sceneShaders, sceneTexture
 		var associatedShader = sceneShaders[obj.shaderId];
 		var textures = [sceneTextures[associatedTexture], associatedTexture2 ? sceneTextures[associatedTexture2] : {}, 
 			associatedTexture3 ? sceneTextures[associatedTexture3] : {}, associatedTexture4 ? sceneTextures[associatedTexture4] : {}];
+		var uvScroll = [0.0, 0.0];
+		if (obj.uvScroll) {
+			uvScroll[0] = obj.uvScroll[0] * currentTime;
+			uvScroll[1] = obj.uvScroll[1] * currentTime;
+		}
 		DrawObject(isSMPass ? associatedShader.PSO_SM : associatedShader.PSO, textures,
 			meshData.vertices, meshData.indexCount, meshData.vertStride, sceneShaders[obj.shaderId].attributes, 
-			obj.strip, obj.transform, isSMPass, obj.blend, obj.tintColor, obj.uvScale, rotation, translation);
+			obj.strip, obj.transform, isSMPass, obj.blend, obj.tintColor, obj.uvScale, uvScroll, rotation, translation);
 	}
 
 	var gridBuilding = sceneBuildings.get('grid');
 	var gridTransform = gridBuilding.transparentObjects[0].transform;
 	gridTranslation = [gridTransform[3], gridTransform[11]];
 	var loop = function () {
+		currentTime = (Date.now() - loadTime) / 1000.0;
+
 		const buildings = [
 			"grid",
 			
@@ -722,7 +734,7 @@ var GetBlendFunc = function (blendString) {
 }
 
 var DrawObject = function (program, textures, vertices, indexCount, vertStride, attributes, 
-	strip, transform, isSMPass, blend, tintColor, uvScale, rotation, translation) {
+	strip, transform, isSMPass, blend, tintColor, uvScale, uvScroll, rotation, translation) {
 	if (blend) {
 		gl.enable(gl.BLEND);
 		gl.disable(gl.CULL_FACE);
@@ -761,10 +773,16 @@ var DrawObject = function (program, textures, vertices, indexCount, vertStride, 
 	var tintColorLocation = gl.getUniformLocation(program, 'tintColor');
 	gl.uniform4fv(tintColorLocation, tintColorValue);
 
-
 	var uvScaleValue = uvScale ? uvScale : [1, 1, 1, 1];
 	var uvScaleLocation = gl.getUniformLocation(program, 'uvScale');
 	gl.uniform4fv(uvScaleLocation, uvScaleValue);
+
+	if (uvScroll[0] > 0) {
+		var e = 1;
+	}
+	var uvScrollValue = uvScroll ? uvScroll : [0, 0];
+	var uvScrollLocation = gl.getUniformLocation(program, 'uvScroll');
+	gl.uniform2fv(uvScrollLocation, uvScrollValue);
 
 	//
 	// Main render loop
