@@ -31,15 +31,42 @@ var cursorPosition = [0, 0];
 var gridCursorPosX;
 var gridCursorPosZ;
 
-var fov = 55;
-const minFov = 25;
+function lerp( a, b, alpha ) {
+	return a + alpha * ( b - a );
+}
+function clamp( val, min, max ) {
+	return Math.min( Math.max( val, min ), max )
+}
+
+const minFov = 35;
 const maxFov = 55;
+
+const fixedFovValues = [55, 45, 35, 55, 50];
+const fixedRotationTiltValues = [0, 0, 0, -0.8, -1.0];
+const fixedCameraHeightValues = [0, 0, 0, 370, 380];
+
+var initialFixedValue = 0.0;
+var currentFixedValue = 0.0;
+var targetFixedValue = 0.0;
+var cameraAnimationSpeed = 7.0;
+
+var fov = fixedFovValues[Math.floor(currentFixedValue)];
+var rotationTilt = fixedRotationTiltValues[Math.floor(currentFixedValue)];
+var cameraHeight = fixedCameraHeightValues[Math.floor(currentFixedValue)];
+
 document.onwheel = zoom;
 function zoom(event) {
-	fov -= event.deltaY * -0.05;
+	if (Math.abs(currentFixedValue - targetFixedValue) > 0.04) {
+		// camera animation is not finished
+		return;
+	}
+	// Reset
+	currentFixedValue = targetFixedValue;
+	initialFixedValue = currentFixedValue;
 
-	// Restrict scale
-	fov = Math.min(Math.max(minFov, fov), maxFov);
+	// Setup new target
+	targetFixedValue = currentFixedValue + (event.deltaY > 0 ? -1 : +1);
+	targetFixedValue = clamp(targetFixedValue, 0, fixedFovValues.length - 1);
 }
 
 var doMove = false;
@@ -48,7 +75,9 @@ var camDeltaPos = [0.0, 0.0]
 var camDeltaPosMinMax = [[-10, 10],[-10, 10]];
 
 var loadTime = Date.now();
-var currentTime;
+var currentTime = Date.now();
+var prevTime = Date.now();
+var deltaTime = 0;
 
 function prepareMove(event) {
 	doMove = true;
@@ -60,8 +89,8 @@ function stopMove(event) {
 
 function moveMouse(e) {
 	if (doMove) {
-		cursorDeltaPos[0] = e.movementX;
-		cursorDeltaPos[1] = e.movementY;
+		cursorDeltaPos[0] = e.movementX * 2.0;
+		cursorDeltaPos[1] = e.movementY * 2.0;
 	} else {
 		cursorDeltaPos[0] = 0;
 		cursorDeltaPos[1] = 0;
@@ -542,7 +571,22 @@ var MainLoop = function(sceneObjects, sceneBuildings, sceneShaders, sceneTexture
 	var gridTransform = gridBuilding.transparentObjects[0].transform;
 	gridTranslation = [gridTransform[3], gridTransform[11]];
 	var loop = function () {
+		prevTime = currentTime;
 		currentTime = (Date.now() - loadTime) / 1000.0;
+		deltaTime = currentTime - prevTime;
+
+		// Update cam behaviour
+
+		let factor = clamp(cameraAnimationSpeed * deltaTime, 0, 1);
+		currentFixedValue = lerp(currentFixedValue, targetFixedValue, factor);
+
+		let targetFovs = [fixedFovValues[Math.round(initialFixedValue)], fixedFovValues[Math.round(targetFixedValue)]];
+		let targetRots = [fixedRotationTiltValues[Math.round(initialFixedValue)], fixedRotationTiltValues[Math.round(targetFixedValue)]];
+		let targetCHVs = [fixedCameraHeightValues[Math.round(initialFixedValue)], fixedCameraHeightValues[Math.round(targetFixedValue)]];
+		let camLerp = Math.abs(initialFixedValue - currentFixedValue);
+		fov = lerp(targetFovs[0], targetFovs[1], camLerp);
+		rotationTilt = lerp(targetRots[0], targetRots[1], camLerp);
+		cameraHeight = lerp(targetCHVs[0], targetCHVs[1], camLerp);
 
 		const buildings = [
 			"grid",
@@ -643,7 +687,8 @@ var UpdateMainCam = function () {
 	var camPosElements = document.getElementsByClassName("camPosition");
 	var camPosX = Number(camPosElements[0].value) + camDeltaPos[0];
 	var camPosY = Number(camPosElements[2].value) - camDeltaPos[1];
-	var camPos = vec3.fromValues(camPosX, camPosElements[1].value, camPosY);
+	var camPosZ = Number(camPosElements[1].value) + cameraHeight;
+	var camPos = vec3.fromValues(camPosX, camPosZ, camPosY);
 
 	var camForwElements = document.getElementsByClassName("camForward");
 	var quatStart = quat.create();
@@ -651,9 +696,9 @@ var UpdateMainCam = function () {
 	var quatX = quat.create();
 	var quatY = quat.create();
 	var quatZ = quat.create();
-	quat.rotateX(quatX, quatStart, camForwElements[0].value);
-	quat.rotateY(quatY, quatX, camForwElements[1].value);
-	quat.rotateZ(quatZ, quatY, camForwElements[2].value);
+	quat.rotateX(quatX, quatStart, Number(camForwElements[0].value) + rotationTilt);
+	quat.rotateY(quatY, quatX, Number(camForwElements[1].value));
+	quat.rotateZ(quatZ, quatY, Number(camForwElements[2].value));
 
 	mat4.fromRotationTranslation(viewMatrix, quatZ, vec3.create());
 	mat4.translate(viewMatrix, viewMatrix, camPos);
@@ -671,9 +716,9 @@ var UpdateMainCam = function () {
 	camDeltaPos[0] -= (camForwXY[1] * cursorDeltaPos[0] - camRightXY[1] * cursorDeltaPos[1]) * 0.1;
 	camDeltaPos[1] -= (camForwXY[0] * cursorDeltaPos[0] - camRightXY[0] * cursorDeltaPos[1]) * 0.1;
 
-	camDeltaPos[0] = Math.min(Math.max(camDeltaPosMinMax[0][0], camDeltaPos[0]), camDeltaPosMinMax[0][1]);
-	camDeltaPos[1] = Math.min(Math.max(camDeltaPosMinMax[1][0], camDeltaPos[1]), camDeltaPosMinMax[1][1]);
-	
+	camDeltaPos[0] = clamp(camDeltaPos[0], camDeltaPosMinMax[0][0], camDeltaPosMinMax[0][1]);
+	camDeltaPos[1] = clamp(camDeltaPos[1], camDeltaPosMinMax[1][0], camDeltaPosMinMax[1][1]);
+		
 	mat4.invert(viewProjInv, viewProjMatr); // viewProj -> world
 
 	cursorBasis = [((cursorPosition[0] - canvasWidth / 2) / canvasWidth * 2), -((cursorPosition[1] - canvasHeight / 2) / canvasHeight * 2), 1, 1];
