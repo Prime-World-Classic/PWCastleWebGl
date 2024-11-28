@@ -31,7 +31,7 @@ var cursorPosition = [0, 0];
 var gridCursorPosX;
 var gridCursorPosZ;
 
-var fov = 45;
+var fov = 55;
 const minFov = 25;
 const maxFov = 55;
 document.onwheel = zoom;
@@ -45,6 +45,7 @@ function zoom(event) {
 var doMove = false;
 var cursorDeltaPos = [0.0, 0.0]
 var camDeltaPos = [0.0, 0.0]
+var camDeltaPosMinMax = [[-10, 10],[-10, 10]];
 
 var loadTime = Date.now();
 var currentTime;
@@ -72,9 +73,21 @@ function moveMouse(e) {
 var scenesJson;
 
 var InitDemo = function (sceneName) {
+	window.addEventListener('resize', function(event) {
+		canvas.width = document.body.offsetWidth;
+		canvas.height = document.body.offsetHeight;
+		
+		canvasWidth = canvas.width;
+		canvasHeight = canvas.height;
+		cursorPosition = [canvasWidth, canvasHeight]
+	}, true);
+
 	// Prepare WebGL
 	{
 		var canvas = document.getElementById('game-surface');
+
+		canvas.width = document.body.offsetWidth;
+		canvas.height = document.body.offsetHeight;
 
 		canvas.onmousedown = prepareMove
 		canvas.onmouseup = stopMove
@@ -341,20 +354,20 @@ var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texName
 	var shadersLoaded = 0;
 
 	function loadShaders(shaderId) {
-		loadTextResource(shaderNames[shaderId], '.glsl', function (shaderErr, definesText) { // defines
+		loadTextResource(shaderNames[shaderId], '.glsl', async function (shaderErr, definesText) { // defines
 			if (shaderErr) {
 				console.error('Fatal error getting vertex shader ( ' + shaderNames[shaderId] + ' )');
 				console.error(vsErr);
 				return 1;
 			} else {
-				loadTextResource('shader', '.vs.glsl', function (vsErr, vsText) { // uber shader VS
+				loadTextResource('shader', '.vs.glsl', async function (vsErr, vsText) { // uber shader VS
 					if (vsErr) {
 						console.error('Fatal error getting vertex shader ( shader.vs.glsl )');
 						console.error(vsErr);
 						return 1;
 					} else {
 						console.debug('test');
-						loadTextResource('shader', '.fs.glsl', function (fsErr, fsText) { // uber shader FS
+						loadTextResource('shader', '.fs.glsl', async function (fsErr, fsText) { // uber shader FS
 							if (fsErr) {
 								console.error('Fatal error getting fragment shader ( shader.fs.glsl )');
 								console.error(fsErr);
@@ -414,7 +427,7 @@ var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texName
 		loadShaders(i);
 	}
 
-	function loadTexture(textureId) {
+	async function loadTexture(textureId) {
 		texName = 'textures/' + texNames[textureId] + '.webp';
 		loadImage(texName, function (imgErr, img) {
 			if (imgErr) {
@@ -446,9 +459,9 @@ var LoadResources = function (sceneObjects, sceneBuildings, shaderNames, texName
 	for (i = 0; i < texNames.length; ++i) {
 		loadTexture(i);
 	}
-	function loadMesh(sceneObjectsContainer, objectId) {
+	async function loadMesh(sceneObjectsContainer, objectId) {
 		var meshName = 'meshes/' + sceneObjectsContainer[objectId].meshName;
-		loadRawTriangles(meshName, function (meshErr, meshData) {
+		loadRawTriangles(meshName, async function (meshErr, meshData) {
 			if (meshErr) {
 				console.error('Fatal error getting mesh (' + meshName + ')');
 				console.error(meshErr);
@@ -658,8 +671,8 @@ var UpdateMainCam = function () {
 	camDeltaPos[0] -= (camForwXY[1] * cursorDeltaPos[0] - camRightXY[1] * cursorDeltaPos[1]) * 0.1;
 	camDeltaPos[1] -= (camForwXY[0] * cursorDeltaPos[0] - camRightXY[0] * cursorDeltaPos[1]) * 0.1;
 
-	camDeltaPos[0] = Math.min(Math.max(-10, camDeltaPos[0]), 100);
-	camDeltaPos[1] = Math.min(Math.max(-10, camDeltaPos[1]), 100);
+	camDeltaPos[0] = Math.min(Math.max(camDeltaPosMinMax[0][0], camDeltaPos[0]), camDeltaPosMinMax[0][1]);
+	camDeltaPos[1] = Math.min(Math.max(camDeltaPosMinMax[1][0], camDeltaPos[1]), camDeltaPosMinMax[1][1]);
 	
 	mat4.invert(viewProjInv, viewProjMatr); // viewProj -> world
 

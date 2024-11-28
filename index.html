@@ -3,6 +3,9 @@
 <head>
 	<title>Prime World Castle</title>
 	<style>
+		body {
+			overflow: hidden; /* Hide scrollbars */
+		}
 		input[type='range'] {
 			width: 150px;
 		}
@@ -10,11 +13,17 @@
 		canvas {
 			position: absolute;
 			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
 		}
 
 		.tweakers {
 			position: absolute;
-			left: 1940;
+			left: 40;
+			background-color: rgba(255, 255, 255, 0.5);
+			width: 560px;
+			height: 800px;
 		}
 
 		.production {
@@ -40,7 +49,7 @@
 	</style>
 </head>
 
-<body onload="InitDemo('doct');">
+<body onload="InitDemo('ad');">
 	<canvas id="game-surface" width="1920" height="1080">
 		Your browser does not support HTML5
 	</canvas>
@@ -67,12 +76,12 @@
 	<div class="tweakers">
 		<h2>Camera</h2>
 		Cam position</br>
-		<input type="range" step="0.1" min="-2000" max="0" value="-1433" class="camPosition"/></br>
-		<input type="range" step="0.1" min="-1000" max="0" value="-513" class="camPosition"/></br>
-		<input type="range" step="0.1" min="-2000" max="0" value="-1533" class="camPosition"/></br>
+		<input type="range" step="0.1" min="-2000" max="0" value="-1333" class="camPosition"/></br>
+		<input type="range" step="0.1" min="-1000" max="0" value="-413" class="camPosition"/></br>
+		<input type="range" step="0.1" min="-2000" max="0" value="-1483" class="camPosition"/></br>
 
 		Cam yaw/pitch/roll</br>
-		<input type="range" step="0.001" min="-3.14" max="3.14" value="-2.08" class="camForward" /></br>
+		<input type="range" step="0.001" min="-3.14" max="3.14" value="-2.01" class="camForward" /></br>
 		<input type="range" step="0.001" min="-3.14" max="3.14" value="-2.36" class="camForward" /></br>
 		<input type="range" step="0.001" min="-3.14" max="3.14" value="3.14" class="camForward" /></br>
 
@@ -85,108 +94,108 @@
 
 		<div class="production">
 			Crystal farm
-			<input type="checkbox" checked class="buildings" /></br>
+			<input type="checkbox" class="buildings" /></br>
 			<input type="range" step="1" min="0" max="42" value="8" class="positionX" /></br>
 			<input type="range" step="1" min="-18" max="17" value="2" class="positionZ" /></br>
 			<input type="range" step="1.57" min="-3.14" max="3.14" value="1.57" class="rotation" /></br>
 			Food farm
-			<input type="checkbox" checked class="buildings" /></br>
+			<input type="checkbox" class="buildings" /></br>
 			<input type="range" step="1" min="0" max="42" value="18" class="positionX" /></br>
 			<input type="range" step="1" min="-18" max="17" value="5" class="positionZ" /></br>
 			<input type="range" step="1.57" min="-3.14" max="3.14" value="0" class="rotation" /></br>
 			Heavy farm
-			<input type="checkbox" checked class="buildings" /></br>
+			<input type="checkbox" class="buildings" /></br>
 			<input type="range" step="1" min="0" max="42" value="1" class="positionX" /></br>
 			<input type="range" step="1" min="-18" max="17" value="9" class="positionZ" /></br>
 			<input type="range" step="1.57" min="-3.14" max="3.14" value="0" class="rotation" /></br>
 			Light farm
-			<input type="checkbox" checked class="buildings" /></br>
+			<input type="checkbox" class="buildings" /></br>
 			<input type="range" step="1" min="0" max="42" value="24" class="positionX" /></br>
 			<input type="range" step="1" min="-18" max="17" value="-9" class="positionZ" /></br>
 			<input type="range" step="1.57" min="-3.14" max="3.14" value="1.57" class="rotation" /></br>
 			Silver farm
-			<input type="checkbox" checked class="buildings" /></br>
+			<input type="checkbox" class="buildings" /></br>
 			<input type="range" step="1" min="0" max="42" value="25" class="positionX" /></br>
 			<input type="range" step="1" min="-18" max="17" value="12" class="positionZ" /></br>
 			<input type="range" step="1.57" min="-3.14" max="3.14" value="-3.14" class="rotation" /></br>
 			Talent farm
-			<input type="checkbox" checked class="buildings" /></br>
+			<input type="checkbox" class="buildings" /></br>
 			<input type="range" step="1" min="0" max="42" value="22" class="positionX" /></br>
 			<input type="range" step="1" min="-18" max="17" value="-2" class="positionZ" /></br>
 			<input type="range" step="1.57" min="-3.14" max="3.14" value="0" class="rotation" /></br>
 		</div>
 		<div class="development">
 			Clan
-			<input type="checkbox" checked class="buildings" /></br>
+			<input type="checkbox" class="buildings" /></br>
 			<input type="range" step="1" min="0" max="42" value="16" class="positionX" /></br>
 			<input type="range" step="1" min="-18" max="17" value="-2" class="positionZ" /></br>
 			<input type="range" step="1.57" min="-3.14" max="3.14" value="-3.14" class="rotation" /></br>
 			Fair
-			<input type="checkbox" checked class="buildings" /></br>
+			<input type="checkbox" class="buildings" /></br>
 			<input type="range" step="1" min="0" max="42" value="28" class="positionX" /></br>
 			<input type="range" step="1" min="-18" max="17" value="-2" class="positionZ" /></br>
 			<input type="range" step="1.57" min="-3.14" max="3.14" value="1.57" class="rotation" /></br>
 			House
-			<input type="checkbox" checked class="buildings" /></br>
+			<input type="checkbox" class="buildings" /></br>
 			<input type="range" step="1" min="0" max="42" value="30" class="positionX" /></br>
 			<input type="range" step="1" min="-18" max="17" value="-10" class="positionZ" /></br>
 			<input type="range" step="1.57" min="-3.14" max="3.14" value="0" class="rotation" /></br>
 			Library
-			<input type="checkbox" checked class="buildings" /></br>
+			<input type="checkbox" class="buildings" /></br>
 			<input type="range" step="1" min="0" max="42" value="30" class="positionX" /></br>
 			<input type="range" step="1" min="-18" max="17" value="-15" class="positionZ" /></br>
 			<input type="range" step="1.57" min="-3.14" max="3.14" value="1.57" class="rotation" /></br>
 			Storage
-			<input type="checkbox" checked class="buildings" /></br>
+			<input type="checkbox" class="buildings" /></br>
 			<input type="range" step="1" min="0" max="42" value="35" class="positionX" /></br>
 			<input type="range" step="1" min="-18" max="17" value="-2" class="positionZ" /></br>
 			<input type="range" step="1.57" min="-3.14" max="3.14" value="0" class="rotation" /></br>
 		</div>
 		<div class="for-heroes">
 			Agility
-			<input type="checkbox" checked class="buildings" /></br>
+			<input type="checkbox" class="buildings" /></br>
 			<input type="range" step="1" min="0" max="42" value="11" class="positionX" /></br>
 			<input type="range" step="1" min="-18" max="17" value="10" class="positionZ" /></br>
 			<input type="range" step="1.57" min="-3.14" max="3.14" value="-1.57" class="rotation" /></br>
 			Cunning
-			<input type="checkbox" checked class="buildings" /></br>
+			<input type="checkbox" class="buildings" /></br>
 			<input type="range" step="1" min="0" max="42" value="38" class="positionX" /></br>
 			<input type="range" step="1" min="-18" max="17" value="5" class="positionZ" /></br>
 			<input type="range" step="1.57" min="-3.14" max="3.14" value="1.57" class="rotation" /></br>
 			Health
-			<input type="checkbox" checked class="buildings" /></br>
+			<input type="checkbox" class="buildings" /></br>
 			<input type="range" step="1" min="0" max="42" value="11" class="positionX" /></br>
 			<input type="range" step="1" min="-18" max="17" value="15" class="positionZ" /></br>
 			<input type="range" step="1.57" min="-3.14" max="3.14" value="0" class="rotation" /></br>
 			Intelligence
-			<input type="checkbox" checked class="buildings" /></br>
+			<input type="checkbox" class="buildings" /></br>
 			<input type="range" step="1" min="0" max="42" value="24" class="positionX" /></br>
 			<input type="range" step="1" min="-18" max="17" value="5" class="positionZ" /></br>
 			<input type="range" step="1.57" min="-3.14" max="3.14" value="-3.14" class="rotation" /></br>
 			Strength
-			<input type="checkbox" checked class="buildings" /></br>
+			<input type="checkbox" class="buildings" /></br>
 			<input type="range" step="1" min="0" max="42" value="20" class="positionX" /></br>
 			<input type="range" step="1" min="-18" max="17" value="17" class="positionZ" /></br>
 			<input type="range" step="1.57" min="-3.14" max="3.14" value="1.57" class="rotation" /></br>
 			Tavern
-			<input type="checkbox" checked class="buildings" /></br>
+			<input type="checkbox" class="buildings" /></br>
 			<input type="range" step="1" min="0" max="42" value="15" class="positionX" /></br>
 			<input type="range" step="1" min="-18" max="17" value="16" class="positionZ" /></br>
 			<input type="range" step="1.57" min="-3.14" max="3.14" value="0" class="rotation" /></br>
 		</div>
 		<div class="services">
 			Cat
-			<input type="checkbox" checked class="buildings" /></br>
+			<input type="checkbox" class="buildings" /></br>
 			<input type="range" step="1" min="0" max="42" value="1" class="positionX" /></br>
 			<input type="range" step="1" min="-18" max="17" value="1" class="positionZ" /></br>
 			<input type="range" step="1.57" min="-3.14" max="3.14" value="3.14" class="rotation" /></br>
 			Dog
-			<input type="checkbox" checked class="buildings" /></br>
+			<input type="checkbox" class="buildings" /></br>
 			<input type="range" step="1" min="0" max="42" value="36" class="positionX" /></br>
 			<input type="range" step="1" min="-18" max="17" value="-10" class="positionZ" /></br>
 			<input type="range" step="1.57" min="-3.14" max="3.14" value="-1.57" class="rotation" /></br>
 			Unicorn
-			<input type="checkbox" checked class="buildings" /></br>
+			<input type="checkbox" class="buildings" /></br>
 			<input type="range" step="1" min="0" max="42" value="31" class="positionX" /></br>
 			<input type="range" step="1" min="-18" max="17" value="5" class="positionZ" /></br>
 			<input type="range" step="1.57" min="-3.14" max="3.14" value="1.57" class="rotation" /></br>
