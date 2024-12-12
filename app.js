@@ -18,7 +18,7 @@ var depthTexture;
 var depthFramebuffer;
 const depthTextureSize = 2048;
 const zNear = 10.0;
-const zFar = 3000.0;
+const zFar = 3500.0;
 var canvasWidth;
 var canvasHeight;
 
