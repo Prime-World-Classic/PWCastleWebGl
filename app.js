@@ -16,7 +16,7 @@ var isStaticSMCached = false;
 var lightViewProjMatrix;
 var depthTexture;
 var depthFramebuffer;
-const depthTextureSize = 8192;
+const depthTextureSize = 2048;
 const zNear = 10.0;
 const zFar = 3000.0;
 var canvasWidth;
