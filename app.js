@@ -17,8 +17,8 @@ var lightViewProjMatrix;
 var depthTexture;
 var depthFramebuffer;
 const depthTextureSize = 8192;
-const zNear = 0.1;
-const zFar = 10000.0;
+const zNear = 10.0;
+const zFar = 3000.0;
 var canvasWidth;
 var canvasHeight;
 
