@@ -102,6 +102,12 @@ function moveMouse(e) {
 var scenesJson;
 
 var InitDemo = function (sceneName) {
+	for (let myInput of document.getElementsByTagName('input')) {
+		myInput.addEventListener("change", (e) => {
+			isStaticSMCached = false;
+		});
+	}
+	
 	window.addEventListener('resize', function(event) {
 		canvas.width = document.body.offsetWidth;
 		canvas.height = document.body.offsetHeight;
